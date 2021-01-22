@@ -1,4 +1,4 @@
-# AgileDevelopment_templateCWRepo
+# Agile Development Coursework - Team 2
 AC31007/AC51003 Agile Software Engineering - Group Number 2
 
 Group Members:
