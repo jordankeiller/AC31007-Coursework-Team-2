@@ -14,6 +14,7 @@
         $STMT_OPTIONS->execute();
         $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
 
+        // If the question requires a text answer
         if($QUESTION['Question_Type_ID'] == "1"){ 
             echo "
                 <div class='form-group'>
@@ -22,6 +23,7 @@
             ";
         }
 
+        // If the question requires a number answer
         if($QUESTION['Question_Type_ID'] == "2"){ 
             echo "
                 <div class='form-group'>
@@ -30,6 +32,7 @@
             "; 
         }
         
+        // If the question requires a "check all that apply" answer (multi-select)
         if($QUESTION['Question_Type_ID'] == "3"){ 
             $OPTION_COUNTER = 1;
             
@@ -48,6 +51,7 @@
             }
         }
 
+        // If the question requires one answer from a list of possible answers
         if($QUESTION['Question_Type_ID'] == "4"){ 
             $OPTION_COUNTER = 1;
             foreach($RESULT_OPTIONS as $QUESTION_OPTIONS){
