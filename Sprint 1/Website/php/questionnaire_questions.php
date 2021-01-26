@@ -29,31 +29,38 @@
                 </div>   
             "; 
         }
-
+        
         if($QUESTION['Question_Type_ID'] == "3"){ 
+            $OPTION_COUNTER = 1;
+            
             foreach($RESULT_OPTIONS as $QUESTION_OPTIONS){
+                $OPTION = "option" . $OPTION_COUNTER;
                 echo "
                 <div class='form-check'>
-                    <input class='form-check-input' type='checkbox' name='exampleRadios' id='".$QUESTION_OPTIONS['Option_ID']."' value='option1'>
+                    <input class='form-check-input' type='checkbox' name='radio".$QUESTION['Question_ID']."' id='".$QUESTION_OPTIONS['Option_ID']."' value='".$OPTION."'>
                     <label class='form-check-label' for='".$QUESTION_OPTIONS['Option_ID']."'>
                         ". $QUESTION_OPTIONS['Options']."
                     </label>
                 </div>
                 ";
+                $OPTION_COUNTER++;
+
             }
         }
 
         if($QUESTION['Question_Type_ID'] == "4"){ 
+            $OPTION_COUNTER = 1;
             foreach($RESULT_OPTIONS as $QUESTION_OPTIONS){
+                $OPTION = "option" . $OPTION_COUNTER;
                 echo "
                 <div class='form-check'>
-                    <input class='form-check-input' type='radio' name='exampleRadios' id='".$QUESTION_OPTIONS['Option_ID']."' value='option1'>
+                    <input class='form-check-input' type='radio' name='radio".$QUESTION['Question_ID']."' id='".$QUESTION_OPTIONS['Option_ID']."' value='".$OPTION."'>
                     <label class='form-check-label' for='".$QUESTION_OPTIONS['Option_ID']."'>
                         ". $QUESTION_OPTIONS['Options']."
                     </label>
                 </div>
-                   
                 ";
+                $OPTION_COUNTER++;
             }
         }
     }       
