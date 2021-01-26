@@ -43,15 +43,7 @@
 <ol>
 <td>
 <tr>
-<!--  
-  Consent y/n
-  
-  
-  <form name="Add New Customer" action="CustomerForm.php" method="post"> 
-<li>
-ID:<input type="int" name="ID">
-</li>
--->
+
 <legend>1.Consent to questionaire</legend>
 
 <input type="radio" name="consent" checked>yes</input>
@@ -310,19 +302,11 @@ check all that apply
 
   
     
-      
+      <input type="submit" name="submit" value="submit" />
     </form>
   
-</html>
-<div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
- <!-- <select class="selectpicker" multiple data-live-search="true">
--->
 
-<input type="submit" name="submit" value="submit" />
-</form>
+
 </table>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
