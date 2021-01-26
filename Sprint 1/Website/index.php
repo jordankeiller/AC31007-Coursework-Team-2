@@ -1,7 +1,5 @@
 <?php
-
     include "php/__GLOBAL_CONFIG__.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,8 +58,13 @@
     <div class="container bg-white">
         <div class="row">
             <div class="col">
-                <h1 class="text-primary">HELLO</h1>
-                    <?php include "php/questionnaire_questions.php" ?>
+                <h1 class="text-primary">Understanding Subtitle Usage</h1>
+                    <form action="php/questionnaire_processing.php" method="post">
+                        <?php include "php/questionnaire_questions.php" ?>
+                        <input id="submit" name="submit" class="btn btn-lg btn-primary btn-block"  type="submit" value="Submit">
+                    </form>
+
+                    <br>
             </div>
         </div>
     </div>
