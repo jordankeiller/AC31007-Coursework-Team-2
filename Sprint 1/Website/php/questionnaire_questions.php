@@ -1,18 +1,22 @@
 <?php
-    $query = "SELECT * FROM `questionnaire_questions`";
-    $stmt = $MYSQL_CONNECTION->prepare($query);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    foreach ($result as $row) {
+    $SQL_QUERY_QUESTIONS = "SELECT * FROM `questionnaire_questions`";
+    $STMT = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS);
+    $STMT->execute();
+    $RESULT = $STMT->fetchAll();
+    foreach ($RESULT as $QUESTION) {
         echo "<tr>";
-            if($row['Questionnaire_Type'] == "option"){
-                echo "<th scope=\"row\">" . $row['Question_Description'] . "</th><br>";
-                $query2 = "CALL 20agileteam2db.options_for_question(".$row['Question_ID'].")";
-                $stmt1 = $MYSQL_CONNECTION->prepare($query2);
-                $stmt1->execute();
-                $result2 = $stmt1->fetchAll();
-                foreach($result2 as $row2){
-                    echo $row2['Options'] . "<br>";
+            if($QUESTION['Questionnaire_Type'] == "option"){
+
+                // Displays the question
+                echo "<h3>" . $QUESTION['Question_Description'] . "</h3>";
+
+                // If the question has multipile options, display those options too
+                $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.options_for_question(".$QUESTION['Question_ID'].")";
+                $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
+                $STMT_OPTIONS->execute();
+                $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
+                foreach($RESULT_OPTIONS as $QUESTION_OPTIONS){
+                    echo $QUESTION_OPTIONS['Options'] . "<br>";
                 }
             }
         echo "</tr>";
