@@ -1,0 +1,10 @@
+"As Head Researcher, I need a confirmation page to be displayed once the user has clicked the ‘submit’ button 
+so that participants know they have successfully submitted the form"
+Label: Deliver Last (Low Risk/Low Value) 
+MOSCOW: Should
+
+Background:  After participants complete the questionnaire, a confirmation page should be displayed, this is to confirm that the form 
+has been submitted and allows for the researcher to leave a message saying thankyou along with any other relevant information that
+the participants need to know.  the researcher has asked for space for roughly two paragraphs as well as allocated space for
+email address and contact information.  In this instance email and contact information will be kept as a John/Jane Doe and 
+paragraphs just to contain sample data, such as Lorem ipsum.
