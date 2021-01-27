@@ -1,6 +1,7 @@
 "As Head Researcher, I need to be able to edit data stored about users, so that I can abide to data-protection legislation"
 Label: Deliver Last (Low Risk/Low Value)
-Moscow: Could
+Moscow: Should
+Story Points: 2
 
 Background:  part of modern data-protection legislation includes the participants rights to withdraw their information from a study,
 due to this it is important for the researchers / lab technicians to be able to edit and delete entries in the data-base.
