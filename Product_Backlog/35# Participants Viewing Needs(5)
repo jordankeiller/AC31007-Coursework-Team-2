@@ -1,0 +1,11 @@
+"As a participant, I need the forms to be presented in a way suitable for those with accessibility needs 
+including colour scheme, font size and colour contrast, so that it is easy to read for all people."
+Label: Deliver Last (Low Risk/Low Value)
+Moscow: Should
+Story Points: 5
+
+Background:  All pages that the participants can see should abide by WCAG principles, with regards
+to size, colour contrast, and Font.
+
+"Please use a modern readable typeface. Something like Montserrat or Poppins. 
+I'm a little obsessed with good use of typography."
