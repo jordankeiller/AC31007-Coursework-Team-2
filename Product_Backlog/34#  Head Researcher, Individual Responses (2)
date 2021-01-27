@@ -1,6 +1,7 @@
 "As Head Researcher, I need to be able to view individual responses to the questionnaire, so i can examine the data closely"
 Label: Deliver Next (Low Risk/High Value)
 Moscow: Must
+Story Points:2
 
 Background:  The interface for the the graphic researcher is to contain graphs and visualisation, but the client has specificaly asked
 for results to be able to be displayed individualy,
