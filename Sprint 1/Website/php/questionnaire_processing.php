@@ -12,22 +12,17 @@ if (isset($_POST['submit'])){
             $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
         
             foreach($RESULT_OPTIONS as $row){
-                // echo $key."<br>".$row['Question_Option_ID']."<br>".$value."<br><br>";
+                echo $key."<br>".$row['Question_Option_ID']."<br>".$value."<br><br>";
 
                 $insert = "CALL 20agileteam2db.add_response(".$key.",".$row['Question_Option_ID'].", 1, NULL)";
                 $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($insert);
                 $STMT_OPTIONS->execute();
             }
-        }else{
+        }
+        else{
             echo "";
         }
-        
         // echo "<li>$key: $value</li>";
-    
-    
     }
-
-
-
 }
 ?>
