@@ -2,6 +2,7 @@
 is entered into the database."
 Labels: Deliver Last (Low Risk/Low Value)
 Moscow: Could 
+Story Points: 5
 
 Background:  so as to insure maximum effectiveness of the questionnaire, we need to make sure that people cant enter
 numbers in a text only field, and text into a numbers only field.  Alerting the participant to mistakes in the data
