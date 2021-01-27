@@ -2,5 +2,6 @@
  so that I know all answers entered have been saved"
 Labels:  Deliver First (High Risk/High Value) 
 Moscow:  Must
+Story Points: 7
 
 Background:  The questionnaire needs to send answers straight to the database,
