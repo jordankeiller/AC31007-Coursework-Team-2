@@ -40,7 +40,7 @@
                 // $OPTION = "option" . $OPTION_COUNTER;
                 echo "
                 <div class='form-check'>
-                    <input class='form-check-input' type='checkbox' name='radio".$QUESTION['Question_ID']."' id='".$QUESTION_OPTIONS['Option_ID']."' value='".$QUESTION_OPTIONS['Options']."'>
+                    <input class='form-check-input' type='checkbox' name='".$QUESTION['Question_ID']."' id='".$QUESTION_OPTIONS['Option_ID']."' value='".$QUESTION_OPTIONS['Options']."'>
                     <label class='form-check-label' for='".$QUESTION_OPTIONS['Option_ID']."'>
                         ". $QUESTION_OPTIONS['Options']."
                     </label>
@@ -58,7 +58,7 @@
                 // $OPTION = "option" . $OPTION_COUNTER;
                 echo "
                 <div class='form-check'>
-                    <input class='form-check-input' type='radio' name='radio".$QUESTION['Question_ID']."' id='".$QUESTION_OPTIONS['Option_ID']."' value='".$QUESTION_OPTIONS['Options']."'>
+                    <input class='form-check-input' type='radio' name='".$QUESTION['Question_ID']."' id='".$QUESTION_OPTIONS['Option_ID']."' value='".$QUESTION_OPTIONS['Options']."'>
                     <label class='form-check-label' for='".$QUESTION_OPTIONS['Option_ID']."'>
                         ". $QUESTION_OPTIONS['Options']."
                     </label>
