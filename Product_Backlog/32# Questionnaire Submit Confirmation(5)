@@ -2,6 +2,7 @@
 so that participants know they have successfully submitted the form"
 Label: Deliver Last (Low Risk/Low Value) 
 MOSCOW: Should
+Story Points: 5
 
 Background:  After participants complete the questionnaire, a confirmation page should be displayed, this is to confirm that the form 
 has been submitted and allows for the researcher to leave a message saying thankyou along with any other relevant information that
