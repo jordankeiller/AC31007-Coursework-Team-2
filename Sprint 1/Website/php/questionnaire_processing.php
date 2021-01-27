@@ -4,6 +4,9 @@ include "__GLOBAL_CONFIG__.PHP";
 
 if (isset($_POST['submit'])){
 
+
+    // key == question id
+    // value == question option
     foreach($_POST as $key => $value){
         if($key != "submit"){
             $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
