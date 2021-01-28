@@ -1,0 +1,31 @@
+-15-
+"As Virtual Reality Researcher, I need an entry form, so that I can enter data on virtual reality participants."
+Label: Deliver Next (Low Risk/High Value)
+Moscow: should
+Story Points: 2
+
+-16-
+"As Virtual Reality Researcher, I need a form that can allow me to choose from several tags that can be used to
+describe a participant, so I can categorise data from my observations. "
+Label:  Deliver Next (Low Risk/High Value)
+Moscow: Should
+Story Points: 5
+
+-17-
+"As Virtual Reality Researcher, I need a form that can allow me to enter a small amount of text as part of the form, 
+so that I can add a small summary for each participant"
+label: Deliver Next (Low Risk/High Value)
+Moscow: Should
+Story Points: 1
+
+-18-
+"As Virtual Reality Researcher, I need the form to contain a submit button, so that I can send the information from 
+the form to the database"
+Label: Deliver Next (Low Risk/High Value)
+Moscow: Must
+Story Points: 2
+
+
+Background:  the virtual reality researcher requires a method of inputting data into a database.
+this consists of a form containing the relevant questions - see 16# and 17# this form must also populate tables 
+within the database everytime the form is submitted- see 18#
