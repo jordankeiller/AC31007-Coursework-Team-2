@@ -74,7 +74,13 @@ if (isset($_POST['submit'])){
                     $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
                     $STMT_OPTIONS->closeCursor();
 
+                    // Submits each selection as a separate response in the db.
+                    foreach($RESULT_OPTIONS as $row) {
 
+                        $insertMultiSelect = "CALL 20agileteam2db.add_response(".$key.",".$row['Question_Option_ID'].", ".$participant.", NULL)";
+                        $STMT_ENTRY = $MYSQL_CONNECTION->prepare($insertMultiSelect);
+                        $STMT_ENTRY->execute();
+                    }
                 }
             }
             // If the question type is option (where the participant only chooses one out of many options).
