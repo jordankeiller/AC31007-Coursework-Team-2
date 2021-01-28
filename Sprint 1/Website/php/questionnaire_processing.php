@@ -1,9 +1,9 @@
 <?php
- 
+
 include "__GLOBAL_CONFIG__.PHP"; // Required to contact the DB server.
- 
+
 if (isset($_POST['submit'])){
- 
+
     // Calls the database to create a participant id.
     $CREATE_GET_PARTICIPANT = "INSERT INTO `participant` () VALUES (); SELECT LAST_INSERT_ID() as `id`;";
     $STMT_PARTICIPANT = $MYSQL_CONNECTION->prepare($CREATE_GET_PARTICIPANT);
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])){
     $STMT_PARTICIPANT->closeCursor(); // Important so that PDO doesn't throw PDO bufferd query error.
     // Without this line the next query cannot run until all the results from the previous query have been fetched.
     // This line tells the server to stop sending and discard results.
-    
+
     // Used to extract the participant id from the participant query output.
     $participant = -1;
     foreach ($PARTICIPANT as $val) {
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])){
         if ($participant == -1) {
             echo "<h1>Failed Submission Attempt</h1><p>Error: Failed to get participant id.</p>";
             die();
-    }
+        }
     }
     
     // Loops through each question with a response.
@@ -61,20 +61,29 @@ if (isset($_POST['submit'])){
                 $MYSQL_CONNECTION->prepare($insertEntry)->execute();
 
             }
+            // If the question type is multi select (where the participant chooses options that apply).
             elseif ($type == "multi_select") {
+
+
+
+            }
+            // If the question type is option (where the participant only chooses one out of many options).
             elseif ($type == "option") {
-            $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
-            $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
-            $STMT_OPTIONS->execute();
-            $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
+
+                // Calls procedure to get the option id using question id and option name as input.
+                $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
+                $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
+                $STMT_OPTIONS->execute();
+                $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
                 $STMT_OPTIONS->closeCursor();
-        
+                
+                // Submits response to db.
                 foreach($RESULT_OPTIONS as $row) {
- 
+
                     $insertOption = "CALL 20agileteam2db.add_response(".$key.",".$row['Question_Option_ID'].", ".$participant.", NULL)";
                     $STMT_ENTRY = $MYSQL_CONNECTION->prepare($insertOption);
                     $STMT_ENTRY->execute();
-            }
+                }
 
             }
             // If the question type returned from the db is not right (indicative of db error).
