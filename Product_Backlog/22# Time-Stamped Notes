@@ -1,0 +1,11 @@
+As a virtual reality researcher, I should be able to take notes with automated timestamps 
+on the videos so I can take notes of relevant information. 
+Labels: Deliver Next (Low Risk/High Value)
+Moscow: Should
+Story Points: 9
+
+Background: 
+Ideally I'd like to be able to set a flag (or something similar in the video) 
+at the various times where something note worthy happens and then have a way 
+to view the associated comments.  I'd also like to be able to see all of the 
+comments, with their timestamps and other details, for a particular video in the one view. 
