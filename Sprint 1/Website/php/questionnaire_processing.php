@@ -42,6 +42,12 @@ if (isset($_POST['submit'])){
             $STMT_TYPE->execute();
             $RESULT_TYPE = $STMT_TYPE->fetchAll();
             $STMT_TYPE->closeCursor();
+            // Extracts question type from query output.
+            $type = "";
+            foreach ($RESULT_TYPE as $val) {
+                $type = $val['Type'];
+            }
+
             $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
             $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
             $STMT_OPTIONS->execute();
