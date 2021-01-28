@@ -64,8 +64,12 @@ if (isset($_POST['submit'])){
             // If the question type is multi select (where the participant chooses options that apply).
             elseif ($type == "multi_select") {
 
+                // Loops through each selected option.
+                foreach ($value as $opt) {
 
 
+
+                }
             }
             // If the question type is option (where the participant only chooses one out of many options).
             elseif ($type == "option") {
