@@ -57,6 +57,8 @@ if (isset($_POST['submit'])){
                 $MYSQL_CONNECTION->prepare($insertEntry)->execute();
 
             }
+            elseif ($type == "multi_select") {
+            elseif ($type == "option") {
             $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
             $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
             $STMT_OPTIONS->execute();
