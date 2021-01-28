@@ -63,13 +63,13 @@ if (isset($_POST['submit'])){
             $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
                 $STMT_OPTIONS->closeCursor();
         
-            foreach($RESULT_OPTIONS as $row){
-                echo $key."<br>".$row['Question_Option_ID']."<br>".$value."<br><br>";
+                foreach($RESULT_OPTIONS as $row) {
  
-                $insert = "CALL 20agileteam2db.add_response(".$key.",".$row['Question_Option_ID'].", ".$PARTICIPANT[0].", NULL)";
-                $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($insert);
-                $STMT_OPTIONS->execute();
+                    $insertOption = "CALL 20agileteam2db.add_response(".$key.",".$row['Question_Option_ID'].", ".$participant.", NULL)";
+                    $STMT_ENTRY = $MYSQL_CONNECTION->prepare($insertOption);
+                    $STMT_ENTRY->execute();
             }
+
             }
             // If the question type returned from the db is not right (indicative of db error).
             else {
