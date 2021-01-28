@@ -16,7 +16,11 @@ if (isset($_POST['submit'])){
     // Without this line the next query cannot run until all the results from the previous query have been fetched.
     // This line tells the server to stop sending and discard results.
     
-    foreach($_POST as $key => $value){
+    $participant = -1;
+    foreach ($PARTICIPANT as $val) {
+        $participant = $val['id'];
+    }
+    
         if($key != "submit"){
             $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
             $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
