@@ -61,6 +61,7 @@ if (isset($_POST['submit'])){
             $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
             $STMT_OPTIONS->execute();
             $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
+                $STMT_OPTIONS->closeCursor();
         
             foreach($RESULT_OPTIONS as $row){
                 echo $key."<br>".$row['Question_Option_ID']."<br>".$value."<br><br>";
