@@ -1,0 +1,9 @@
+"As a Head Researcher, I need to be able to export the data as a CSV file 
+so that I can store the results locally on my computer''
+labels: Deliver Next (Low Risk/High Value)
+Moscow: Could
+Story Points: 3
+
+background:  
+The ability to export rows from the data-base as a CSV file means that the researcher can keep a hard copy
+of their research on their local machine.

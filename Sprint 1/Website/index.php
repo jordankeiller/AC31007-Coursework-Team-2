@@ -1,3 +1,4 @@
+<<<<<<< HEAD:Sprint 1/Website/index.php
 <?php
     include "php/__GLOBAL_CONFIG__.php";
 ?>
@@ -52,11 +53,25 @@
                 </ul>
                 <button class="btn btn-outline-light d-flex" type="submit">Log In</button>
             </div>
+=======
+---
+layout: default
+title: Home
+---
+<div class="container bg-white px-4">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-primary">HELLO</h1>
+>>>>>>> origin/master:Sprint 1/Website/index.html
         </div>
-    </nav>
+    </div>
+</div>
 
-    <div class="container bg-white">
+<!-- Footer -->
+<footer class="footerBottom bg-dark">
+    <div class="container">
         <div class="row">
+<<<<<<< HEAD:Sprint 1/Website/index.php
             <div class="col">
                 <h1 class="text-primary">Understanding Subtitle Usage</h1>
                     <form action="php/questionnaire_processing.php" method="post">
@@ -65,23 +80,12 @@
                     </form>
 
                     <br>
+=======
+            <div class="col my-3">
+                <p class="text-center text-light mb-0">Questionnaire Extraordinare © 2021</p>
+>>>>>>> origin/master:Sprint 1/Website/index.html
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footerBottom bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col my-3">
-                    <p class="text-center text-light mb-0">Questionnaire Extraordinare © 2021</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- /Footer -->
-
-    <script src="bootstrap/js/bootstrap.js"></script>
-</body>
-
-</html>
+</footer>
+<!-- /Footer -->
