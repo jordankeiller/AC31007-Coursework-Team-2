@@ -32,6 +32,9 @@ if (isset($_POST['submit'])){
     }
     }
     
+    // Loops through each question with a response.
+    foreach($_POST as $key => $value) {
+
         if($key != "submit"){
             $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
             $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
@@ -46,8 +49,9 @@ if (isset($_POST['submit'])){
                 $STMT_OPTIONS->execute();
             }
         }
-        else{
-            echo "";
+        // Assumes that all responses are submitted to the db.
+        else {
+            echo "<br><br><h1>Submission Attempt Complete.</h1>";
         }
         // echo "<li>$key: $value</li>";
     }
