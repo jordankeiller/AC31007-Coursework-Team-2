@@ -18,7 +18,14 @@ if (isset($_POST['submit'])){
     
     $participant = -1;
     foreach ($PARTICIPANT as $val) {
+
         $participant = $val['id'];
+
+        // If failed to get participant id. Then don't submit.
+        if ($participant == -1) {
+            echo "<h1>Failed Submission Attempt</h1><p>Error: Failed to get participant id.</p>";
+            die();
+    }
     }
     
         if($key != "submit"){
