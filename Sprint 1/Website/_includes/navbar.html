@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
+  <div class="container px-4">
     <a class="navbar-brand" href="index.html">Questionnaire Extraordinare</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -9,11 +9,12 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {% for item in site.data.navbar %}
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{item.link}}">{{ item.name }}</a>
+          <a class="nav-link" aria-current="page" href="index.html">Home</a>
         </li>
-        {% endfor %}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="quiz.php">Quiz</a>
+        </li>
       </ul>
       <div class="d-flex">
         <a class="btn btn-outline-light" href="login.html">Log In</a>
