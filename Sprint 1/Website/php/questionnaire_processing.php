@@ -67,6 +67,12 @@ if (isset($_POST['submit'])){
                 // Loops through each selected option.
                 foreach ($value as $opt) {
 
+                    // Calls procedure to get the option id using question id and option name as input.
+                    $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$opt."');";
+                    $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
+                    $STMT_OPTIONS->execute();
+                    $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
+                    $STMT_OPTIONS->closeCursor();
 
 
                 }
