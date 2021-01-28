@@ -36,6 +36,12 @@ if (isset($_POST['submit'])){
     foreach($_POST as $key => $value) {
 
         if($key != "submit"){
+            // Calls procedure that takes in question id and returns the question type.
+            $q_type = "CALL `20agileteam2db`.`get_question_type`(".$key.");";
+            $STMT_TYPE = $MYSQL_CONNECTION->prepare($q_type);
+            $STMT_TYPE->execute();
+            $RESULT_TYPE = $STMT_TYPE->fetchAll();
+            $STMT_TYPE->closeCursor();
             $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
             $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
             $STMT_OPTIONS->execute();
