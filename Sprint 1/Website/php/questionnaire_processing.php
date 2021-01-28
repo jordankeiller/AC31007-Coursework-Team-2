@@ -11,7 +11,10 @@ if (isset($_POST['submit'])){
     $CREATE_GET_PARTICIPANT = "SELECT LAST_INSERT_ID() as `id`;";
     $STMT_PARTICIPANT = $MYSQL_CONNECTION->prepare($CREATE_GET_PARTICIPANT);
     $STMT_PARTICIPANT->execute();
-    $PARTICIPANT = $STMT_PARTICIPANT->fetch();
+    $PARTICIPANT = $STMT_PARTICIPANT->fetchAll();
+    $STMT_PARTICIPANT->closeCursor(); // Important so that PDO doesn't throw PDO bufferd query error.
+    // Without this line the next query cannot run until all the results from the previous query have been fetched.
+    // This line tells the server to stop sending and discard results.
     
     foreach($_POST as $key => $value){
         if($key != "submit"){
