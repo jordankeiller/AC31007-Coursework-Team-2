@@ -69,6 +69,13 @@ if (isset($_POST['submit'])){
                 $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($insert);
                 $STMT_OPTIONS->execute();
             }
+            }
+            // If the question type returned from the db is not right (indicative of db error).
+            else {
+                echo "Error: Type not recognised: " .$type;
+                die();
+            }
+
         }
         // Assumes that all responses are submitted to the db.
         else {
