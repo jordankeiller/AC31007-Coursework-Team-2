@@ -1,13 +1,16 @@
 <?php
  
-include "__GLOBAL_CONFIG__.PHP";
+include "__GLOBAL_CONFIG__.PHP"; // Required to contact the DB server.
  
 if (isset($_POST['submit'])){
  
-    $CREATE_GET_PARTICIPANT = "INSERT INTO `participant` () VALUES ();";
+    // Calls the database to create a participant id.
+    $CREATE_GET_PARTICIPANT = "INSERT INTO `participant` () VALUES (); SELECT LAST_INSERT_ID() as `id`;";
     $STMT_PARTICIPANT = $MYSQL_CONNECTION->prepare($CREATE_GET_PARTICIPANT);
     $STMT_PARTICIPANT->execute();
     
+    // Gets the newly created participant id used to submit responses.
+    // This line has to be called separately or else there'll be a PDO problems.
     $CREATE_GET_PARTICIPANT = "SELECT LAST_INSERT_ID() as `id`;";
     $STMT_PARTICIPANT = $MYSQL_CONNECTION->prepare($CREATE_GET_PARTICIPANT);
     $STMT_PARTICIPANT->execute();
@@ -16,6 +19,7 @@ if (isset($_POST['submit'])){
     // Without this line the next query cannot run until all the results from the previous query have been fetched.
     // This line tells the server to stop sending and discard results.
     
+    // Used to extract the participant id from the participant query output.
     $participant = -1;
     foreach ($PARTICIPANT as $val) {
 
