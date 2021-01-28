@@ -27,7 +27,7 @@ if (isset($_POST['submit'])){
 
         // If failed to get participant id. Then don't submit.
         if ($participant == -1) {
-            echo "<h1>Failed Submission Attempt</h1><p>Error: Failed to get participant id.</p>";
+            echo "<br><br><h1>Submission Attempt Failed.</h1><br><br><p>Error: Failed to get participant id.</p>";
             die();
         }
     }
@@ -36,8 +36,6 @@ if (isset($_POST['submit'])){
     foreach($_POST as $key => $value) {
 
         if($key != "submit"){
-
-            echo "<br>Key: " .$key ."     Value: " .$value;
 
             // Calls procedure that takes in question id and returns the question type.
             $q_type = "CALL `20agileteam2db`.`get_question_type`(".$key.");";
@@ -104,7 +102,7 @@ if (isset($_POST['submit'])){
             }
             // If the question type returned from the db is not right (indicative of db error).
             else {
-                echo "Error: Type not recognised: " .$type;
+                echo "<br><br><h1>Submission Attempt Failed.</h1><br><p>Error: Type not recognised: " .$type ."</p>";
                 die();
             }
 
