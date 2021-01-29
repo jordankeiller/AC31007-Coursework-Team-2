@@ -5,7 +5,7 @@ include "__GLOBAL_CONFIG__.PHP"; // Required to contact the DB server.
 if (isset($_POST['submit'])){
 
     // Calls the database to create a participant id.
-    $CREATE_GET_PARTICIPANT = "INSERT INTO `participant` () VALUES (); SELECT LAST_INSERT_ID() as `id`;";
+    $CREATE_GET_PARTICIPANT = "INSERT INTO `participant` () VALUES ();";
     $STMT_PARTICIPANT = $MYSQL_CONNECTION->prepare($CREATE_GET_PARTICIPANT);
     $STMT_PARTICIPANT->execute();
     
