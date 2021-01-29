@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700);
+@import "bootstrap/_functions";
+@import "bootstrap/_variables";
+
+$theme-colors: (
+    primary: #1f6c98ff,
+    secondary: #64a9d3,
+    success: #2bbf58,
+    info: #c1dff0,
+    warning: #e4a73f,
+    danger: #c5303f,
+    light: #f8f9fa,
+    dark: #113c55ff,
+);
+
+$body-bg: #f8f9fa;
+$font-family-base: "Montserrat";
