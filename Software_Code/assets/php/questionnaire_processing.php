@@ -1,7 +1,7 @@
 <?php
 
 // Include the Global Configuration file
-include "__GLOBAL_CONFIG__.PHP"; 
+include "GLOBAL_CONFIG.PHP"; 
 if (isset($_POST['submit'])){
 
     // Calls the database to create a participant id.

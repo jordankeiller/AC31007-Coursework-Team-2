@@ -10,7 +10,7 @@
     foreach ($RESULT as $QUESTION) {
 
         // Displays the question
-        echo "<h3>" . $QUESTION['Question_Description'] . "</h3>";
+        echo "<h3 class='text-primary mt-3 mb-1'>" . $QUESTION['Question_Description'] . "</h3>";
 
         // If the question has multipile options, fetch those options
         $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.options_for_question(".$QUESTION['Question_ID'].")";
