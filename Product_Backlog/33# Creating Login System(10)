@@ -6,8 +6,14 @@ Story Points: 10
 
 Background:  
 
+"What are the parts a co-researcher can or can't have access to?"
+​[Yesterday 1:39 PM] Michael Crabb (Staff)
+    "A co-reseracher should have access to the same parts as a PI but are unable to add/remove co-researchers"
+
 "There are participants, obviously, who need to be able to carry out questionnaires
 (if a study has them) but there should also be different “researcher” roles. A PR (principal researcher)
 should have full access to their own experiments, a CoR (co-researcher) should only have access to
 parts that the PR says they should, and me (as the lab manager) should have access to everything and
 also be able to manage users (add them, reset passwords etc.)"
+
+
