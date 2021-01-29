@@ -1,7 +1,7 @@
 <?php
 
-include "__GLOBAL_CONFIG__.PHP"; // Required to contact the DB server.
-
+// Include the Global Configuration file
+include "__GLOBAL_CONFIG__.PHP"; 
 if (isset($_POST['submit'])){
 
     // Calls the database to create a participant id.
@@ -22,7 +22,6 @@ if (isset($_POST['submit'])){
     // Used to extract the participant id from the participant query output.
     $participant = -1;
     foreach ($PARTICIPANT as $val) {
-
         $participant = $val['id'];
 
         // If failed to get participant id. Then don't submit.
@@ -34,7 +33,6 @@ if (isset($_POST['submit'])){
     
     // Loops through each question with a response.
     foreach($_POST as $key => $value) {
-
         if($key != "submit"){
 
             // Calls procedure that takes in question id and returns the question type.
@@ -74,7 +72,6 @@ if (isset($_POST['submit'])){
 
                     // Submits each selection as a separate response in the db.
                     foreach($RESULT_OPTIONS as $row) {
-
                         $insertMultiSelect = "CALL 20agileteam2db.add_response(".$key.",".$row['Question_Option_ID'].", ".$participant.", NULL)";
                         $STMT_ENTRY = $MYSQL_CONNECTION->prepare($insertMultiSelect);
                         $STMT_ENTRY->execute();
@@ -93,7 +90,6 @@ if (isset($_POST['submit'])){
                 
                 // Submits response to db.
                 foreach($RESULT_OPTIONS as $row) {
-
                     $insertOption = "CALL 20agileteam2db.add_response(".$key.",".$row['Question_Option_ID'].", ".$participant.", NULL)";
                     $STMT_ENTRY = $MYSQL_CONNECTION->prepare($insertOption);
                     $STMT_ENTRY->execute();
@@ -111,7 +107,6 @@ if (isset($_POST['submit'])){
         else {
             echo "<br><br><h1>Submission Attempt Complete.</h1>";
         }
-        // echo "<li>$key: $value</li>";
     }
 }
 ?>
