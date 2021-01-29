@@ -5,7 +5,7 @@ include "__GLOBAL_CONFIG__.PHP"; // Required to contact the DB server.
 if (isset($_POST['submit'])){
 
     // Calls the database to create a participant id.
-    $CREATE_GET_PARTICIPANT = "INSERT INTO `participant` () VALUES (); SELECT LAST_INSERT_ID() as `id`;";
+    $CREATE_GET_PARTICIPANT = "INSERT INTO `participant` () VALUES ();";
     $STMT_PARTICIPANT = $MYSQL_CONNECTION->prepare($CREATE_GET_PARTICIPANT);
     $STMT_PARTICIPANT->execute();
     
@@ -27,7 +27,7 @@ if (isset($_POST['submit'])){
 
         // If failed to get participant id. Then don't submit.
         if ($participant == -1) {
-            echo "<h1>Failed Submission Attempt</h1><p>Error: Failed to get participant id.</p>";
+            echo "<br><br><h1>Submission Attempt Failed.</h1><br><br><p>Error: Failed to get participant id.</p>";
             die();
         }
     }
@@ -36,8 +36,6 @@ if (isset($_POST['submit'])){
     foreach($_POST as $key => $value) {
 
         if($key != "submit"){
-
-            echo "<br>Key: " .$key ."     Value: " .$value;
 
             // Calls procedure that takes in question id and returns the question type.
             $q_type = "CALL `20agileteam2db`.`get_question_type`(".$key.");";
@@ -64,8 +62,24 @@ if (isset($_POST['submit'])){
             // If the question type is multi select (where the participant chooses options that apply).
             elseif ($type == "multi_select") {
 
+                // Loops through each selected option.
+                foreach ($value as $opt) {
 
+                    // Calls procedure to get the option id using question id and option name as input.
+                    $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$opt."');";
+                    $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
+                    $STMT_OPTIONS->execute();
+                    $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
+                    $STMT_OPTIONS->closeCursor();
 
+                    // Submits each selection as a separate response in the db.
+                    foreach($RESULT_OPTIONS as $row) {
+
+                        $insertMultiSelect = "CALL 20agileteam2db.add_response(".$key.",".$row['Question_Option_ID'].", ".$participant.", NULL)";
+                        $STMT_ENTRY = $MYSQL_CONNECTION->prepare($insertMultiSelect);
+                        $STMT_ENTRY->execute();
+                    }
+                }
             }
             // If the question type is option (where the participant only chooses one out of many options).
             elseif ($type == "option") {
@@ -88,7 +102,7 @@ if (isset($_POST['submit'])){
             }
             // If the question type returned from the db is not right (indicative of db error).
             else {
-                echo "Error: Type not recognised: " .$type;
+                echo "<br><br><h1>Submission Attempt Failed.</h1><br><p>Error: Type not recognised: " .$type ."</p>";
                 die();
             }
 
