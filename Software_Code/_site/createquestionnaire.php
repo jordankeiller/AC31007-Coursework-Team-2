@@ -33,26 +33,13 @@
     </div>
   </div>
 </nav>
-  <?php
-    include "assets/php/GLOBAL_CONFIG.php";
-?>
 <div class="container bg-white px-4">
     <div class="row">
         <div class="col">
             <h1 class="text-primary fw-bold mt-3 mb-0">Understanding Subtitle Usage</h1>
             <select>
-
               <?php
-                include "assets/php/GLOBAL_CONFIG.php";
-
-                $FETCH_QUESTION_TYPE = "SELECT * FROM 20agileteam2db.question_types";
-                $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTION_TYPE);
-                $STMT->execute();
-                $RESULT = $STMT->fetchAll();
-
-              foreach ($RESULT as $QUESTION_TYPE) {
-                echo "<option name='".$QUESTION_TYPE['Question_Type_ID']."' value='" . $QUESTION_TYPE['Name'] . "'>" . $QUESTION_TYPE['Name'] . "</option><br>";
-              }
+                include "assets/php/show_question_types.php"
               ?>
             </select>
         </div>
