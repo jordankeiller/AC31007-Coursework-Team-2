@@ -1,7 +1,7 @@
 <?php
 
     // SQL Statement to find all questions for a given questionnaire
-    $SQL_QUERY_QUESTIONS = "SELECT * FROM `questionnaire_questions`";
+    $SQL_QUERY_QUESTIONS = "SELECT * FROM `questionnaire_questions` WHERE `Questionnaire_ID` = ".$_GET['quiz_id']."";
     $STMT = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS);
     $STMT->execute();
     $RESULT = $STMT->fetchAll();
