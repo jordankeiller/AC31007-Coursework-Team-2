@@ -53,9 +53,51 @@
                     <input type="submit" name="submit">
                 </form>
 
+                <div class="card mt-3" id="type_text" style="display: none;">
+                  <div class="card-body">
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="text here" id="type_text_field" style="height: 100px"></textarea>
+                      <label for="option_text_field">Text</label>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="card mt-3" id="type_number" style="display: none;">
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <div class="form-floating">
+                        <input type="number" class="form-control" id="type_number_field" placeholder="Password">
+                        <label for="option_number_field">Number</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="card mt-3" id="type_multi_select" style="display: none;">
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <div class="input-group mb-3">
+                        <div class="input-group-text">
+                          <input class="form-check-input" type="checkbox">
+                        </div>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="card mt-3" id="type_option" style="display: none;">
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <div class="input-group">
+                        <div class="input-group-text">
+                          <input class="form-check-input" type="radio" value="">
+                        </div>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
 </div>
