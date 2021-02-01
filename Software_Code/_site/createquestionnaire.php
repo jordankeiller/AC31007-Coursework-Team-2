@@ -33,13 +33,8 @@
     </div>
   </nav>
   <div class="container bg-white px-4">
-    <div class="row">
-      <div class="col">
-        <h1 class="text-primary fw-bold mt-3 mb-0">Create Questionnaire</h1>
-      </div>
       <div class="row">
         <div class="col">
-<<<<<<< HEAD
             <h1 class="text-primary fw-bold mt-3 mb-0">Create Questionnaire</h1>
         </div>
         <div class="row">
@@ -70,7 +65,7 @@
                       </div>
                     </div>
                   </div>
-=======
+                  
 
           <label for="createQuiz">Choose a Question Type:</label>
           <select name="question_type" id="question_type" form="createQuiz"><?php include "assets/php/show_question_types.php" ?></select>
@@ -94,7 +89,6 @@
                 <div class="form-floating">
                   <input type="number" class="form-control" id="type_number_field" placeholder="Password">
                   <label for="option_number_field">Number</label>
->>>>>>> e881b46898b989451483f9d747434208a1b362c6
                 </div>
               </div>
             </div>
