@@ -1,4 +1,4 @@
-function showHideElement(id, bool) {
+function toggleElement(id, bool) {
   if (bool) {
     document.getElementById(id).style.display = "block";
   } else {
