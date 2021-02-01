@@ -62,6 +62,16 @@
                   </div>
                 </div>
 
+                <div class="card mt-3" id="type_number" style="display: none;">
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <div class="form-floating">
+                        <input type="number" class="form-control" id="type_number_field" placeholder="Password">
+                        <label for="option_number_field">Number</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
 
             </div>
