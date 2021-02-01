@@ -20,7 +20,13 @@
         // Correct username, correct password.
           if($LOGIN_PASSWORD == $result['Password']){
             $_SESSION['userid'] = $result['Login_ID'];
-            //$_SESSION['researcherType'] = $result['Login_ID'];
+            $FETCH_RESEARCHER_TYPE = "CALL `20agileteam2db`.`researcher_type`(".$_SESSION['userid'].")";
+            $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_TYPE);
+            $STMT->execute();
+            $RESEARCHER_TYPE = $STMT->fetch();
+
+            $_SESSION['researcherType'] = $RESEARCHER_TYPE['Researcher Type'];
+            echo $_SESSION['researcherType'];
             header("location: ../../index.php");
             exit;
       } else{
