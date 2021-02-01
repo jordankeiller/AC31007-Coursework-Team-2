@@ -33,12 +33,39 @@
     </div>
   </nav>
   <div class="container bg-white px-4">
-    <div class="row">
-      <div class="col">
-        <h1 class="text-primary fw-bold mt-3 mb-0">Create Questionnaire</h1>
-      </div>
       <div class="row">
         <div class="col">
+            <h1 class="text-primary fw-bold mt-3 mb-0">Create Questionnaire</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                
+                <label for="createQuiz">Choose a Question Type:</label>
+                <select name="question_type" id="question_type" form="createQuiz"><?php include "assets/php/show_question_type.php" ?></select>
+
+                <form id="createQuiz" action="assets/php/check_question_type.php" method="post">
+                    <input type="submit" name="submit">
+                </form>
+
+                <div class="card mt-3" id="type_text" style="display: none;">
+                  <div class="card-body">
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="text here" id="type_text_field" style="height: 100px"></textarea>
+                      <label for="option_text_field">Text</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mt-3" id="type_number" style="display: none;">
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <div class="form-floating">
+                        <input type="number" class="form-control" id="type_number_field" placeholder="Password">
+                        <label for="option_number_field">Number</label>
+                      </div>
+                    </div>
+                  </div>
+                  
 
           <label for="createQuiz">Choose a Question Type:</label>
           <select name="question_type" id="question_type" form="createQuiz" onchange="dropdownTypeChanged()"><?php include "assets/php/show_question_types.php" ?></select>
