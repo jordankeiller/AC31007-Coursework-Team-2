@@ -32,8 +32,6 @@ function dropdownTypeChanged() {
     toggleElement('type_multi_select', false);
     toggleElement('type_option', true);
   }
-  else {
-    alert("Error!");
-  }
+}
 
 }
