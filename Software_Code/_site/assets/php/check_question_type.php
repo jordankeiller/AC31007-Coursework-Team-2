@@ -1,8 +1,8 @@
 <?php
     include "GLOBAL_CONFIG.php";
 
-    if(isset($_POST['question_type'])){
-        echo "<strong>SUBMITTED RESPONSE:</strong><br>" . $_POST['question_type'];
+    if(isset($_POST['response1'])){
+        echo "<strong>SUBMITTED RESPONSE:</strong><br>" . $_POST['response1'];
     }
 
     $FETCH_QUESTION_TYPE = "SELECT * FROM 20agileteam2db.question_types";
