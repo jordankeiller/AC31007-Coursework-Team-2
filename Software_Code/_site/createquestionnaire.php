@@ -61,6 +61,7 @@
 </div>
   <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
   <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/createQuestionnaire.js"></script>
 </body>
 
 </html>
