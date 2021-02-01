@@ -53,6 +53,14 @@
                     <input type="submit" name="submit">
                 </form>
 
+                <div class="card mt-3" id="type_text" style="display: none;">
+                  <div class="card-body">
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="text here" id="type_text_field" style="height: 100px"></textarea>
+                      <label for="option_text_field">Text</label>
+                    </div>
+                  </div>
+                </div>
 
 
 
