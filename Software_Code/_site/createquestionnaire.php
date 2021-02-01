@@ -73,6 +73,18 @@
                   </div>
                 </div>
 
+                <div class="card mt-3" id="type_multi_select" style="display: none;">
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <div class="input-group mb-3">
+                        <div class="input-group-text">
+                          <input class="form-check-input" type="checkbox">
+                        </div>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
             </div>
         </div>
