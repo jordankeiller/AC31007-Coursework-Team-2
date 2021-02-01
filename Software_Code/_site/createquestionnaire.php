@@ -40,10 +40,21 @@
     <div class="row">
         <div class="col">
             <h1 class="text-primary fw-bold mt-3 mb-0">Understanding Subtitle Usage</h1>
-            <form class="px-1" action="assets/php/questionnaire_processing.php" method="post">
-                <?php include "assets/php/questionnaire_questions.php" ?>
-                <input id="submit" name="submit" class="btn btn-lg btn-primary my-4" type="submit" value="Submit">
-            </form>
+            <select>
+
+              <?php
+                include "assets/php/GLOBAL_CONFIG.php";
+
+                $FETCH_QUESTION_TYPE = "SELECT * FROM 20agileteam2db.question_types";
+                $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTION_TYPE);
+                $STMT->execute();
+                $RESULT = $STMT->fetchAll();
+
+              foreach ($RESULT as $QUESTION_TYPE) {
+                echo "<option name='".$QUESTION_TYPE['Question_Type_ID']."' value='" . $QUESTION_TYPE['Name'] . "'>" . $QUESTION_TYPE['Name'] . "</option><br>";
+              }
+              ?>
+            </select>
         </div>
     </div>
 </div>
