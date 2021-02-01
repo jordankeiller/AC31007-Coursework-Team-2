@@ -1,0 +1,16 @@
+Definition of Done, Project Goal:
+The end product will be an interface that allows researchers to design their own questionnaires 
+containing multiple types of data-input, as well as incorporating multiple choice questions that 
+the researcher can supply options for.  All answers will be fed directly into the database, 
+the output from the database will consist of multiple views including graphs and other forms of 
+visualisation.  A database management interface will be created to allow for principal researchers 
+and lab managers to modify both the data recorded from the questionnaires and any saved information 
+about the researchers themselves, including which experiments belong to which researcher and who has access to them.
+
+A form will be designed for the virtual reality researcher that incorporates the ability to playback video footage 
+and add comments at particular time intervals, these comments and time-stamps will be saved to a database.  
+Along side comments, the researcher will be able to set a number of values for drop-down boxes that he/she can 
+use to further describe the footage.  this will then output to an interface where the researcher can see the notes 
+they have made as well as have the ability to compare separate pieces of footage using the values set in drop-down boxes.  
+They will also have the ability to see visualisations of the comparisons.  The ability to synchronise video footage from 
+multiple cameras will be developed as a separate part of the researcher interface.
