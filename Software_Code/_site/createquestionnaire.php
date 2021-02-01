@@ -36,14 +36,28 @@
 <div class="container bg-white px-4">
     <div class="row">
         <div class="col">
-            <h1 class="text-primary fw-bold mt-3 mb-0">Understanding Subtitle Usage</h1>
-            <select>
-              <?php
-                include "assets/php/show_question_types.php"
-              ?>
-            </select>
+            <h1 class="text-primary fw-bold mt-3 mb-0">Create Questionnaire</h1>
         </div>
-    </div>
+        <div class="row">
+            <div class="col">
+                
+
+
+
+                <label for="createQuiz">Choose a Question Type:</label>
+                <select name="question_type" id="question_type" form="createQuiz"><?php include "assets/php/show_question_types.php" ?></select>
+
+
+
+                <form id="createQuiz" action="assets/php/check_question_type.php" method="post">
+                    <input type="submit" name="submit">
+                </form>
+
+
+
+
+            </div>
+        </div>
 </div>
   <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
   <script src="assets/js/bootstrap.js"></script>
