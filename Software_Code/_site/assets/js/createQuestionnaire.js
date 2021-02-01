@@ -1,3 +1,5 @@
+// Shows or hides specified element.
+//Takes in the element id and boolean value. True to show the element and false to hide it.
 function toggleElement(id, bool) {
   if (bool) {
     document.getElementById(id).style.display = "block";
@@ -6,6 +8,7 @@ function toggleElement(id, bool) {
   }
 }
 
+// Shows/hides options based on dropdown selection.
 function dropdownTypeChanged() {
 
   if (document.getElementById("question_type").value == "Text") {
@@ -32,8 +35,6 @@ function dropdownTypeChanged() {
     toggleElement('type_multi_select', false);
     toggleElement('type_option', true);
   }
-  else {
-    alert("Error!");
-  }
-
 }
+
+dropdownTypeChanged();
