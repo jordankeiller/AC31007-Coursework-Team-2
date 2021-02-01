@@ -1,6 +1,7 @@
 <?php session_start(); 
 
-echo $_SESSION['QuestionnaireID'];
+if(isset($_SESSION['QuestionnaireID'])){ echo "QUESTIONNAIRE ID SESSION VARIABLE (MAKE SURE IT MATCHES THE ONE IN THE QUESTIONNAIRE TABLE): ".$_SESSION['QuestionnaireID']; }
+
 ?>
 
 <!DOCTYPE html>
