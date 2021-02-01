@@ -44,7 +44,7 @@
           <select name="question_type" id="question_type" form="createQuiz"><?php include "assets/php/show_question_types.php" ?></select>
 
           <form id="createQuiz" action="assets/php/check_question_type.php" method="post">
-            <input type="submit" name="submit">
+            <input type="submit" name="submit" id="submit">
           </form>
 
           <div class="card mt-3" id="type_text" style="display: none;">
