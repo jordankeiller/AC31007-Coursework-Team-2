@@ -45,15 +45,13 @@
           <label for="createQuiz">Choose a Question Type:</label>
           <select name="question_type" id="question_type" form="createQuiz" onchange="dropdownTypeChanged()"><?php include "assets/php/show_question_type.php" ?></select>
 
-          <form id="createQuiz" action="assets/php/check_question_type.php" method="post">
-            <input type="submit" name="submit" id="submit">
-          </form>
+          
 
           <div class="card mt-3" id="type_text" style="display: none;">
             <div class="card-body">
               <div class="form-floating">
                 <textarea class="form-control" placeholder="text here" id="type_text_field" style="height: 100px"></textarea>
-                <label for="option_text_field">Text</label>
+                <label for="option_text_field">Question Name</label>
               </div>
             </div>
           </div>
@@ -94,6 +92,9 @@
               </div>
             </div>
           </div>
+          <form id="createQuiz" action="assets/php/check_question_type.php" method="post">
+            <input type="submit" name="submit" id="submit">
+          </form>
         </div>
       </div>
     </div>
