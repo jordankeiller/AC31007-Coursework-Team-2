@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+echo $_SESSION['QuestionnaireID'];
+?>
 
 <!DOCTYPE html>
 <html lang="en-US">
