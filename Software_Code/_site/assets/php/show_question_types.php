@@ -7,6 +7,6 @@
     $RESULT = $STMT->fetchAll();
 
     foreach ($RESULT as $QUESTION_TYPE) {
-        echo "<option id='".$QUESTION_TYPE['Question_Type_ID']."' value='" . $QUESTION_TYPE['Name'] . "'>" . $QUESTION_TYPE['Name'] . "</option>";
+        echo "<option name='".$QUESTION_TYPE['Question_Type_ID']."' value='" . $QUESTION_TYPE['Name'] . "'>" . $QUESTION_TYPE['Name'] . "</option>";
     }
 ?>
