@@ -15,5 +15,7 @@
         echo "<br>".$row['Name'];
     }
 
+    printf("<br>uniqid(): %s\r\n", uniqid());
+
 
 ?>
