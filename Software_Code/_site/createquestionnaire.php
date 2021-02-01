@@ -86,6 +86,18 @@
                   </div>
                 </div>
 
+                <div class="card mt-3" id="type_option" style="display: none;">
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <div class="input-group">
+                        <div class="input-group-text">
+                          <input class="form-check-input" type="radio" value="">
+                        </div>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
 </div>
