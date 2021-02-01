@@ -1,11 +1,12 @@
 <?php
+    session_start();
     include "GLOBAL_CONFIG.php";
 
     foreach($_POST as $key => $value){
         
         // echo $key . ": ". $value ."<br>";
         if($key == 1){
-            $insertText = "CALL `20agileteam2db`.`create_question`(2, '".$value."', 1)";
+            $insertText = "CALL `20agileteam2db`.`create_question`(".$_SESSION['QuestionnaireID'].", '".$value."', 1)";
             $STMT_ENTRY = $MYSQL_CONNECTION->prepare($insertText);
             $STMT_ENTRY->execute();
         }
