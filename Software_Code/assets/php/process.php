@@ -27,11 +27,11 @@
 
             $_SESSION['researcherType'] = $RESEARCHER_TYPE['Researcher Type'];
             echo $_SESSION['researcherType'];
-            header("location: ../../index.php");
+            header("location: dashboard.php");
             exit;
       } else{
           // Correct username, wrong password.
-          header("location: ../../index.php");
+          header("location: dashboard.php");
           exit;
         }
       }
