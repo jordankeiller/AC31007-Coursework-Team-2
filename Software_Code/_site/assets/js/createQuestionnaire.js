@@ -49,6 +49,21 @@ function createQuestion() {
         response.innerHTML += '<div class="form-check"><input class="form-check-input" type="checkbox" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
       }
     }
+  }
+  // Creates attributes relevant to text input and displays in preview.
+  else if (dropdownValue == "Pick one option") {
+    let optionsArray = []; // To store user options.
+    var lines = document.getElementById('options_input').value.split('\n');
+    for(var i = 0;i < lines.length;i++){
+      
+      // If line isn't empty.
+      if (lines[i] != '') {
+
+        response.innerHTML += '<div class="form-check"><input class="form-check-input" type="radio" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
+      }
+    }
+
+  }
   document.getElementById('question_input').value = '';
   document.getElementById('options_input').value = '';
 }
