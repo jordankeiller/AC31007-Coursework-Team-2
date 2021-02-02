@@ -9,6 +9,7 @@ if(!isset($_SESSION['researcherType'])) {
 
 else {
 
+  $CURR_QUESTION = NULL;
   foreach ($_POST as $key => $value) {
     $FETCH_QUESTIONNAIRE_RESPONSES = "CALL `20agileteam2db`.`get_questions`(". $value .")";
     $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTIONNAIRE_RESPONSES);
@@ -20,8 +21,12 @@ else {
         echo $row['Description'] . "<br>";
         echo $row['Response']. "<br>";
       }
+
       else {
-        echo $row['Description'] . "<br>";
+        if ($row["Description"] != $CURR_QUESTION) {
+          $CURR_QUESTION = $row["Description"];
+          echo $row['Description'] . "<br>";
+        }
         $FETCH_QUESTION_OPTIONS = "CALL `20agileteam2db`.`options_for_question`(". $row['Question ID'] .")";
         $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTION_OPTIONS);
         $STMT->execute();
@@ -29,10 +34,12 @@ else {
 
         foreach ($QUESTION_OPTIONS as $result) {
           if ($result['Option_ID'] == $row['Option ID']) {
-            echo $result['Options']. "<br>";
+            echo $result['Options'];
           }
         }
+        echo "<br>";
       }
+
     }
   }
 
