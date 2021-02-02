@@ -1,3 +1,4 @@
+let questionnaireJson = {}; // Will store question, tpye and options.
 // Shows or hides specified element. Takes in the element id and boolean value. True to show the element and false to hide it.
 function toggleElement(id, bool) {
   if (bool) {
@@ -91,4 +92,5 @@ function submitQuestionnaire() {
   }
 
   
+  questionnaireJson.Title = document.getElementById('questionnaire_title').value; // Saves title
 
