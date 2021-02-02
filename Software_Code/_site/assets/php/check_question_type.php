@@ -11,9 +11,10 @@
         // If the JSON has been detected from the form
         if ($key == 'question_json') {
             $QUESTION_JSON = json_decode($value, true);
-            foreach ($QUESTION_JSON as $IDENTIFIER => $VARIABLE) {
+            print_r($QUESTION_JSON);
 
-                // If the element in the JSON is the title of the Questionnaire
+            // Loops through the JSON to find the title (usually the end JSON element)
+            foreach($QUESTION_JSON as $IDENTIFIER => $VARIABLE){
                 if ($IDENTIFIER == 'Title') {
                     // Inserts questionnaire title into the table
                     $CREATE_GET_QUESTIONNAIRE = "INSERT INTO `questionnaire` () VALUES (DEFAULT, '".$VARIABLE."', DEFAULT);";
@@ -30,16 +31,22 @@
                     $QUESTIONNAIRE_ID = -1;
                     foreach ($QUESTIONNAIRE as $val) {
                         $QUESTIONNAIRE_ID = $val['id'];
+
                         // If failed to get QUESTIONNAIRE_ID id. Then don't submit.
                         if ($QUESTIONNAIRE_ID == -1) {
                             echo "<br><br><h1>Submission Attempt Failed.</h1><br><br><p>Error: Failed to get QUESTIONNAIRE_ID.</p>";
                             die();
                         }
                     }
+                }else{
+                    echo "";
                 }
-                
+            }
+
+            // Loops through the questions that are in the JSON (not including the title)
+            foreach ($QUESTION_JSON as $IDENTIFIER => $VARIABLE) {
                 // If the element in the JSON is not the title of Questionnaire (i.e. is a question or an option)
-                else {
+                if($IDENTIFIER != 'Title') {
 
                     // Inserts the question into the database
                     $INSERT_QUESTION = "CALL `20agileteam2db`.`create_question`(".$QUESTIONNAIRE_ID.", '".$IDENTIFIER."', ".$VARIABLE['type'].")";
@@ -51,24 +58,29 @@
                         echo "";
                     }else{
 
+                        // Retrieve the last question ID that was inserted into the database from the line of code above
                         $GET_QUESTION_ID = "SELECT LAST_INSERT_ID() as `question_id`;";
                         $STMT_QUESTION = $MYSQL_CONNECTION->prepare($GET_QUESTION_ID);
                         $STMT_QUESTION->execute();
                         $QUESTION = $STMT_QUESTION->fetchAll();
                         $STMT_QUESTION->closeCursor(); 
 
+                        // Save the Question ID into a variable
                         foreach($QUESTION as $row){
                             $QUESTION_ID = $row['question_id'];
                         }
 
+                        // For each option that the question has
                         foreach ($VARIABLE['options'] as $key) {
-                            // echo "<br>Option Name: " .$key;
 
+                            // Insert the question option into the database
                             $INSERT_QUESTION_OPTION = "CALL `20agileteam2db`.`create_question_options`(".$QUESTION_ID.", '".$key."')";
                             $STMT_ENTRY_OPTIONS = $MYSQL_CONNECTION->prepare($INSERT_QUESTION_OPTION);
                             $STMT_ENTRY_OPTIONS->execute();
                         }
                     }
+                }else{
+                    echo "";
                 }
             }
         }else{
@@ -78,5 +90,4 @@
  
     // After the form has been processed, return the user back to the page they came from
     header('Location: ' . $_SERVER['HTTP_REFERER']);
-
 ?>
