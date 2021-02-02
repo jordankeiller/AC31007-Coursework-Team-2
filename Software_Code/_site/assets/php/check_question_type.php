@@ -18,14 +18,17 @@
                 if ($IDENTIFIER == 'Title') {
                     echo "<br>Title: " . $VARIABLE;
 
+                    // Inserts questionnaire title into the table
                     $CREATE_GET_QUESTIONNAIRE = "INSERT INTO `questionnaire` () VALUES (DEFAULT, '".$VARIABLE."', DEFAULT);";
                     $STMT_QUESTIONNAIRE = $MYSQL_CONNECTION->prepare($CREATE_GET_QUESTIONNAIRE);
                     $STMT_QUESTIONNAIRE->execute();
 
-
-
-
-
+                    // Retrieves the ID of the inserted quesitonnaire
+                    $GET_QUESTIONNAIRE_ID = "SELECT LAST_INSERT_ID() as `id`;";
+                    $STMT_QUESTIONNAIRE = $MYSQL_CONNECTION->prepare($GET_QUESTIONNAIRE_ID);
+                    $STMT_QUESTIONNAIRE->execute();
+                    $QUESTIONNAIRE = $STMT_QUESTIONNAIRE->fetchAll();
+                    $STMT_QUESTIONNAIRE->closeCursor(); 
 
                 }else {
                     echo "<br>Question: " . $IDENTIFIER;
