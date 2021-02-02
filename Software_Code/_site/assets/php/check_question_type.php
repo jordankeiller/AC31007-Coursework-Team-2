@@ -46,9 +46,16 @@
                     echo "<br>Question: " . $IDENTIFIER;
                     echo "<br>Type: " . $VARIABLE['type'];
 
+                    // Inserts the question into the database
+                    //CALL `20agileteam2db`.`create_question`(<{qnaire_id int(10)}>, <{q_desc varchar(250)}>, <{q_type_id int(5)}>);
+                    $INSERT_QUESTION = "CALL `20agileteam2db`.`create_question`(".$QUESTIONNAIRE_ID.", '".$IDENTIFIER."', ".$VARIABLE['type'].")";
+                    $STMT_ENTRY = $MYSQL_CONNECTION->prepare($INSERT_QUESTION);
+                    $STMT_ENTRY->execute();
 
 
-                    
+
+
+
                     if ($VARIABLE['options'] == null) {
                         echo "<br>No options";
                     }else{
