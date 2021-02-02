@@ -17,9 +17,11 @@ else {
 
     foreach ($RESEARCHER_QUESTIONNAIRES as $row) {
       if ($row['Response'] != NULL) {
+        echo $row['Description'] . "<br>";
         echo $row['Response']. "<br>";
       }
       else {
+        echo $row['Description'] . "<br>";
         $FETCH_QUESTION_OPTIONS = "CALL `20agileteam2db`.`options_for_question`(". $row['Question ID'] .")";
         $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTION_OPTIONS);
         $STMT->execute();
