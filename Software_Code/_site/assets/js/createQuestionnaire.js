@@ -1,4 +1,9 @@
 let questionnaireJson = {}; // Will store question, tpye and options.
+
+// Sets the dropdown value to text as default.
+document.getElementById("question_type").value = "Text";
+dropdownTypeChanged();
+
 // Shows or hides specified element. Takes in the element id and boolean value. True to show the element and false to hide it.
 function toggleElement(id, bool) {
   if (bool) {
