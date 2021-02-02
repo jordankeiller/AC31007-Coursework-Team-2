@@ -27,6 +27,7 @@ function dropdownTypeChanged() {
   }
 }
 
+// Displays the question and its attributes and input type. Also stores it in 'questionnareJson'.
 function createQuestion() {
  
   let questionName = document.getElementById('question_input').value; // Gets the question input.
@@ -52,36 +53,47 @@ function createQuestion() {
   }
   else if (dropdownValue == "Whole Number") {
 
+    // Creates attributes relevant to number input and displays in preview.
     responseJson.type = "2";
     responseJson.options = null;
     response.innerHTML = '<input type="number" class="form-control" value="0">';
 
   }
+  // Creates attributes relevant to multi select input and displays in preview.
   else if (dropdownValue == "Tick all that apply") {
 
     responseJson.type = "3";
     let optionsArray = []; // To store user options.
+    
+    // Get input from options text box and loop through each line.
     var lines = document.getElementById('options_input').value.split('\n'); 
     for(var i = 0;i < lines.length;i++){
+      
+      // If line isn't empty.
       if (lines[i] != '') {
 
+        // Adds line to array and displays option.
         optionsArray.push(lines[i]);
         response.innerHTML += '<div class="form-check"><input class="form-check-input" type="checkbox" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
       }
     }
+
     responseJson.options = optionsArray; // Stores options.
   }
   // Creates attributes relevant to text input and displays in preview.
   else if (dropdownValue == "Pick one option") {
+    
     responseJson.type = "4";
     let optionsArray = []; // To store user options.
     
+    // Get input from options text box and loop through each line.
     var lines = document.getElementById('options_input').value.split('\n');
     for(var i = 0;i < lines.length;i++){
       
       // If line isn't empty.
       if (lines[i] != '') {
 
+        // Adds line to array and displays option.
         optionsArray.push(lines[i]);
         response.innerHTML += '<div class="form-check"><input class="form-check-input" type="radio" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
       }
@@ -93,8 +105,10 @@ function createQuestion() {
     alert('Invalid question input type.');
     return;
   }
+
   // Saves question and response atributes.
   questionnaireJson[questionName] = responseJson;
+
   // Previews question and response by creating html elements.
   let previewQuestion = document.createElement('div');
   previewQuestion.className = "my-4";
@@ -104,11 +118,13 @@ function createQuestion() {
   previewQuestion.appendChild(question);
   previewQuestion.appendChild(response);
   document.getElementById('question_stack').appendChild(previewQuestion);
+
+  // Clears the textbox inputs.
   document.getElementById('question_input').value = '';
   document.getElementById('options_input').value = '';
 }
 
-dropdownTypeChanged();function submitQuestionnaire() {
+// Called when the user attempts to submit the questionnaire.
 function submitQuestionnaire() {
 
   // Cancel submit if quesitonnaire title is missing.
@@ -134,3 +150,4 @@ function submitQuestionnaire() {
   document.getElementById('createQuiz').appendChild(submitElement);
 
   console.log(questionnaireJson);
+}
