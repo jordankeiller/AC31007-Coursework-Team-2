@@ -6,7 +6,7 @@
       $LOGIN_PASSWORD = $_POST['userPass'];
 
       //Retrieve the user account information for the given username.
-      $SQL_QUERY = $MYSQL_CONNECTION->prepare("SELECT * FROM `login` WHERE Username=:username");
+      $SQL_QUERY = $MYSQL_CONNECTION->prepare("SELECT * FROM `login` WHERE username=:username");
       $SQL_QUERY->bindParam("username", $LOGIN_USERNAME, PDO::PARAM_STR);
       $SQL_QUERY->execute();
       $result = $SQL_QUERY->fetch(PDO::FETCH_ASSOC);
@@ -14,7 +14,7 @@
       if(!$result){
 
         // Username doesn't exist. Didn't check password.
-        header("location: ../../login.php");
+        header("Location: ../../login.php");
         exit;
       }else {
         // Correct username, correct password.
@@ -26,12 +26,12 @@
             $RESEARCHER_TYPE = $STMT->fetch();
 
             $_SESSION['researcherType'] = $RESEARCHER_TYPE['Researcher Type'];
-            echo $_SESSION['researcherType'];
-            header("location: dashboard.php");
+            header("Location: dashboard.php");
+
             exit;
       } else{
           // Correct username, wrong password.
-          header("location: dashboard.php");
+          header("Location: ../../login.php");
           exit;
         }
       }

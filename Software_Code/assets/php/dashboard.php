@@ -1,9 +1,12 @@
 <?php
 include "GLOBAL_CONFIG.php";
 
+echo $_SESSION['researcherType'];
+
   //If not logged in
   if(!isset($_SESSION['researcherType'])) {
     header("location: ../../login.php");
+    exit;
   }
   // elseif($_SESSION['researcherType'] == ){
   //
