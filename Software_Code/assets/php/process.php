@@ -25,6 +25,7 @@
             $STMT->execute();
             $RESEARCHER_TYPE = $STMT->fetch();
 
+            // e.g. Principal researcher, head researcher etc. used for access privileges.
             $_SESSION['researcherType'] = $RESEARCHER_TYPE['Researcher Type'];
             header("Location: dashboard.php");
 
