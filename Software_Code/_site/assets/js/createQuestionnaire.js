@@ -81,4 +81,8 @@ function createQuestion() {
   document.getElementById('options_input').value = '';
 }
 
-dropdownTypeChanged();
+dropdownTypeChanged();function submitQuestionnaire() {
+
+
+  
+
