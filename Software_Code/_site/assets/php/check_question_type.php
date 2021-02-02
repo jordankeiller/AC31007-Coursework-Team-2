@@ -15,9 +15,9 @@
         if ($key == 'question_json') {
             $QUESTION_JSON = json_decode($value, true);
             foreach ($QUESTION_JSON as $IDENTIFIER => $VARIABLE) {
-                if ($IDENTIFIER == 'Title') {
-                    echo "<br>Title: " . $VARIABLE;
 
+                // If the element in the JSON is the title of the Questionnaire
+                if ($IDENTIFIER == 'Title') {
                     // Inserts questionnaire title into the table
                     $CREATE_GET_QUESTIONNAIRE = "INSERT INTO `questionnaire` () VALUES (DEFAULT, '".$VARIABLE."', DEFAULT);";
                     $STMT_QUESTIONNAIRE = $MYSQL_CONNECTION->prepare($CREATE_GET_QUESTIONNAIRE);
@@ -30,9 +30,25 @@
                     $QUESTIONNAIRE = $STMT_QUESTIONNAIRE->fetchAll();
                     $STMT_QUESTIONNAIRE->closeCursor(); 
 
-                }else {
+                    $QUESTIONNAIRE_ID = -1;
+                    foreach ($QUESTIONNAIRE as $val) {
+                        $QUESTIONNAIRE_ID = $val['id'];
+                        // If failed to get QUESTIONNAIRE_ID id. Then don't submit.
+                        if ($QUESTIONNAIRE_ID == -1) {
+                            echo "<br><br><h1>Submission Attempt Failed.</h1><br><br><p>Error: Failed to get QUESTIONNAIRE_ID.</p>";
+                            die();
+                        }
+                    }
+                }
+                
+                // If the element in the JSON is not the title of Questionnaire (i.e. is a question or an option)
+                else {
                     echo "<br>Question: " . $IDENTIFIER;
                     echo "<br>Type: " . $VARIABLE['type'];
+
+
+
+                    
                     if ($VARIABLE['options'] == null) {
                         echo "<br>No options";
                     }else{
