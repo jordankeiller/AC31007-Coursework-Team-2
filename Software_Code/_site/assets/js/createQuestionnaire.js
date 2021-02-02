@@ -1,5 +1,4 @@
-// Shows or hides specified element.
-//Takes in the element id and boolean value. True to show the element and false to hide it.
+// Shows or hides specified element. Takes in the element id and boolean value. True to show the element and false to hide it.
 function toggleElement(id, bool) {
   if (bool) {
     document.getElementById(id).style.display = "block";
