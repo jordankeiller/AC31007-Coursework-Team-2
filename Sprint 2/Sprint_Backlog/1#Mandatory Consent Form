@@ -1,0 +1,9 @@
+As Head Researcher, I need a mandatory consent form to be completed before participants complete the 
+questionnaire so that they are fully informed of what is expected of them. #1
+Labels: Deliver Last (Low Risk/Low Value)
+Moscow: Should
+Story Points: 2
+Sub-Tasks:
+
+- [ ] create a page with the consent stuff and confirm button
+- [ ] It then redirect to the questionnaire if button pressed (maybe can be done for bootstrap or java).

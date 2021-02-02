@@ -1,0 +1,10 @@
+As a Co-Researcher, I should be able to view experiments I have been assigned to so that I can aid in the research. #60
+Labels: Deliver Next (Low Risk/High Value)
+Moscow: Must
+StoryPoints: 2
+
+Sub-Tasks: 
+[] Create a specific co researcher view
+[] Display all the questionnaire to which researcher they belong to
+[] Creating a stored procedure which returns all the questionnaire which belongs to a particular co-researcher
+[] co-researcher can see their experiments
