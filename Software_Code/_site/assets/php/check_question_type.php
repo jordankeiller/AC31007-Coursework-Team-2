@@ -1,17 +1,14 @@
 <?php
+
+    // Includes the global configuration file
     include "GLOBAL_CONFIG.php";
  
+    // Initialises the JSON to a blank variable
     $QUESTION_JSON;
  
     foreach($_POST as $key => $value){
- 
-        // echo $key . ": ". $value ."<br>";
-        // if($key == 1){
-        //     $insertText = "CALL `20agileteam2db`.`create_question`(".$_SESSION['QuestionnaireID'].", '".$value."', 1)";
-        //     $STMT_ENTRY = $MYSQL_CONNECTION->prepare($insertText);
-        //     $STMT_ENTRY->execute();
-        // }
- 
+
+        // If the JSON has been detected from the form
         if ($key == 'question_json') {
             $QUESTION_JSON = json_decode($value, true);
             foreach ($QUESTION_JSON as $IDENTIFIER => $VARIABLE) {
@@ -43,21 +40,15 @@
                 
                 // If the element in the JSON is not the title of Questionnaire (i.e. is a question or an option)
                 else {
-                    echo "<br>Question: " . $IDENTIFIER;
-                    echo "<br>Type: " . $VARIABLE['type'];
 
                     // Inserts the question into the database
-                    //CALL `20agileteam2db`.`create_question`(<{qnaire_id int(10)}>, <{q_desc varchar(250)}>, <{q_type_id int(5)}>);
                     $INSERT_QUESTION = "CALL `20agileteam2db`.`create_question`(".$QUESTIONNAIRE_ID.", '".$IDENTIFIER."', ".$VARIABLE['type'].")";
                     $STMT_ENTRY = $MYSQL_CONNECTION->prepare($INSERT_QUESTION);
                     $STMT_ENTRY->execute();
 
-
-
-
-
+                    // If the question requires a single answer (i.e. no options/multi-selects, then go to the else) - no options
                     if ($VARIABLE['options'] == null) {
-                        echo "<br>No options";
+                        echo "";
                     }else{
                         foreach ($VARIABLE['options'] as $key) {
                             echo "<br>Option Name: " .$key;
@@ -70,4 +61,7 @@
         }
     }
  
+    // After the form has been processed, return the user back to the page they came from
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+?>
