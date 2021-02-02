@@ -1,5 +1,5 @@
 <?php
-    include "GLOBAL_CONFIG.php";
+     include "GLOBAL_CONFIG.php";
 
     if(isset($_POST['login'])){
       $LOGIN_USERNAME = $_POST['username'];
@@ -27,7 +27,7 @@
 
             // e.g. Principal researcher, head researcher etc. used for access privileges.
             $_SESSION['researcherType'] = $RESEARCHER_TYPE['Researcher Type'];
-            header("Location: dashboard.php");
+            header("Location: ../../dashboard.php");
 
             exit;
       } else{

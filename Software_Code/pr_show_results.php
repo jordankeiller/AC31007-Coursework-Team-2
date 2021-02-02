@@ -1,10 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Quiz - Questionnaire Extraordinare</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
 <?php
 
-include "GLOBAL_CONFIG.php";
+include "assets/php/GLOBAL_CONFIG.php";
 
 // If not logged in (as Principal Researcher)
 if(!isset($_SESSION['researcherType']) || $_SESSION['researcherType'] != 'PR') {
-  header("Location: ../../login.php");
+  header("Location: login.php");
   exit;
 }
 
@@ -46,6 +56,6 @@ else {
 
     }
   }
-
 }
 ?>
+</html>

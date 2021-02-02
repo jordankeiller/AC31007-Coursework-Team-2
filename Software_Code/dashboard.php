@@ -1,9 +1,9 @@
 <?php
-include "GLOBAL_CONFIG.php";
+  include "assets/php/GLOBAL_CONFIG.php";
 
   //If not logged in
   if(!isset($_SESSION['researcherType'])) {
-    header("location: ../../login.php");
+    header("location: login.php");
     exit;
   }
   // elseif($_SESSION['researcherType'] == ){
