@@ -16,8 +16,11 @@
             // Loops through the JSON to find the title (usually the end JSON element)
             foreach($QUESTION_JSON as $IDENTIFIER => $VARIABLE){
                 if ($IDENTIFIER == 'Title') {
+
+                    $REG_EXPRESSION_TITLE = preg_replace('/([^A-Za-z0-9])/i', '\\\\$1', $VARIABLE);
+
                     // Inserts questionnaire title into the table
-                    $CREATE_GET_QUESTIONNAIRE = "INSERT INTO `questionnaire` () VALUES (DEFAULT, '".$VARIABLE."', DEFAULT);";
+                    $CREATE_GET_QUESTIONNAIRE = "INSERT INTO `questionnaire` () VALUES (DEFAULT, '".$REG_EXPRESSION_TITLE."', DEFAULT);";
                     $STMT_QUESTIONNAIRE = $MYSQL_CONNECTION->prepare($CREATE_GET_QUESTIONNAIRE);
                     $STMT_QUESTIONNAIRE->execute();
 
@@ -48,8 +51,10 @@
                 // If the element in the JSON is not the title of Questionnaire (i.e. is a question or an option)
                 if($IDENTIFIER != 'Title') {
 
+
+                    $REG_EXPRESSION_QUESTION = preg_replace('/([^A-Za-z0-9])/i', '\\\\$1', $IDENTIFIER);
                     // Inserts the question into the database
-                    $INSERT_QUESTION = "CALL `20agileteam2db`.`create_question`(".$QUESTIONNAIRE_ID.", '".$IDENTIFIER."', ".$VARIABLE['type'].")";
+                    $INSERT_QUESTION = "CALL `20agileteam2db`.`create_question`(".$QUESTIONNAIRE_ID.", '".$REG_EXPRESSION_QUESTION."', ".$VARIABLE['type'].")";
                     $STMT_ENTRY = $MYSQL_CONNECTION->prepare($INSERT_QUESTION);
                     $STMT_ENTRY->execute();
 
@@ -73,8 +78,10 @@
                         // For each option that the question has
                         foreach ($VARIABLE['options'] as $key) {
 
+                            $REG_EXPRESSION_OPTION = preg_replace('/([^A-Za-z0-9])/i', '\\\\$1', $key);
+                            
                             // Insert the question option into the database
-                            $INSERT_QUESTION_OPTION = "CALL `20agileteam2db`.`create_question_options`(".$QUESTION_ID.", '".$key."')";
+                            $INSERT_QUESTION_OPTION = "CALL `20agileteam2db`.`create_question_options`(".$QUESTION_ID.", '".$REG_EXPRESSION_OPTION."')";
                             $STMT_ENTRY_OPTIONS = $MYSQL_CONNECTION->prepare($INSERT_QUESTION_OPTION);
                             $STMT_ENTRY_OPTIONS->execute();
                         }
