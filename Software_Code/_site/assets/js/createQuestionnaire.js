@@ -45,43 +45,56 @@ function createQuestion() {
   if (dropdownValue == "Text") {
 
     // Creates attributes relevant to text input and displays in preview.
+    responseJson.type = "1";
+    responseJson.options = null;
     response.innerHTML = '<textarea class="form-control"></textarea>';
 
   }
   else if (dropdownValue == "Whole Number") {
 
+    responseJson.type = "2";
+    responseJson.options = null;
     response.innerHTML = '<input type="number" class="form-control" value="0">';
 
   }
   else if (dropdownValue == "Tick all that apply") {
 
+    responseJson.type = "3";
     let optionsArray = []; // To store user options.
     var lines = document.getElementById('options_input').value.split('\n'); 
     for(var i = 0;i < lines.length;i++){
       if (lines[i] != '') {
 
+        optionsArray.push(lines[i]);
         response.innerHTML += '<div class="form-check"><input class="form-check-input" type="checkbox" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
       }
     }
+    responseJson.options = optionsArray; // Stores options.
   }
   // Creates attributes relevant to text input and displays in preview.
   else if (dropdownValue == "Pick one option") {
+    responseJson.type = "4";
     let optionsArray = []; // To store user options.
+    
     var lines = document.getElementById('options_input').value.split('\n');
     for(var i = 0;i < lines.length;i++){
       
       // If line isn't empty.
       if (lines[i] != '') {
 
+        optionsArray.push(lines[i]);
         response.innerHTML += '<div class="form-check"><input class="form-check-input" type="radio" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
       }
     }
 
+    responseJson.options = optionsArray; // Stores options.
   }
   else {
     alert('Invalid question input type.');
     return;
   }
+  // Saves question and response atributes.
+  questionnaireJson[questionName] = responseJson;
   // Previews question and response by creating html elements.
   let previewQuestion = document.createElement('div');
   previewQuestion.className = "my-4";
