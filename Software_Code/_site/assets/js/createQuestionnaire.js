@@ -91,6 +91,11 @@ function submitQuestionnaire() {
     return;
   }
 
+  // Cancel submit if there are no questions.
+  if (Object.keys(questionnaireJson).length <= 0) {
+    alert('You cannot submit an empty questionnaire.')
+    return;
+  }
   
   questionnaireJson.Title = document.getElementById('questionnaire_title').value; // Saves title
 
