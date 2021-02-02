@@ -82,7 +82,13 @@ function createQuestion() {
 }
 
 dropdownTypeChanged();function submitQuestionnaire() {
+function submitQuestionnaire() {
 
+  // Cancel submit if quesitonnaire title is missing.
+  if (document.getElementById('questionnaire_title').value == '') {
+    alert('Questionnaire title cannot be empty.')
+    return;
+  }
 
   
 
