@@ -64,6 +64,10 @@ function createQuestion() {
     }
 
   }
+  else {
+    alert('Invalid question input type.');
+    return;
+  }
   document.getElementById('question_input').value = '';
   document.getElementById('options_input').value = '';
 }
