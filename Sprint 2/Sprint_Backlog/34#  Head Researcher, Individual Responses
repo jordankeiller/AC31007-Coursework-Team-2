@@ -1,0 +1,9 @@
+As Head Researcher, I need to be able to view individual responses to the questionnaire, so i can examine the data closely #34
+Labels: Deliver Next (Low Risk/High Value)
+Moscow: Must
+Story Points: 2
+
+Sub-Tasks
+- [ ] Grab the questions from a participant’s response
+- [ ] And the answers from a participant’s response
+- [ ] Data Displayed in a readable format
