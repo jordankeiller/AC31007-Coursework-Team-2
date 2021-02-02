@@ -59,7 +59,10 @@ else {
     // For each answer in questionnaire
     foreach ($RESEARCHER_QUESTIONNAIRES as $row) {
       if ($row['Response'] != NULL) { // Open ended question
-        echo $row['Description'] . "<br>";
+        if ($row["Question ID"] != $CURR_QUESTION){
+          $CURR_QUESTION = $row["Question ID"];
+          echo $row['Description'] . "<br>";
+        }
         echo $row['Response']. "<br>";
       }
 
