@@ -36,6 +36,8 @@ function createQuestion() {
     alert('Please enter a question.')
     return;
   }
+
+  let responseJson= {};// Creates object for response attributes.
   const dropdownValue = document.getElementById("question_type").value; // Gets dropdown value.
   
   let response = document.createElement('div'); // Allows to display input.
