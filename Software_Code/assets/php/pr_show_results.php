@@ -3,7 +3,7 @@
 include "GLOBAL_CONFIG.php";
 
 // If not logged in (as Principal Researcher)
-if(!isset($_SESSION['researcherType']) || $_SESSION['researcherType']) != 'PR') {
+if(!isset($_SESSION['researcherType']) || $_SESSION['researcherType'] != 'PR') {
   header("Location: ../../login.php");
   exit;
 }
