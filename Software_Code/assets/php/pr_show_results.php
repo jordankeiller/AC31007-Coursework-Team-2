@@ -23,8 +23,8 @@ else {
       }
 
       else {
-        if ($row["Description"] != $CURR_QUESTION) {
-          $CURR_QUESTION = $row["Description"];
+        if ($row["Question ID"] != $CURR_QUESTION) {
+          $CURR_QUESTION = $row["Question ID"];
           echo $row['Description'] . "<br>";
         }
         $FETCH_QUESTION_OPTIONS = "CALL `20agileteam2db`.`options_for_question`(". $row['Question ID'] .")";
