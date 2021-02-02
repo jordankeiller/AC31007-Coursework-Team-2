@@ -68,6 +68,15 @@ function createQuestion() {
     alert('Invalid question input type.');
     return;
   }
+  // Previews question and response by creating html elements.
+  let previewQuestion = document.createElement('div');
+  previewQuestion.className = "my-4";
+  let question = document.createElement('h4');
+  question.innerText = questionName;
+
+  previewQuestion.appendChild(question);
+  previewQuestion.appendChild(response);
+  document.getElementById('question_stack').appendChild(previewQuestion);
   document.getElementById('question_input').value = '';
   document.getElementById('options_input').value = '';
 }
