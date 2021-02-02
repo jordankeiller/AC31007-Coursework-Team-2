@@ -39,6 +39,16 @@ function createQuestion() {
     response.innerHTML = '<input type="number" class="form-control" value="0">';
 
   }
+  else if (dropdownValue == "Tick all that apply") {
+
+    let optionsArray = []; // To store user options.
+    var lines = document.getElementById('options_input').value.split('\n'); 
+    for(var i = 0;i < lines.length;i++){
+      if (lines[i] != '') {
+
+        response.innerHTML += '<div class="form-check"><input class="form-check-input" type="checkbox" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
+      }
+    }
   document.getElementById('question_input').value = '';
   document.getElementById('options_input').value = '';
 }
