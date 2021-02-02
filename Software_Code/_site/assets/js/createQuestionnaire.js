@@ -19,7 +19,18 @@ function dropdownTypeChanged() {
   else {
     toggleElement('type_options', false);
   }
+function createQuestion() {
+ 
+  let questionName = document.getElementById('question_input').value; // Gets the question input.
+  
+  // If question is empty, alert and don't do anything.
+  if (questionName == '') {
+    alert('Please enter a question.')
+    return;
   }
+  }
+  document.getElementById('question_input').value = '';
+  document.getElementById('options_input').value = '';
 }
 
 dropdownTypeChanged();
