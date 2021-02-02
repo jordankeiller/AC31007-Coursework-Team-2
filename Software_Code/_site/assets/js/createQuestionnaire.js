@@ -25,6 +25,8 @@ function dropdownTypeChanged() {
   else {
     toggleElement('type_options', false);
   }
+}
+
 function createQuestion() {
  
   let questionName = document.getElementById('question_input').value; // Gets the question input.
@@ -34,6 +36,10 @@ function createQuestion() {
     alert('Please enter a question.')
     return;
   }
+  const dropdownValue = document.getElementById("question_type").value; // Gets dropdown value.
+  
+  let response = document.createElement('div'); // Allows to display input.
+
   if (dropdownValue == "Text") {
 
     // Creates attributes relevant to text input and displays in preview.
