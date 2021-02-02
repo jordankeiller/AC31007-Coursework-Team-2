@@ -88,6 +88,7 @@ function createQuestion() {
     
     // Get input from options text box and loop through each line.
     var lines = document.getElementById('options_input').value.split('\n');
+    lines = [...new Set(lines)]; // Removes duplicates
     for(var i = 0;i < lines.length;i++){
       
       // If line isn't empty.
@@ -139,7 +140,7 @@ function submitQuestionnaire() {
     return;
   }
   
-  questionnaireJson.Title = document.getElementById('questionnaire_title').value; // Saves title
+  // questionnaireJson.Title = document.getElementById('questionnaire_title').value; // Saves title
 
   // Creates a hidden text box input to store value of 'questionnareJson' so that php receives it.
   let submitElement = document.createElement('input');
@@ -148,6 +149,6 @@ function submitQuestionnaire() {
   submitElement.setAttribute("name", "question_json");
   submitElement.style = "display: none";
   document.getElementById('createQuiz').appendChild(submitElement);
-
+  
   console.log(questionnaireJson);
 }
