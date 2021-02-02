@@ -27,14 +27,21 @@ include "GLOBAL_CONFIG.php";
       $FETCH_RESEARCHER_QUESTIONNAIRES = "CALL `20agileteam2db`.`researcher_questionnaires`(".$_SESSION['userid'].")";
       $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_QUESTIONNAIRES);
       $STMT->execute();
-      $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall();
-      echo count($RESEARCHER_QUESTIONNAIRES);
-      echo "<h1>hello principal</h1>";
+      $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall(); } ?>
 
-        foreach ($RESEARCHER_QUESTIONNAIRES as $ROW) {
-          echo "<button type='button'>" . $ROW['Questionnaire Name'] . "</button>";
-        }
+      <p>Which questionnaire responses would you like to see?</p>
 
-    } ?>
+      <form action="pr_show_results.php" method="POST">
+        <label for="questionnaires">Questionnaire:</label>
+        <select name="questionnaire" id="questionnaire">
+           <?php foreach ($RESEARCHER_QUESTIONNAIRES as $ROW) {
+            echo "<option name='". $ROW['Questionnaire ID'] . "' value='" . $ROW['Questionnaire ID'] . "'>" . $ROW['Questionnaire Name'] . "</option>";
+          } ?>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+
   </body>
 </html>
