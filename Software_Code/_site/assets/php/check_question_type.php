@@ -46,12 +46,27 @@
                     $STMT_ENTRY = $MYSQL_CONNECTION->prepare($INSERT_QUESTION);
                     $STMT_ENTRY->execute();
 
-                    // If the question requires a single answer (i.e. no options/multi-selects, then go to the else) - no options
+                    // If the question requires multpile answers then go to the else. This if statement = no options
                     if ($VARIABLE['options'] == null) {
                         echo "";
                     }else{
+
+                        $GET_QUESTION_ID = "SELECT LAST_INSERT_ID() as `question_id`;";
+                        $STMT_QUESTION = $MYSQL_CONNECTION->prepare($GET_QUESTION_ID);
+                        $STMT_QUESTION->execute();
+                        $QUESTION = $STMT_QUESTION->fetchAll();
+                        $STMT_QUESTION->closeCursor(); 
+
+                        foreach($QUESTION as $row){
+                            $QUESTION_ID = $row['question_id'];
+                        }
+
                         foreach ($VARIABLE['options'] as $key) {
-                            echo "<br>Option Name: " .$key;
+                            // echo "<br>Option Name: " .$key;
+
+                            $INSERT_QUESTION_OPTION = "CALL `20agileteam2db`.`create_question_options`(".$QUESTION_ID.", '".$key."')";
+                            $STMT_ENTRY_OPTIONS = $MYSQL_CONNECTION->prepare($INSERT_QUESTION_OPTION);
+                            $STMT_ENTRY_OPTIONS->execute();
                         }
                     }
                 }
