@@ -79,14 +79,12 @@ if(isset($_SESSION['QuestionnaireID'])){ echo "QUESTIONNAIRE ID SESSION VARIABLE
               </div>
             </div>
           </div>
+
+          <!-- Created questions will be stored here -->
+          <div class="mt-3" id="question_stack">
+            <h2 class="mb-2 text-primary fw-bold">Questionnaire Preview</h2>
+          </div>
         </div>
-
-          <form class="mt-3" id="createQuiz" action="assets/php/check_question_type.php" method="post">
-
-            <!-- Created questions will be stored here -->
-            <div class="col" id="question_stack">
-              <h2 class="mb-2 text-primary fw-bold">Questionnaire Preview</h2>
-            </div>
 
             <input id="submit" name="submit" class="btn btn-primary my-4" type="submit" value="Submit" onclick="return submitQuestionnaire()">
             
