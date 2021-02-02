@@ -140,7 +140,7 @@ function submitQuestionnaire() {
     return;
   }
   
-  // questionnaireJson.Title = document.getElementById('questionnaire_title').value; // Saves title
+  questionnaireJson.Title = document.getElementById('questionnaire_title').value; // Saves title
 
   // Creates a hidden text box input to store value of 'questionnareJson' so that php receives it.
   let submitElement = document.createElement('input');
