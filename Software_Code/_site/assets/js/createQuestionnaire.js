@@ -99,3 +99,12 @@ function submitQuestionnaire() {
   
   questionnaireJson.Title = document.getElementById('questionnaire_title').value; // Saves title
 
+  // Creates a hidden text box input to store value of 'questionnareJson' so that php receives it.
+  let submitElement = document.createElement('input');
+  submitElement.value = JSON.stringify(questionnaireJson);
+  submitElement.type = "text";
+  submitElement.setAttribute("name", "question_json");
+  submitElement.style = "display: none";
+  document.getElementById('createQuiz').appendChild(submitElement);
+
+  console.log(questionnaireJson);
