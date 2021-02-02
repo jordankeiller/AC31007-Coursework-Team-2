@@ -1,8 +1,6 @@
 <?php
 include "GLOBAL_CONFIG.php";
 
-echo $_SESSION['researcherType'];
-
   //If not logged in
   if(!isset($_SESSION['researcherType'])) {
     header("location: ../../login.php");
@@ -27,6 +25,7 @@ echo $_SESSION['researcherType'];
   <body>
 
     <?php if($_SESSION['researcherType'] == 'PR'){ // Shown to Principal Researchers
+      // Show all of the given PR's questionnaires
       $FETCH_RESEARCHER_QUESTIONNAIRES = "CALL `20agileteam2db`.`researcher_questionnaires`(".$_SESSION['userid'].")";
       $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_QUESTIONNAIRES);
       $STMT->execute();
@@ -34,6 +33,7 @@ echo $_SESSION['researcherType'];
 
       <p>Which questionnaire responses would you like to see?</p>
 
+      <!-- Dropdown to select questionnaire -->
       <form action="pr_show_results.php" method="POST">
         <label for="questionnaires">Questionnaire:</label>
         <select name="questionnaire" id="questionnaire">
