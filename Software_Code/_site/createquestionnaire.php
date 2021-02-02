@@ -86,6 +86,7 @@ if(isset($_SESSION['QuestionnaireID'])){ echo "QUESTIONNAIRE ID SESSION VARIABLE
           </div>
         </div>
 
+          <form id="createQuiz" action="assets/php/check_question_type.php" method="post">
             <input id="submit" name="submit" class="btn btn-primary my-4" type="submit" value="Submit" onclick="return submitQuestionnaire()">
             
           </form>
