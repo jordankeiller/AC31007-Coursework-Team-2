@@ -1,0 +1,17 @@
+As a Lab Manager/Head Researcher, I need the ability to manage all permissions in the system, 
+so i can manage access to experiments #82
+Labels: Deliver First (High Risk/High Value)
+Moscow: Must
+3 Story Points.
+Tasks
+-Lab Manager can alter permissions for co-researchers
+-Co-researchers can only access permitted pages
+-A front-end interface that allows the above functionality to be completed without having to access the backend
+
+Background:
+"it’s very important that we have different types of people that can access
+parts of the system. There are participants, obviously, who need to be able to carry out questionnaires
+(if a study has them) but there should also be different “researcher” roles. A PR (principal researcher)
+should have full access to their own experiments, a CoR (co-researcher) should only have access to
+parts that the PR says they should, and me (as the lab manager) should have access to everything and
+also be able to manage users (add them, reset passwords etc.)" 
