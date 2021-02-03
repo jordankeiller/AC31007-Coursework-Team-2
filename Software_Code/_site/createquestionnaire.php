@@ -77,7 +77,7 @@ if(isset($_SESSION['QuestionnaireID'])){ echo "QUESTIONNAIRE ID SESSION VARIABLE
 
               <!-- Hidden div only shown when user selects multi select or option in dropdown -->
               <div class="mt-3" id="type_options" style="display: none;">
-                <p>For "Tick all that apply" and "Pick one option" please enter the options below.</p>
+                <p>For "Tick all that apply" or "Pick one option" please enter the options below.</p>
                 
                 <!-- Textbox to enter options -->
                 <div class="form-floating">
