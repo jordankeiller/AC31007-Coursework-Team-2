@@ -51,7 +51,8 @@ if (isset($_POST['submit'])){
             // If the question has text or number input.
             if ($type == "text" || $type == "number") {
 
-                $REG_EXPRESSION = preg_replace('/([^A-Za-z0-9])/i', '\\\\$1', $value);
+                // Sanitises the user input
+                $REG_EXPRESSION = filter_var($value, FILTER_SANITIZE_STRING);
 
                 // Submits text/number response to db using procedure call that takes in question id, option id (which is null)
                 // participant id and the input.
