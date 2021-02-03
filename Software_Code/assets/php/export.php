@@ -8,11 +8,14 @@
 
     // we initialize the output with the headers
     $output = "Researcher_ID,Name,Researcher_Type\n";
+    
     // select all members
     $sql = 'SELECT * FROM researcher ORDER BY Researcher_ID ASC';
     $query = $MYSQL_CONNECTION->prepare($sql);
     $query->execute();
     $list = $query->fetchAll();
+
+    // Loops through each row.
     foreach ($list as $rs) {
         // add new row
         $row = array();
