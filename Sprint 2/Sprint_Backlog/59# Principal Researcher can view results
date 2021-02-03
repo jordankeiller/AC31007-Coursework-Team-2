@@ -1,10 +1,11 @@
-As a Principal Researcher, I should be able to view the results of my experiments. #59
-Labels: Deliver Next (Low Risk/High Value)
-Moscow: Must
-Story Points: 5
+As a Principal Researcher, I should be able to view the results of my 
+experiments so that I can check the data received from those experiments.
+Labels: Deliver Next (Low Risk/High Value) 
+Moscow: Should
 
-Sub-Tasks: 
-- [ ] Create A view
-- [ ] Display all the questionnaires and which researcher they belong to
-- [ ] Creating a stored procedure which returns all the questionnaires which belongs to a particular researcher
-- [ ] Researcher can see the results of their experiment
+Story Points:  5
+Tasks
+-Create A view
+-Display all the questionnaires which belong to the researcher
+-Creating a stored procedure which returns all the questionnaires which belongs to a particular researcher
+-Researcher can see the results of their own experiment
