@@ -20,8 +20,9 @@
         $row[] = stripslashes($rs["Researcher_ID"]);
         $row[] = stripslashes($rs["Name"]);
         $row[] = stripslashes($rs["Researcher_Type"]);
-        
-        $content[] = $row;
+
+        // Appends the row data into the output file.
+        $output .= $rs["Researcher_ID"] ."," .$rs["Name"] ."," .$rs["Researcher_Type"] ."\n";
     }
     // export the output
     echo $output;
