@@ -126,6 +126,14 @@ function createQuestion() {
   document.getElementById('options_input').value = '';
 }
 
+// Sanitizes the array used for options. Takes in the array to be sanitized and returns the sanitized array.
+function sanitiseOptionsInput(array) {
+  
+  let newArray = [];
+  
+  return newArray;
+}
+
 // Called when the user attempts to submit the questionnaire.
 function submitQuestionnaire() {
 
