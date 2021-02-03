@@ -1,5 +1,5 @@
-<?php  include('php_code.php'); ?>
 <?php 
+	include('php_code.php');
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
 		$update = true;
