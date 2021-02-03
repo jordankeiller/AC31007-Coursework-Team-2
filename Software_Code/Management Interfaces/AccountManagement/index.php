@@ -44,7 +44,7 @@ $results = $stmtResults->fetchAll();
 		</tr>
 	</thead>
 	
-	<?php while ($row = mysqli_fetch_array($results)) { ?>
+	<?php foreach ($results as $row) { ?>
 		<tr>
 			<td><?php echo $row['Name']; ?></td>
 			<td><?php echo $row['Researcher_Type']; ?></td>
