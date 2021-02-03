@@ -1,7 +1,11 @@
-"As Head Researcher, I need to be able to see a visualisation of the data, so that I can analyse the data easily in greater detail"
+"As a Researcher, I need to be able to see a visualisation of the data, so that I can analyse the data easily in greater detail."
+
 label: Deliver Next (Low Risk/High Value)
 Moscow: Must
 Story Points: 8
+
+Notes: results of columns in a visual format to compare answers
+Visualisation as part of the website, these can include:
 
 Background: The researchers are interested in seeing visualisations of their data, this is to help them analyse the data and determine 
 trends, a variety of visualisations are expected.
