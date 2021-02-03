@@ -17,7 +17,7 @@
             foreach($QUESTION_JSON as $IDENTIFIER => $VARIABLE){
                 if ($IDENTIFIER == 'Title') {
 
-                    // $REG_EXPRESSION_TITLE = preg_replace('/([^A-Za-z0-9])/i', '\\\\$1', $VARIABLE);
+                    // Sanitises the user input
                     $REG_EXPRESSION_TITLE = filter_var($VARIABLE, FILTER_SANITIZE_STRING);
 
                     // Inserts questionnaire title into the table
@@ -52,10 +52,8 @@
                 // If the element in the JSON is not the title of Questionnaire (i.e. is a question or an option)
                 if($IDENTIFIER != 'Title') {
 
-
-                    // $REG_EXPRESSION_QUESTION = preg_replace('/([^A-Za-z0-9])/i', '\\\\$1', $IDENTIFIER);
+                    // Sanitises the user input
                     $REG_EXPRESSION_QUESTION = filter_var($IDENTIFIER, FILTER_SANITIZE_STRING);
-
 
                     // Inserts the question into the database
                     $INSERT_QUESTION = "CALL `20agileteam2db`.`create_question`(".$QUESTIONNAIRE_ID.", '".$REG_EXPRESSION_QUESTION."', ".$VARIABLE['type'].")";
@@ -82,10 +80,9 @@
                         // For each option that the question has
                         foreach ($VARIABLE['options'] as $key) {
 
-                            // $REG_EXPRESSION_OPTION = preg_replace('/([^A-Za-z0-9])/i', '\\\\$1', $key);
+                            // Sanitises the user input
                             $REG_EXPRESSION_OPTION = filter_var($key, FILTER_SANITIZE_STRING);
                             
-
                             // Insert the question option into the database
                             $INSERT_QUESTION_OPTION = "CALL `20agileteam2db`.`create_question_options`(".$QUESTION_ID.", '".$REG_EXPRESSION_OPTION."')";
                             $STMT_ENTRY_OPTIONS = $MYSQL_CONNECTION->prepare($INSERT_QUESTION_OPTION);
