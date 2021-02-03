@@ -128,7 +128,10 @@ function createQuestion() {
 // Called when the user attempts to submit the questionnaire.
 function submitQuestionnaire() {
 
-  // Cancel submit if quesitonnaire title is missing.
+  // Gets and trims title.
+  let title = document.getElementById('questionnaire_title').value.trim();
+  
+  // Cancel submit if quesitonnaire title is empty.
   if (document.getElementById('questionnaire_title').value == '') {
     alert('Questionnaire title cannot be empty.')
     return;
@@ -140,7 +143,7 @@ function submitQuestionnaire() {
     return;
   }
   
-  questionnaireJson.Title = document.getElementById('questionnaire_title').value; // Saves title
+  questionnaireJson.Title = title; // Saves title
 
   // Creates a hidden text box input to store value of 'questionnareJson' so that php receives it.
   let submitElement = document.createElement('input');
