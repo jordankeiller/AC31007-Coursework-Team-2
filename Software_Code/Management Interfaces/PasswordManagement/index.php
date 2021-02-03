@@ -1,4 +1,6 @@
-<?php  include('php_code.php'); ?>
+<?php  
+include "GLOBAL_CONFIG.php";
+include('php_code.php'); ?>
 <?php 
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
