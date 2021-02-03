@@ -51,9 +51,12 @@ if (isset($_POST['submit'])){
             // If the question has text or number input.
             if ($type == "text" || $type == "number") {
 
+                // Sanitises the user input
+                $REG_EXPRESSION = filter_var($value, FILTER_SANITIZE_STRING);
+
                 // Submits text/number response to db using procedure call that takes in question id, option id (which is null)
                 // participant id and the input.
-                $insertEntry = "CALL `20agileteam2db`.`add_response`(" .$key. ", NULL, " .$participant .", '" .$value ."');";
+                $insertEntry = "CALL `20agileteam2db`.`add_response`(" .$key. ", NULL, " .$participant .", '" .$REG_EXPRESSION."');";
                 $MYSQL_CONNECTION->prepare($insertEntry)->execute();
 
             }

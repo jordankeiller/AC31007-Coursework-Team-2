@@ -1,0 +1,25 @@
+<?php session_start(); 
+
+if(isset($_SESSION['QuestionnaireID'])){ echo "QUESTIONNAIRE ID SESSION VARIABLE (MAKE SURE IT MATCHES THE ONE IN THE QUESTIONNAIRE TABLE): ".$_SESSION['QuestionnaireID']; }
+
+?>
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "assets/css/main.css" }}">
+</head>
+
+<body>
+  {% include navbar.html %}
+  {{content}}
+  
+  <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/createQuestionnaire.js"></script>
+</body>
+
+</html>
