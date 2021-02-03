@@ -3,7 +3,7 @@ layout: default
 title: Quiz
 ---
 <?php
-    include "assets/php/GLOBAL_CONFIG.php";
+include "assets/php/GLOBAL_CONFIG.php";
 ?>
 <div class="container bg-white px-4">
     <div class="row">
