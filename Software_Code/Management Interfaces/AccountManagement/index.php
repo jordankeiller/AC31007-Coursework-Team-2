@@ -4,6 +4,7 @@
 		$id = $_GET['edit'];
 		$update = true;
 
+		// Fetches all researchers from the database.
 		$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher WHERE Researcher_ID=$id")->execute();
 		$stmtRecord->execute();
 		$record = $stmtRecord->fetchAll(); // Stores data.
@@ -30,9 +31,15 @@
 		?>
 	</div>
 <?php endif ?>
+
+<?php 
+
+// Fetches all the results from the database.
 $stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher");
 $stmtResults->execute();
 $results = $stmtResults->fetchAll();
+
+?>
 
 <table>
 	<thead>
