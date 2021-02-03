@@ -2,13 +2,11 @@ As a Lab Manager/Head Researcher, I need the ability to manage all permissions i
 so i can manage access to experiments #82
 Labels: Deliver First (High Risk/High Value)
 Moscow: Must
-Story Points:
-
-Sub-Tasks:  
-- [ ] Lab Manager can alter permissions for co-researchers
-- [ ] co-researchers can only access permitted pages
-- [ ] an interface that allows this be done without having to access the database directly
-
+3 Story Points.
+Tasks
+-Lab Manager can alter permissions for co-researchers
+-Co-researchers can only access permitted pages
+-A front-end interface that allows the above functionality to be completed without having to access the backend
 
 Background:
 "it’s very important that we have different types of people that can access
