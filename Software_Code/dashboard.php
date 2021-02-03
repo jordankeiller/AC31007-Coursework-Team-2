@@ -27,6 +27,15 @@ title: Dashboard
       $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_QUESTIONNAIRES);
       $STMT->execute();
       $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall(); }
+
+      elseif($_SESSION['researcherType'] == 'Lab Manager'){ // Shown to Lab Managers
+      // Show all questionnaires
+      $FETCH_RESEARCHER_QUESTIONNAIRES = "SELECT * FROM `20agileteam2db`.`all_questionnaires`";
+      $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_QUESTIONNAIRES);
+      $STMT->execute();
+      $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall(); }
+
+
       ?>
 
       <h1 class="text-primary">Which questionnaire responses do you want to see?</h1>
