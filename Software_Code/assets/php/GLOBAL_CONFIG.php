@@ -1,6 +1,9 @@
 <?php
+
+    session_start(); //Used to manage user permissions
+
     // MYSQL Database Connection Details
-    $DATABASE_HOST = "silva.computing.dundee.ac.uk"; 
+    $DATABASE_HOST = "silva.computing.dundee.ac.uk";
     $DATABASE_NAME = "20agileteam2db";
     $DATABASE_USERNAME = "20agileteam2";
     $DATABASE_PASSWORD = "7343.at2.3437";

@@ -1,0 +1,8 @@
+To complete and test example experiments that can be accessed by different users, 
+we will also test that co-researchers without permission can not access certain experiments.  
+We will also develop aspects of user management including the ability for LabManager/HeadResearcher 
+to alter details about users as well as which experiments they can have access to.  
+A permissions page that confirms consent (before questionnaires can be displayed).  
+In this sprint we will also aim to complete a form tool that allows researchers to design questionnaires 
+containing questions of multiple types and preliminary visualisation of data such as viewing individual responses.  
+the ability to export files in a CSV format.
