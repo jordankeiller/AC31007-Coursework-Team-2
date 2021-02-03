@@ -140,6 +140,14 @@ function sanitiseOptionsInput(array) {
     array[i] = array[i].trim();
   }
   
+  // Removes leading and following whitespaces.
+  for (let i = 0; i < array.length; i++) {
+       
+    // If the line isn't empty.
+    if (array[i] != '') {
+      newArray.push(array[i]);
+    }
+  }
 
   newArray = [...new Set(newArray)]; // Removes duplicates
   console.log(newArray);
