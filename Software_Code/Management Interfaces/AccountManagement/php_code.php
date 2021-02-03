@@ -25,7 +25,8 @@
 		header('location: index.php');
 	}
 
-	if (isset($_POST['update'])) {
+	else if (isset($_POST['update'])) {
+		
 		$id = $_POST['Researcher_ID'];
 		$name = $_POST['Name'];
 		$Type = $_POST['Researcher_Type'];
@@ -37,7 +38,7 @@
 		header('location: index.php');
 	}
 
-	if (isset($_GET['del'])) {
+	else if (isset($_GET['del'])) {
 		$id = $_GET['del'];
 
 		// Execute delete statement.
