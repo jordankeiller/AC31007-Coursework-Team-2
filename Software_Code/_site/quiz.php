@@ -24,22 +24,25 @@
           <a class="nav-link" aria-current="page" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="createquestionnaire.php">Create Quiz</a>
+          <a class="nav-link" aria-current="page" href="quiz.php">Quiz</a>
+        </li>
+		<li class="nav-item">
+          <a class="nav-link" aria-current="page" href="createquestionnaire.php">Quiz Creator</a>
         </li>
       </ul>
       <div class="d-flex">
-        <a class="btn btn-outline-light" href="login.html">Log In</a>
+        <a class="btn btn-outline-light" href="login.php">Log In</a>
       </div>
     </div>
   </div>
 </nav>
   <?php
-    include "assets/php/GLOBAL_CONFIG.php";
+include "assets/php/GLOBAL_CONFIG.php";
 ?>
 <div class="container bg-white px-4">
     <div class="row">
         <div class="col">
-            <?php include "assets/php/questionnaire_title.php" ?>
+            <h1 class="text-primary fw-bold mt-3 mb-0">Understanding Subtitle Usage</h1>
             <form class="px-1" action="assets/php/questionnaire_processing.php" method="post">
                 <?php include "assets/php/questionnaire_questions.php" ?>
                 <input id="submit" name="submit" class="btn btn-lg btn-primary my-4" type="submit" value="Submit">
