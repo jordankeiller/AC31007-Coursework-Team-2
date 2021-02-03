@@ -1,7 +1,6 @@
 <?php
     // including the config file
     include('GLOBAL_CONFIG.php');
-    $pdo = connect();
 
     // set headers to force download on csv format
     header('Content-Type: text/csv; charset=utf-8');
