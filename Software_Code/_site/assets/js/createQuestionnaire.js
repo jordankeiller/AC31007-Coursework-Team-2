@@ -30,7 +30,8 @@ function dropdownTypeChanged() {
 // Displays the question and its attributes and input type. Also stores it in 'questionnareJson'.
 function createQuestion() {
  
-  let questionName = document.getElementById('question_input').value; // Gets the question input.
+  // Gets the trims question input.
+  let questionName = document.getElementById('question_input').value.trim();
   
   // If question is empty, alert and don't do anything.
   if (questionName == '') {
