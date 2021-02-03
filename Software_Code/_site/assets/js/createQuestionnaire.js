@@ -88,8 +88,7 @@ function createQuestion() {
     responseJson.type = "4";
     let optionsArray = []; // To store user options.
     
-    // Get input from options text box and loop through each line.
-    var lines = document.getElementById('options_input').value.split('\n');
+    var lines = sanitiseOptionsInput(document.getElementById('options_input').value.split('\n'));
     for(var i = 0;i < lines.length;i++){
       
       // If line isn't empty.
