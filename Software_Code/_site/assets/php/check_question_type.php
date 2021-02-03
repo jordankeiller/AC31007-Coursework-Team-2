@@ -99,5 +99,5 @@
     }
  
     // After the form has been processed, return the user back to the page they came from
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ../../quiz.php?quiz_id=' . $QUESTIONNAIRE_ID);
 ?>
