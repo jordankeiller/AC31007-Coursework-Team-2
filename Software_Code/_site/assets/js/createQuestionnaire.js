@@ -75,13 +75,9 @@ function createQuestion() {
 
     for(var i = 0;i < lines.length;i++){
       
-      // If line isn't empty.
-      if (lines[i] != '') {
-
-        // Adds line to array and displays option.
-        optionsArray.push(lines[i]);
-        response.innerHTML += '<div class="form-check"><input class="form-check-input" type="checkbox" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
-      }
+      // Adds line to array and displays option.
+      optionsArray.push(lines[i]);
+      response.innerHTML += '<div class="form-check"><input class="form-check-input" type="checkbox" disabled><label class="form-check-label">' + lines[i] + '</label></div>';
     }
 
     responseJson.options = optionsArray; // Stores options.
