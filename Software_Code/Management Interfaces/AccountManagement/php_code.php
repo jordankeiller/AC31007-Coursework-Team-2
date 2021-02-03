@@ -14,7 +14,10 @@
 	$id = 0;
 	$update = false;
 
+	// If the user wants to add a researcher.
 	if (isset($_POST['save'])) {
+		
+		// Sets the variables to the input fields.
 		$name = $_POST['Name'];
 		$Type = $_POST['Researcher_Type'];
 
@@ -24,12 +27,13 @@
 		$_SESSION['message'] = "researcher saved"; 
 		header('location: index.php');
 	}
-
+	// If the user wants to update researcher details.
 	else if (isset($_POST['update'])) {
 		
+		// Sets the variables to the input fields.
 		$id = $_POST['Researcher_ID'];
 		$name = $_POST['Name'];
-		$Type = $_POST['Researcher_Type'];
+		$Type = $_POST['Researcher_Type']; // Specified by button click.
 	
 		// Sends query to update details
 		$MYSQL_CONNECTION->prepare("UPDATE researcher SET Name='$name', Researcher_Type='$Type' WHERE Researcher_ID=$id")->execute();
@@ -37,8 +41,10 @@
 		$_SESSION['message'] = "Address updated!"; 
 		header('location: index.php');
 	}
-
+	// If the user wants to delete a researcher.
 	else if (isset($_GET['del'])) {
+		
+		// Gets the researcher id to delete.
 		$id = $_GET['del'];
 
 		// Execute delete statement.
