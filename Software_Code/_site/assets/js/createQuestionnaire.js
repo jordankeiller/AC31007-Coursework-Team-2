@@ -130,6 +130,11 @@ function sanitiseOptionsInput(array) {
   
   let newArray = [];
   
+  // Checks if input is an array.
+  if (Array.isArray(array) == false) {
+    return newArray;
+  }
+
 
   newArray = [...new Set(newArray)]; // Removes duplicates
   console.log(newArray);
