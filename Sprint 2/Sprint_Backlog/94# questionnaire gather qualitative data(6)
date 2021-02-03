@@ -1,0 +1,14 @@
+As a Head Researcher I would like to create a questionnaire with open answered questions so that I can gather qualitative data.
+Labels: Deliver First (High Risk/High Value)
+Moscow: 
+story points: 6
+Sub-Tasks
+
+- A researcher is able to create a questionnaire
+- Questionnaires can be created with custom titles
+- The ability to create a question in which the user provides an open answer to with a text box
+- The questions and options appear as expected
+-This question will have no input validation as to what can be entered, barring a 5000 character limit for logistic reasons.
+
+Bug Fixing
+- Fix restricting escaping unknown characters.
