@@ -1,5 +1,11 @@
-As a Principal Researcher, I should be able to view and manage access to my own experiments 
-so that I can assign which co-researchers can view my experiments. 
+As a Principal Researcher, I should be able to view the results of my 
+experiments so that I can check the data received from those experiments.
 Labels: Deliver Next (Low Risk/High Value) 
 Moscow: Should
+
 Story Points:  5
+Tasks
+-Create A view
+-Display all the questionnaires which belong to the researcher
+-Creating a stored procedure which returns all the questionnaires which belongs to a particular researcher
+-Researcher can see the results of their own experiment
