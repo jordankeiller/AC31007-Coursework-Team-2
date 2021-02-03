@@ -68,6 +68,10 @@ function createQuestion() {
     
     // Get input from options text box, sanitizes it and loops through each line.
     var lines = sanitiseOptionsInput(document.getElementById('options_input').value.split('\n'));
+    if (lines.length <= 0) {
+      alert('You have either left the options field empty or they contain duplicates.');
+      return;
+    }
 
     for(var i = 0;i < lines.length;i++){
       
@@ -89,6 +93,11 @@ function createQuestion() {
     let optionsArray = []; // To store user options.
     
     var lines = sanitiseOptionsInput(document.getElementById('options_input').value.split('\n'));
+    if (lines.length <= 0) {
+      alert('You have either left the options field empty or they contain duplicates.');
+      return;
+    }
+    
     for(var i = 0;i < lines.length;i++){
       
       // If line isn't empty.
