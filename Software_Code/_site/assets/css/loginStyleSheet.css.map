@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "loginStyleSheet.css",
+	"sources": [
+		"loginStyleSheet.scss"
+	],
+	"sourcesContent": [
+		"html,\nbody {\n  height: 100%;\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,IAAI,EACJ,IAAI,CAAC,EACH,MAAM,EAAE,IAAI,GACb"
+}
