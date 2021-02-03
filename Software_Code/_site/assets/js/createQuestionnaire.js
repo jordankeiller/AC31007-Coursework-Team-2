@@ -89,7 +89,6 @@ function createQuestion() {
     
     // Get input from options text box and loop through each line.
     var lines = document.getElementById('options_input').value.split('\n');
-    lines = [...new Set(lines)]; // Removes duplicates
     for(var i = 0;i < lines.length;i++){
       
       // If line isn't empty.
@@ -131,6 +130,9 @@ function sanitiseOptionsInput(array) {
   
   let newArray = [];
   
+
+  newArray = [...new Set(newArray)]; // Removes duplicates
+  console.log(newArray);
   return newArray;
 }
 
