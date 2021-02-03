@@ -10,7 +10,7 @@
     $output = "Researcher_ID,Name,Researcher_Type\n";
     // select all members
     $sql = 'SELECT * FROM researcher ORDER BY Researcher_ID ASC';
-    $query = $pdo->prepare($sql);
+    $query = $MYSQL_CONNECTION->prepare($sql);
     $query->execute();
     $list = $query->fetchAll();
     foreach ($list as $rs) {
