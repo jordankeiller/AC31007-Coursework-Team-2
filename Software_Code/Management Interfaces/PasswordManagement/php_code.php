@@ -1,5 +1,5 @@
 <?php 
-//include "GLOBAL_CONFIG.php";
+include "GLOBAL_CONFIG.php";
 	session_start();
 	$db = mysqli_connect('silva.computing.dundee.ac.uk', '20agileteam2','7343.at2.3437' , '20agileteam2db');
 
