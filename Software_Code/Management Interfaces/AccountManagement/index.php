@@ -3,7 +3,10 @@
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
 		$update = true;
-		$record = mysqli_query($db, "SELECT * FROM researcher WHERE Researcher_ID=$id");
+
+		$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher WHERE Researcher_ID=$id")->execute();
+		$stmtRecord->execute();
+		$record = $stmtRecord->fetchAll(); // Stores data.
 
 		if (count($record) == 1 ) {
 			$n = mysqli_fetch_array($record);
@@ -27,7 +30,9 @@
 		?>
 	</div>
 <?php endif ?>
-<?php $results = mysqli_query($db, "SELECT * FROM researcher"); ?>
+$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher");
+$stmtResults->execute();
+$results = $stmtResults->fetchAll();
 
 <table>
 	<thead>
