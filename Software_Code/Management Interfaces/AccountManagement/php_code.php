@@ -1,8 +1,12 @@
 <?php 
-	session_start();
 	include "GLOBAL_CONFIG.php";
 
 	$db = mysqli_connect('silva.computing.dundee.ac.uk', '20agileteam2','7343.at2.3437' , '20agileteam2db');
+
+	// Starts session if not started.
+	if (session_status() == 1) {
+		session_start();
+	}
 
 	// initialize variables
 	$name = "";
