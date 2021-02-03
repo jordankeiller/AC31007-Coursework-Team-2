@@ -1,23 +1,30 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "test", "table");
+    // including the config file
+    include('config.php');
+    $pdo = connect();
 
-$filename = "answers.csv";
-$fp = fopen('php://output', 'w');
+    // set headers to force download on csv format
+    header('Content-Type: text/csv; charset=utf-8');
+    header('Content-Disposition: attachment; filename=users.csv');
 
-$query = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='table' AND TABLE_NAME='tableName'";
-$result = mysqli_query($conn,$query);
-while ($row = mysqli_fetch_row($result)) {
-	$header[] = $row[0];
-}	
+    // we initialize the output with the headers
+    $output = "Researcher_ID,Name,Researcher_Type\n";
+    // select all members
+    $sql = 'SELECT * FROM researcher ORDER BY Researcher_ID ASC';
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $list = $query->fetchAll();
+    foreach ($list as $rs) {
+        // add new row
+        $row = array();
 
-header('Content-type: application/csv');
-header('Content-Disposition: attachment; filename='.$filename);
-fputcsv($fp, $header);
-
-$query = "SELECT * FROM tableName";
-$result = mysqli_query($conn, $query);
-while($row = mysqli_fetch_row($result)) {
-	fputcsv($fp, $row);
-}
-exit;
+        $row[] = stripslashes($rs["Researcher_ID"]);
+        $row[] = stripslashes($rs["Name"]);
+        $row[] = stripslashes($rs["Researcher_Type"]);
+        
+        $content[] = $row;
+    }
+    // export the output
+    echo $output;
+    exit;
 ?>
