@@ -16,29 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `researcher`
+-- Table structure for table `researcher_roles`
 --
 
-DROP TABLE IF EXISTS `researcher`;
+DROP TABLE IF EXISTS `researcher_roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `researcher` (
-  `researcherID` int(5) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `researchHead` tinyint(4) DEFAULT '0' COMMENT 'Is this researcher the research head? 1 = True = Yes and 0 = False = No.',
-  PRIMARY KEY (`researcherID`),
-  UNIQUE KEY `researcherID_UNIQUE` (`researcherID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `researcher_roles` (
+  `Role_ID` int(2) NOT NULL AUTO_INCREMENT,
+  `Role_Name` varchar(50) NOT NULL DEFAULT 'Researcher',
+  PRIMARY KEY (`Role_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='A table that stores the researcher roles.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `researcher`
+-- Dumping data for table `researcher_roles`
 --
 
-LOCK TABLES `researcher` WRITE;
-/*!40000 ALTER TABLE `researcher` DISABLE KEYS */;
-INSERT INTO `researcher` VALUES (1,'Mike',1),(2,'A Sweeney',0),(3,'L Odushegun',0);
-/*!40000 ALTER TABLE `researcher` ENABLE KEYS */;
+LOCK TABLES `researcher_roles` WRITE;
+/*!40000 ALTER TABLE `researcher_roles` DISABLE KEYS */;
+INSERT INTO `researcher_roles` VALUES (1,'Principle Researcher'),(2,'Lab Manager'),(3,'Researcher');
+/*!40000 ALTER TABLE `researcher_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-26 10:02:14
+-- Dump completed on 2021-02-03 11:30:18

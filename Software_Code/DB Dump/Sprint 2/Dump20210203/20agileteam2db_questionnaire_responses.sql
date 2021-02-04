@@ -16,32 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `login`
+-- Table structure for table `questionnaire_responses`
 --
 
-DROP TABLE IF EXISTS `login`;
+DROP TABLE IF EXISTS `questionnaire_responses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `login` (
-  `Login_ID` int(5) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(30) NOT NULL DEFAULT 'Sample_Username',
-  `Password` varchar(100) NOT NULL DEFAULT 'Change_Me',
-  `Researcher_ID` int(5) NOT NULL,
-  PRIMARY KEY (`Login_ID`),
-  UNIQUE KEY `id_UNIQUE` (`Login_ID`),
-  KEY `researcherID_idx` (`Researcher_ID`),
-  CONSTRAINT `researcherID_FK` FOREIGN KEY (`Researcher_ID`) REFERENCES `researcher` (`Researcher_ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE `questionnaire_responses` (
+  `Response_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `Question_ID` int(10) NOT NULL,
+  `Question_Option_ID` int(10) DEFAULT NULL,
+  `Participant_ID` int(10) NOT NULL,
+  `Response` varchar(5000) DEFAULT NULL COMMENT 'Big varchar size used for Response is for php sanitized input.',
+  PRIMARY KEY (`Response_ID`),
+  UNIQUE KEY `Response_ID_UNIQUE` (`Response_ID`),
+  KEY `Question_ID` (`Question_ID`),
+  KEY `questionnaire_responses_ibfk_2` (`Question_Option_ID`),
+  KEY `questionnaire_responses_ibfk_3` (`Participant_ID`),
+  CONSTRAINT `questionnaire_responses_ibfk_1` FOREIGN KEY (`Question_ID`) REFERENCES `questionnaire_questions` (`Question_ID`),
+  CONSTRAINT `questionnaire_responses_ibfk_2` FOREIGN KEY (`Question_Option_ID`) REFERENCES `questionnaire_questions_options` (`Question_Option_ID`),
+  CONSTRAINT `questionnaire_responses_ibfk_3` FOREIGN KEY (`Participant_ID`) REFERENCES `participant` (`Participant_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `login`
+-- Dumping data for table `questionnaire_responses`
 --
 
-LOCK TABLES `login` WRITE;
-/*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES (1,'headresearcher','headresearcher',1);
-/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+LOCK TABLES `questionnaire_responses` WRITE;
+/*!40000 ALTER TABLE `questionnaire_responses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `questionnaire_responses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-29 10:13:33
+-- Dump completed on 2021-02-03 11:30:07

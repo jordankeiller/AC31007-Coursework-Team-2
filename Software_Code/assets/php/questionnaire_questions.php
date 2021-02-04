@@ -1,17 +1,19 @@
 <?php
 
     // SQL Statement to find all questions for a given questionnaire
-    $SQL_QUERY_QUESTIONS = "SELECT * FROM `questionnaire_questions`";
+    $SQL_QUERY_QUESTIONS = "SELECT * FROM `questionnaire_questions` WHERE `Questionnaire_ID` = ".$_GET['quiz_id']."";
     $STMT = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS);
     $STMT->execute();
     $RESULT = $STMT->fetchAll();
+
+    $QUESTION_NUMBER = 1;
 
     // Loop that will run for each question that the database can find for this questionnaire
     foreach ($RESULT as $QUESTION) {
 
         // Displays the question
-        echo "<h3 class='text-primary mt-3 mb-1'>" . $QUESTION['Question_Description'] . "</h3>";
-
+        echo "<h3 class='text-primary mt-3 mb-1'>" . $QUESTION_NUMBER . ". " . $QUESTION['Question_Description'] . "</h3>";
+        $QUESTION_NUMBER++;
         // If the question has multipile options, fetch those options
         $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.options_for_question(".$QUESTION['Question_ID'].")";
         $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);

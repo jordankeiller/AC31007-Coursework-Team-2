@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS `questionnaire_questions_options`;
 CREATE TABLE `questionnaire_questions_options` (
   `Question_Option_ID` int(10) NOT NULL AUTO_INCREMENT,
   `Question_ID` int(10) NOT NULL,
-  `Question_Option_Description` varchar(250) NOT NULL DEFAULT 'Sample_Option',
+  `Question_Option_Description` varchar(5000) NOT NULL DEFAULT 'Sample_Option' COMMENT 'Big varchar size used for Option Description is for php sanitized input.',
   PRIMARY KEY (`Question_Option_ID`),
   UNIQUE KEY `Question_Option_ID_UNIQUE` (`Question_Option_ID`),
   KEY `Question_ID` (`Question_ID`),
   CONSTRAINT `questionnaire_questions_options_ibfk_1` FOREIGN KEY (`Question_ID`) REFERENCES `questionnaire_questions` (`Question_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-29 10:13:56
+-- Dump completed on 2021-02-03 11:29:31

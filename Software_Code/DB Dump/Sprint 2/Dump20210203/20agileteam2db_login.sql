@@ -16,28 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `question_types`
+-- Table structure for table `login`
 --
 
-DROP TABLE IF EXISTS `question_types`;
+DROP TABLE IF EXISTS `login`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `question_types` (
-  `Question_Type_ID` int(5) NOT NULL AUTO_INCREMENT,
-  `Type` varchar(20) NOT NULL DEFAULT 'Question_Type',
-  PRIMARY KEY (`Question_Type_ID`),
-  UNIQUE KEY `Option_ID_UNIQUE` (`Question_Type_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+CREATE TABLE `login` (
+  `Login_ID` int(5) NOT NULL AUTO_INCREMENT,
+  `Username` varchar(30) NOT NULL DEFAULT 'Sample_Username',
+  `Password` varchar(100) NOT NULL DEFAULT 'Change_Me',
+  `Researcher_ID` int(5) NOT NULL,
+  PRIMARY KEY (`Login_ID`),
+  UNIQUE KEY `id_UNIQUE` (`Login_ID`),
+  KEY `researcherID_idx` (`Researcher_ID`),
+  CONSTRAINT `researcherID_FK` FOREIGN KEY (`Researcher_ID`) REFERENCES `researcher` (`Researcher_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `question_types`
+-- Dumping data for table `login`
 --
 
-LOCK TABLES `question_types` WRITE;
-/*!40000 ALTER TABLE `question_types` DISABLE KEYS */;
-INSERT INTO `question_types` VALUES (1,'text'),(2,'number'),(3,'multi_select'),(4,'option');
-/*!40000 ALTER TABLE `question_types` ENABLE KEYS */;
+LOCK TABLES `login` WRITE;
+/*!40000 ALTER TABLE `login` DISABLE KEYS */;
+INSERT INTO `login` VALUES (1,'headresearcher','headresearcher',1),(2,'principalresearcher','principalresearcher',2),(3,'co','co',3),(10,'LabUser','labwork',8),(11,'LabUser3','labwork2',9);
+/*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-29 10:13:45
+-- Dump completed on 2021-02-03 11:29:43
