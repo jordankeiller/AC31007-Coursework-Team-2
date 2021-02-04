@@ -83,13 +83,17 @@
 			<input type="number" name="Researcher_ID" value="<?php echo $Reid; ?>">
 		</div>
       --> 
+        <!-- Displays either update or save button depending on action -->
 		<div class="input-group">
-		<?php if ($update == true): ?>
-	<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
-		<?php else: ?>
-	<button class="btn" type="submit" name="save" >Save</button>
-		<?php endif ?>
-		</div>
-	</form>
+
+			<?php
+				if ($update == true) {
+					echo '<button class="btn" type="submit" name="update">Update</button>';
+				} else {
+					echo '<button class="btn" type="submit" name="save">Save</button>';
+				}
+			?>
+        </div>
+    </form>
 </body>
 </html>
