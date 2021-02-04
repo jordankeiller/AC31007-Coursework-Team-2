@@ -60,16 +60,18 @@ if (isset($_GET['edit'])) {
 		</div>
 	</nav>
 
-	<!-- Displays message after action has been done. -->
-	<?php
-	if (isset($_SESSION['message'])) {
-		echo $_SESSION['message'];
-		unset($_SESSION['message']);
-	}
-	?>
+	<div class="container bg-white px-4 py-2">
 
-
+		<!-- Displays message after action has been done. -->
 		<?php
+		if (isset($_SESSION['message'])) {
+
+			echo '<div class="alert alert-success alert-dismissible fade show">';
+			echo $_SESSION['message'];
+			echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+			echo '</div>';
+
+			unset($_SESSION['message']); // Removes message from session storage.
 		}
 		?>
 
