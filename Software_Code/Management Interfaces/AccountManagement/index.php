@@ -51,22 +51,18 @@
 		$stmtResults->execute();
 		$results = $stmtResults->fetchAll();
 
-	
-	<?php foreach ($results as $row) { ?>
-		<tr>
-			<td><?php echo $row['Name']; ?></td>
-			<td><?php echo $row['Researcher_Type']; ?></td>
-	<!--		
-   -->
-			<td>
-				<a href="index.php?edit=<?php echo $row['Researcher_ID']; ?>" class="edit_btn" >Edit</a>
-			</td>
-			<td>
-				<a href="php_code.php?del=<?php echo $row['Researcher_ID']; ?>" class="del_btn">Delete</a>
-			</td>
-		</tr>
-	<?php } ?>
-</table>
+		// Displays all the researchers in a table format.
+		foreach ($results as $row) {
+			echo "<tr>";
+			echo "<td>" .$row['Researcher_ID'] ."</td>";
+			echo "<td>" .$row['Name'] ."</td>";
+			echo "<td>" .$row['Researcher_Type'] ."</td>";
+			echo '<td><a href="index.php?edit=' .$row['Researcher_ID'] .'">Edit</a></td>';
+			echo '<td><a href="php_code.php?del=' .$row['Researcher_ID'] .'">Delete</a></td>';
+			echo "</tr>";
+		}
+	?>
+    </table>
 
 
 
