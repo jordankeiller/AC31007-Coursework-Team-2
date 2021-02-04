@@ -66,8 +66,11 @@ if (isset($_POST['submit'])){
                 // Loops through each selected option.
                 foreach ($value as $opt) {
 
+                    // Regular expression for multi select.
+                    $REG_EXPRESSION_MULTI = filter_var($opt, FILTER_SANITIZE_STRING);
+
                     // Calls procedure to get the option id using question id and option name as input.
-                    $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$opt."');";
+                    $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$REG_EXPRESSION_MULTI."');";
                     $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
                     $STMT_OPTIONS->execute();
                     $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
@@ -84,8 +87,11 @@ if (isset($_POST['submit'])){
             // If the question type is option (where the participant only chooses one out of many options).
             elseif ($type == "option") {
 
+                // Regular expression for option types.
+                $REG_EXPRESSION_OPTION = filter_var($value, FILTER_SANITIZE_STRING);
+
                 // Calls procedure to get the option id using question id and option name as input.
-                $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$value."');";
+                $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.get_question_option(".$key.", '".$REG_EXPRESSION_OPTION."');";
                 $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);
                 $STMT_OPTIONS->execute();
                 $RESULT_OPTIONS = $STMT_OPTIONS->fetchAll();
