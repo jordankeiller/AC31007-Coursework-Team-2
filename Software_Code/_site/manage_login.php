@@ -4,13 +4,18 @@
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
 		$update = true;
-		$record = mysqli_query($db, "SELECT * FROM login WHERE Login_ID=$id");
+
+		$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM login WHERE Login_ID=$id");
+		$stmtRecord->execute();
+		$record = $stmtRecord->fetchAll();
 
 		if (count($record) == 1 ) {
-			$n = mysqli_fetch_array($record);
-			$name = $n['Username'];
-			$Pass = $n['Password'];
-			$Reid= $n['Researcher_ID'];
+
+			foreach ($record as $key) {
+				$name = $record['Username'];
+				$Pass = $record['Password'];
+				$Reid= $record['Researcher_ID'];
+			}
 		}
 	}
 ?>
