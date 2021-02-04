@@ -119,7 +119,6 @@ if (isset($_GET['edit'])) {
 			<label>Name</label>
 			<input type="text" name="Name" value="<?php echo $name; ?>" required>
 
-
 			<label>Role</label>
 			<input type="text" name="Researcher_Type" value="<?php echo $Type; ?>" required>
 
