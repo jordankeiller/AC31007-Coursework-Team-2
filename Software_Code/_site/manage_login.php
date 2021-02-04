@@ -93,37 +93,40 @@
 		<?php
 		if (isset($_SESSION['message'])) {
 
-	<form method="post" action="assets/php/manage_login_process.php" >
 			echo '<div class="alert alert-success alert-dismissible fade show">';
 			echo $_SESSION['message'];
 			echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
 			echo '</div>';
 
-		<input type="hidden" name="Login_ID" value="<?php echo $id; ?>">
-        
-		<label>Name</label>
-		<input type="text" name="Username" value="<?php echo $name; ?>" required>
 			unset($_SESSION['message']); // Removes message from session storage.
 		}
 		?>
 
-		<label>Password</label>
-		<input type="text" name="Password" value="<?php echo $Pass; ?>" required>
+		<form method="post" action="assets/php/manage_login_process.php">
 
-		<?php
-			
+			<!-- Stores the login id to be send. Hidden from the user. -->
+			<input type="hidden" name="Login_ID" value="<?php echo $id; ?>">
+
+			<label>Username</label>
+			<input type="text" name="Username" value="<?php echo $name; ?>" required>
+
+			<label>Password</label>
+			<input type="text" name="Password" value="<?php echo $Pass; ?>" required>
+
+			<?php
+
 			// If user is updating record then make readonly the research id field.
 			// Displays relevant button based on action.
 			if ($update == true) {
 				echo '<label>Researcher ID (readonly)</label>';
-				echo'<input type="number" name="Researcher_ID" value="' .$Reid . '" readonly>';
+				echo '<input type="number" name="Researcher_ID" value="' . $Reid . '" readonly>';
 				echo '<button class="btn btn-primary" type="submit" name="update">Update</button>';
 			} else {
 				echo '<label>Researcher ID</label>';
-				echo'<input type="number" name="Researcher_ID" value="' .$Reid . '">';
+				echo '<input type="number" name="Researcher_ID" value="' . $Reid . '">';
 				echo '<button class="btn btn-primary" type="submit" name="save">Save</button>';
 			}
-		?>
+			?>
 
 	</div>
 	</form>
