@@ -18,10 +18,11 @@ include "GLOBAL_CONFIG.php";
 		$id = $_POST['Login_ID'];
 		$name = $_POST['Username'];
         $Pass = $_POST['Password'];
-        $Reid = $_POST['Researcher_ID'];
-		$query1="INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')";
-		$querystatement=$MYSQL_CONNECTION->prepare($query1);
-		$queryresult=$querystatement->execute();
+		$Reid = $_POST['Researcher_ID'];
+		
+		// Sends new login details to the database.
+		$stmtSave = $MYSQL_CONNECTION->prepare("INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')")->execute();
+
 	//	mysqli_query($db, "INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')");
 		$_SESSION['message'] = "Password saved"; 
 		header('location: index.php');
