@@ -1,16 +1,17 @@
 <?php 
 	// Includes processing file.
 	include('researcher_manage.php');
+
+	// Used to update a researcher's details. Stores id for use it to update database.
+	// Displays current details in the update form textboxes. 
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
 		$update = true;
 
-		// Fetches all researchers from the database.
-		$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher WHERE Researcher_ID=$id")->execute();
+		// Fetches the researchers details to update.
 		$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher WHERE Researcher_ID=$id");
 		$stmtRecord->execute();
-		$record = $stmtRecord->fetchAll(); // Stores data.
-
+		$record = $stmtRecord->fetchAll();
 		if (count($record) == 1 ) {
 
 			foreach ($record as $key) {
@@ -22,8 +23,11 @@
 ?>
 <!DOCTYPE html>
 <html>
-	<title>Account Manager</title>
+
+<head>
+    <title>Account Manager</title>
 </head>
+
 <body>
 
     <?php
@@ -64,20 +68,20 @@
 	?>
     </table>
 
+    <!-- Displays the form to update or save details. -->
+	<form method="post" action="php_code.php">
 
+        <div class="input-group">
+            <input type="hidden" name="Researcher_ID" value="<?php echo $id; ?>">
+            <label>Name</label>
+            <input type="text" name="Name" value="<?php echo $name; ?>">
+        </div>
 
-	<form method="post" action="php_code.php" >
-		<div class="input-group">
-		<input type="hidden" name="Researcher_ID" value="<?php echo $id; ?>">
-        
-			<label>Name</label>
-			
-			<input type="text" name="Name" value="<?php echo $name; ?>">
-		</div>
-		<div class="input-group">
-			<label>Research Type</label>
-			<input type="text" name="Researcher_Type" value="<?php echo $Type; ?>">
-		</div>
+        <div class="input-group">
+            <label>Role</label>
+            <input type="text" name="Researcher_Type" value="<?php echo $Type; ?>">
+        </div>
+
         <!-- Displays either update or save button depending on action -->
 		<div class="input-group">
 
@@ -91,4 +95,5 @@
         </div>
     </form>
 </body>
+
 </html>
