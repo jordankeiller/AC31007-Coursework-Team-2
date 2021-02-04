@@ -113,8 +113,13 @@ if (isset($_GET['edit'])) {
 			<!-- Stores the login id to be send. Hidden from the user. -->
 			<input type="hidden" name="Login_ID" value="<?php echo $id; ?>">
 
-			<label>Username</label>
-			<input type="text" name="Username" value="<?php echo $name; ?>" required>
+			<!-- Username input -->
+			<div class="mb-3">
+				<div class="form-floating mb-3">
+					<input type="text" class="form-control" id="username" placeholder="" name="Username" value="<?php echo $name; ?>" required>
+					<label for="username">Username</label>
+				</div>
+			</div>
 
 			<label>Password</label>
 			<input type="text" name="Password" value="<?php echo $Pass; ?>" required>
