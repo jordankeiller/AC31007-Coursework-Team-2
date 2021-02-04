@@ -78,11 +78,6 @@
 			<label>Research Type</label>
 			<input type="text" name="Researcher_Type" value="<?php echo $Type; ?>">
 		</div>
-	<!--	<div class="input-group">
-			<label>Researcher_ID</label>
-			<input type="number" name="Researcher_ID" value="<?php echo $Reid; ?>">
-		</div>
-      --> 
         <!-- Displays either update or save button depending on action -->
 		<div class="input-group">
 
