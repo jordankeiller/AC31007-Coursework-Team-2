@@ -12,10 +12,11 @@
 		$record = $stmtRecord->fetchAll(); // Stores data.
 
 		if (count($record) == 1 ) {
-			$n = mysqli_fetch_array($record);
-			$name = $n['Name'];
-			$Type = $n['Researcher_Type'];
-//			$Reid= $n['Researcher_ID'];
+
+			foreach ($record as $key) {
+				$name = $key['Name'];
+				$Type = $key['Researcher_Type'];
+			}
 		}
 	}
 ?>
