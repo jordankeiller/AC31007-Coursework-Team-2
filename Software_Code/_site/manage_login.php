@@ -1,5 +1,4 @@
 <?php  
-include "GLOBAL_CONFIG.php";
 include('php_code.php'); ?>
 <?php 
 	if (isset($_GET['edit'])) {
