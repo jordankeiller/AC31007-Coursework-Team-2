@@ -27,7 +27,7 @@ include "GLOBAL_CONFIG.php";
 		header('location: index.php');
 	}
 
-	if (isset($_POST['update'])) {
+	else if (isset($_POST['update'])) {
 		$id = $_POST['Login_ID'];
 		$name = $_POST['Username'];
         $Pass = $_POST['Password'];
@@ -41,7 +41,7 @@ include "GLOBAL_CONFIG.php";
 		header('location: index.php');
 	}
 
-	if (isset($_GET['del'])) {
+	else if (isset($_GET['del'])) {
         $id = $_GET['del'];
         $query3="DELETE FROM login WHERE Login_ID=$id";
         $querystatement3=$MYSQL_CONNECTION->prepare($query3);
