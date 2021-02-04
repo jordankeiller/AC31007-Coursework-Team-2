@@ -32,20 +32,17 @@
         $Pass = $_POST['Password'];
         $Reid = $_POST['Researcher_ID'];
     
-        $query2="UPDATE login SET Username='$name', Password='$Pass', Researcher_ID='$Reid' WHERE Login_ID=$id";
-        $querystatement2=$MYSQL_CONNECTION->prepare($query2);
-		$queryresult2=$querystatement2->execute();    
-	//	mysqli_query($db, "UPDATE login SET Username='$name', Password='$Pass', Researcher_ID='$Reid' WHERE Login_ID=$id");
+        $MYSQL_CONNECTION->prepare("UPDATE login SET Username='$name', Password='$Pass', Researcher_ID='$Reid' WHERE Login_ID=$id")->execute();
+
 		$_SESSION['message'] = "<strong>Success!</strong> Details have been updated."; 
 		header('location: ../../manage_login.php');
 	}
 
 	else if (isset($_GET['del'])) {
         $id = $_GET['del'];
-        $query3="DELETE FROM login WHERE Login_ID=$id";
-        $querystatement3=$MYSQL_CONNECTION->prepare($query3);
-		$queryresult3=$querystatement3->execute();
-		//mysqli_query($db, "DELETE FROM login WHERE Login_ID=$id");
+		
+		$MYSQL_CONNECTION->prepare("DELETE FROM login WHERE Login_ID=$id")->execute();
+
 		$_SESSION['message'] = "<strong>Success!</strong> Details have been deleted."; 
 		header('location: ../../manage_login.php');
 	}
