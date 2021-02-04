@@ -68,39 +68,45 @@ if (isset($_GET['edit'])) {
 	}
 	?>
 
-	<!-- Displays the researchers -->
-	<table>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Role</th>
-				<th>Edit Entry</th>
-				<th>Action</th>
-			</tr>
-		</thead>
 
 		<?php
-		// Fetches all the researchers from the database.
-		$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher");
-		$stmtResults->execute();
-		$results = $stmtResults->fetchAll();
-
-		// Displays all the researchers in a table format.
-		foreach ($results as $row) {
-			echo "<tr>";
-			echo "<td>" . $row['Researcher_ID'] . "</td>";
-			echo "<td>" . $row['Name'] . "</td>";
-			echo "<td>" . $row['Researcher_Type'] . "</td>";
-			echo '<td><a href="index.php?edit=' . $row['Researcher_ID'] . '">Edit</a></td>';
-			echo '<td><a href="php_code.php?del=' . $row['Researcher_ID'] . '">Delete</a></td>';
-			echo "</tr>";
 		}
 		?>
-	</table>
 
 	<!-- Displays the form to update or save details. -->
 	<form method="post" action="assets/php/manage_researchers_process.php">
+		<!-- Table which displays the researchers -->
+		<table class="table table-hover mt-3">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Name</th>
+					<th scope="col">Role</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				// Fetches all the researchers from the database.
+				$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher");
+				$stmtResults->execute();
+				$results = $stmtResults->fetchAll();
+
+				// Displays all the researchers in a table format.
+				foreach ($results as $row) {
+					echo "<tr>";
+					echo "<th scope='row'>" . $row['Researcher_ID'] . "</th>";
+					echo "<td>" . $row['Name'] . "</td>";
+					echo "<td>" . $row['Researcher_Type'] . "</td>";
+					echo '<td>
+						<a class="btn btn-primary btn-sm" href="manage_researchers.php?edit=' . $row['Researcher_ID'] . '">Edit</a>
+						<a class="btn btn-danger btn-sm" href="assets/php/manage_researchers_process.php?del=' . $row['Researcher_ID'] . '">Delete</a>
+						</td>';
+					echo "</tr>";
+				}
+				?>
+			</tbody>
+		</table>
 
 		<div class="input-group">
 			<input type="hidden" name="Researcher_ID" value="<?php echo $id; ?>">
