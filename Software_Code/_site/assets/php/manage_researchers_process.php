@@ -22,7 +22,7 @@
 		// Sends query with entered details to the database.
 		$MYSQL_CONNECTION->prepare("INSERT INTO researcher (Name, Researcher_Type) VALUES ('$name', '$Type')")->execute();
 
-		header('location: index.php');
+		header("Location: ./../../manage_researchers.php");
 		$_SESSION['message'] = "<strong>Success! </strong>Researcher saved."; 
 	}
 	// If the user wants to update researcher details.
@@ -36,7 +36,7 @@
 		// Sends query to update details
 		$MYSQL_CONNECTION->prepare("UPDATE researcher SET Name='$name', Researcher_Type='$Type' WHERE Researcher_ID=$id")->execute();
 
-		header('location: index.php');
+		header("Location: ./../../manage_researchers.php");
 		$_SESSION['message'] = "<strong>Success! </strong>Researcher updated.";
 	}
 	// If the user wants to delete a researcher.
@@ -48,7 +48,7 @@
 		// Execute delete statement.
 		$MYSQL_CONNECTION->prepare("DELETE FROM researcher WHERE Researcher_ID=$id")->execute();
 
-		header('location: index.php');
+		header("Location: ./../../manage_researchers.php");
 		$_SESSION['message'] = "<strong>Success! </strong>Researcher deleted."; 
 	}
 ?>
