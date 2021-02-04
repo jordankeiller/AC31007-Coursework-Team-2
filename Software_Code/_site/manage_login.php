@@ -25,15 +25,12 @@
 	<title>Login Manager</title>
 </head>
 <body>
-<?php if (isset($_SESSION['message'])): ?>
-	<div class="msg">
-		<?php 
-			echo $_SESSION['message']; 
-			unset($_SESSION['message']);
-		?>
-	</div>
-<?php endif ?>
-<?php $results = mysqli_query($db, "SELECT * FROM login"); ?>
+
+<?php if (isset($_SESSION['message'])) {
+	echo $_SESSION['message']; 
+	unset($_SESSION['message']);
+}
+?>
 
 <table>
 	<thead>
