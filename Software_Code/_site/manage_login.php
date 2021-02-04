@@ -35,10 +35,10 @@
 <table>
 	<thead>
 		<tr>
+			<th>Researcher ID</th>
 			<th>Username</th>
 			<th>Password</th>
-			<th>Edit Entry</th>
-			<th colspan="2">Action</th>
+			<th>Actions</th>
 		</tr>
 	</thead>
 	
