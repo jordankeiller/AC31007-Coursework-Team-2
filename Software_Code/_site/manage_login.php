@@ -20,17 +20,50 @@
 	}
 ?>
 <!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" type="text/css" href="style.css">
-	<title>Login Manager</title>
+<html lang="en-US">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Manage Researchers</title>
+	<link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
+	<!-- Displays the navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container px-4">
+			<a class="navbar-brand" href="index.html">Questionnaire Extraordinare</a>
 
 <?php if (isset($_SESSION['message'])) {
 	echo $_SESSION['message']; 
 	unset($_SESSION['message']);
 }
 ?>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="quiz.php">Quiz</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="createquestionnaire.php">Quiz Creator</a>
+					</li>
+				</ul>
+				<div class="d-flex">
+					<a class="btn btn-outline-light" href="">Log Out</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container bg-white px-4 py-2">
 
 <table>
 	<thead>
@@ -87,7 +120,7 @@
 			}
 		?>
 
-		</div>
+	</div>
 	</form>
 </body>
 </html>
