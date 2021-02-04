@@ -1,8 +1,10 @@
-"As Head Researcher, I need a confirmation page to be displayed once the user has clicked the ‘submit’ button 
-so that participants know they have successfully submitted the form"
+As Head Researcher, I need a confirmation page showing space for name and 
+contact information of the researcher, so that I can thank the participants upon completing a questionnaire
 Label: Deliver Last (Low Risk/Low Value) 
 MOSCOW: Should
-Story Points: 5
+Story Points: 3
+Notes
+There is enough space for 1-2 paragraphs of contact information
 
 Background:  After participants complete the questionnaire, a confirmation page should be displayed, this is to confirm that the form 
 has been submitted and allows for the researcher to leave a message saying thankyou along with any other relevant information that

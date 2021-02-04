@@ -8,3 +8,10 @@ Background:
 "I need to have the videos synchronised.  Its only after each set of videos for a given participant 
 are synced that I can look through them and analyse them for points of interest.  Then after I've 
 looked at all the participants I will move on to looking for patterns between them. "
+
+Notes:
+Upload the video.
+When pausing one of the videos, the rest should also pause.
+When resuming one of the videos, the rest should also resume.
+
+We deem this low value as sufficient analysis can be done through one camera angle.

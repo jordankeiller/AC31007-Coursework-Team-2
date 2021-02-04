@@ -1,0 +1,14 @@
+
+-16-
+"As Virtual Reality Researcher, I need a form that can allow me to choose from several tags to leave alongside 
+comments that can be used to describe a participant, so I can categorise data from my observations"
+Label:  Deliver Next (Low Risk/High Value)
+Moscow: Should
+Story Points: 5
+
+Notes:
+Fetch timestamp from the video.
+Save the timestamp alongside the comment/tag provided.
+
+Background:  the virtual reality researcher requires a method of inputting data into a database.
+this consists of a form containing the relevant questions - see 16# and 17# 
