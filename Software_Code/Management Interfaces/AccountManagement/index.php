@@ -22,7 +22,6 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" type="text/css" href="style.css">
 	<title>Account Manager</title>
 </head>
 <body>
