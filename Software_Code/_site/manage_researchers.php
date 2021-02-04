@@ -1,6 +1,6 @@
 <?php
 // Includes processing file.
-include('assets/php/manage_researchers_process.php');
+include "assets/php/manage_researchers_process.php";
 
 // Used to update a researcher's details. Stores id for use it to update database.
 // Displays current details in the update form textboxes. 
