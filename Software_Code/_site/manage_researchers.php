@@ -33,6 +33,7 @@ if (isset($_GET['edit'])) {
 </head>
 
 <body>
+	<!-- Displays the navbar -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container px-4">
 			<a class="navbar-brand" href="index.html">Questionnaire Extraordinare</a>
@@ -75,9 +76,8 @@ if (isset($_GET['edit'])) {
 		}
 		?>
 
-	<!-- Displays the form to update or save details. -->
-	<form method="post" action="assets/php/manage_researchers_process.php">
 		<h1 class="text-primary fw-bold mt-3 mb-0">Manage Researchers</h1>
+
 		<!-- Table which displays the researchers -->
 		<table class="table table-hover mt-3">
 			<thead>
@@ -111,29 +111,28 @@ if (isset($_GET['edit'])) {
 			</tbody>
 		</table>
 
-		<div class="input-group">
+		<!-- Displays the form to update or save details. -->
+		<form method="post" action="assets/php/manage_researchers_process.php">
+
 			<input type="hidden" name="Researcher_ID" value="<?php echo $id; ?>">
+
 			<label>Name</label>
-			<input type="text" name="Name" value="<?php echo $name; ?>">
-		</div>
+			<input type="text" name="Name" value="<?php echo $name; ?>" required>
 
-		<div class="input-group">
+
 			<label>Role</label>
-			<input type="text" name="Researcher_Type" value="<?php echo $Type; ?>">
-		</div>
+			<input type="text" name="Researcher_Type" value="<?php echo $Type; ?>" required>
 
-		<!-- Displays either update or save button depending on action -->
-		<div class="input-group">
-
+			<!-- Displays either update or save button depending on action -->
 			<?php
 			if ($update == true) {
-				echo '<button class="btn" type="submit" name="update">Update</button>';
+				echo '<button class="btn btn-primary" type="submit" name="update">Update</button>';
 			} else {
-				echo '<button class="btn" type="submit" name="save">Save</button>';
+				echo '<button class="btn btn-primary" type="submit" name="save">Save</button>';
 			}
 			?>
-		</div>
-	</form>
+		</form>
+	</div>
 
 	<script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
 	<script src="assets/js/bootstrap.js"></script>
