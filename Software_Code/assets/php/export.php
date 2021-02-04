@@ -9,7 +9,7 @@
     // we initialize the output with the headers
     $output = "Question_ID;Question_Option_ID;Response;Participant_ID\n";
     
-    // select all members
+    // select all responses
     $sql = 'SELECT * FROM questionnaire_responses GROUP BY Response_ID ORDER BY Participant_ID, Question_ID;';
     $query = $MYSQL_CONNECTION->prepare($sql);
     $query->execute();
@@ -32,9 +32,6 @@
 
             $output .= $rs["Question_ID"] ."; NULL;" .$REG_EXPRESSION_QUESTION_OPTION.";".$rs['Participant_ID'] ."\n";
         }
-
-        // Appends the row data into the output file.
-        
     }
     // export the output
     echo $output;
