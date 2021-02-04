@@ -2,4 +2,9 @@ As a Co-Researcher, I should be able to view experiments I have been assigned to
 so that I can aid in the research. 
 Labels: Deliver Next (Low Risk/High Value) 
 Moscow: Should
-Story Points: 2
+3 story points.
+Tasks
+-Create a linking table for questionnaires which have co-researchers
+-Creating a stored procedure which returns all the questionnaires which a particular co-researcher can access
+-Allow the researcher to select which questionnaire they want to view
+-Show them the questions and responses of this questionnaire
