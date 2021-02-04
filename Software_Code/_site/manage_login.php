@@ -63,21 +63,9 @@
 </table>
 
 	<form method="post" action="php_code.php" >
-		<div class="input-group">
+
 		<input type="hidden" name="Login_ID" value="<?php echo $id; ?>">
         
-			<label>Name</label>
-			
-			<input type="text" name="Username" value="<?php echo $name; ?>">
-		</div>
-		<div class="input-group">
-			<label>Password</label>
-			<input type="text" name="Password" value="<?php echo $Pass; ?>">
-		</div>
-		<div class="input-group">
-			<label>Researcher_ID</label>
-			<input type="number" name="Researcher_ID" value="<?php echo $Reid; ?>">
-		</div>
        
 		<div class="input-group">
 		<?php if ($update == true): ?>
@@ -85,6 +73,14 @@
 		<?php else: ?>
 	<button class="btn" type="submit" name="save" >Save</button>
 		<?php endif ?>
+		<label>Name</label>
+		<input type="text" name="Username" value="<?php echo $name; ?>" required>
+
+		<label>Password</label>
+		<input type="text" name="Password" value="<?php echo $Pass; ?>" required>
+
+		<label>Researcher_ID</label>
+		<input type="number" name="Researcher_ID" value="<?php echo $Reid; ?>" required>
 		</div>
 	</form>
 </body>
