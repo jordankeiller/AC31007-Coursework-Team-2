@@ -72,14 +72,17 @@
 		<label>Password</label>
 		<input type="text" name="Password" value="<?php echo $Pass; ?>" required>
 
-		<label>Researcher_ID</label>
-		<input type="number" name="Researcher_ID" value="<?php echo $Reid; ?>" required>
-
-
 		<?php
+			
+			// If user is updating record then make readonly the research id field.
+			// Displays relevant button based on action.
 			if ($update == true) {
+				echo '<label>Researcher ID (readonly)</label>';
+				echo'<input type="number" name="Researcher_ID" value="' .$Reid . '" readonly>';
 				echo '<button class="btn btn-primary" type="submit" name="update">Update</button>';
 			} else {
+				echo '<label>Researcher ID</label>';
+				echo'<input type="number" name="Researcher_ID" value="' .$Reid . '">';
 				echo '<button class="btn btn-primary" type="submit" name="save">Save</button>';
 			}
 		?>
