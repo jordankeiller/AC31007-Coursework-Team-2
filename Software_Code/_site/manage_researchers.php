@@ -77,6 +77,7 @@ if (isset($_GET['edit'])) {
 
 	<!-- Displays the form to update or save details. -->
 	<form method="post" action="assets/php/manage_researchers_process.php">
+		<h1 class="text-primary fw-bold mt-3 mb-0">Manage Researchers</h1>
 		<!-- Table which displays the researchers -->
 		<table class="table table-hover mt-3">
 			<thead>
