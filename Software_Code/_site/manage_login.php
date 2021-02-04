@@ -60,35 +60,6 @@
 
 	<div class="container bg-white px-4 py-2">
 
-<table>
-	<thead>
-		<tr>
-			<th>Researcher ID</th>
-			<th>Username</th>
-			<th>Password</th>
-			<th>Actions</th>
-		</tr>
-	</thead>
-
-	<?php
-		$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM login");
-		$stmtResults->execute();
-		$record = $stmtResults->fetchAll();
-
-		foreach ($record as $row) {
-			echo "<tr>";
-			echo "<th scope='row'>" . $row['Researcher_ID'] . "</th>";
-			echo "<td>" . $row['Username'] . "</td>";
-			echo "<td>" . $row['Password'] . "</td>";
-			echo '<td>
-				<a class="btn btn-primary btn-sm" href="manage_login.php?edit=' . $row['Login_ID'] . '">Change</a>
-				<a class="btn btn-danger btn-sm" href="assets/php/manage_login_process.php?del=' . $row['Login_ID'] . '">Delete</a>
-				</td>';
-			echo "</tr>";
-		}
-	?>
-	
-</table>
 		<!-- Displays message after action has been done. -->
 		<?php
 		if (isset($_SESSION['message'])) {
@@ -101,6 +72,38 @@
 			unset($_SESSION['message']); // Removes message from session storage.
 		}
 		?>
+
+		<!-- Table which displays the researchers -->
+		<table class="table table-hover mt-3">
+			<thead>
+				<tr>
+					<th scope="col">Researcher ID</th>
+					<th scope="col">Username</th>
+					<th scope="col">Password</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				// Fetches all the researchers from the database.
+				$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM login");
+				$stmtResults->execute();
+				$record = $stmtResults->fetchAll();
+
+				foreach ($record as $row) {
+					echo "<tr>";
+					echo "<th scope='row'>" . $row['Researcher_ID'] . "</th>";
+					echo "<td>" . $row['Username'] . "</td>";
+					echo "<td>" . $row['Password'] . "</td>";
+					echo '<td>
+						<a class="btn btn-primary btn-sm" href="manage_login.php?edit=' . $row['Login_ID'] . '">Change</a>
+						<a class="btn btn-danger btn-sm" href="assets/php/manage_login_process.php?del=' . $row['Login_ID'] . '">Delete</a>
+						</td>';
+					echo "</tr>";
+				}
+				?>
+			</tbody>
+		</table>
 
 		<form method="post" action="assets/php/manage_login_process.php">
 
