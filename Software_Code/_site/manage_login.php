@@ -62,7 +62,7 @@
 	
 </table>
 
-	<form method="post" action="php_code.php" >
+	<form method="post" action="assets/php/manage_login_process.php" >
 
 		<input type="hidden" name="Login_ID" value="<?php echo $id; ?>">
         
