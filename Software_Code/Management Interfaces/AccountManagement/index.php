@@ -34,11 +34,11 @@
 ?>
 
 // Fetches all the results from the database.
-$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher");
-$stmtResults->execute();
-$results = $stmtResults->fetchAll();
 
 ?>
+		$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher");
+		$stmtResults->execute();
+		$results = $stmtResults->fetchAll();
 
 <table>
 	<thead>
