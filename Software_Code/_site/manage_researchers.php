@@ -1,6 +1,6 @@
 <?php 
 	// Includes processing file.
-	include('researcher_manage.php');
+	include('assets/php/manage_researchers_process.php');
 
 	// Used to update a researcher's details. Stores id for use it to update database.
 	// Displays current details in the update form textboxes. 
@@ -69,7 +69,7 @@
     </table>
 
     <!-- Displays the form to update or save details. -->
-	<form method="post" action="researcher_manage.php">
+	<form method="post" action="assets/php/manage_researchers_process.php">
 
         <div class="input-group">
             <input type="hidden" name="Researcher_ID" value="<?php echo $id; ?>">
