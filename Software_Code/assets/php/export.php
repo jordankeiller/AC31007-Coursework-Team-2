@@ -4,28 +4,37 @@
 
     // set headers to force download on csv format
     header('Content-Type: text/csv; charset=utf-8');
-    header('Content-Disposition: attachment; filename=users.csv');
+    header('Content-Disposition: attachment; filename=questionnaire_responses.csv');
 
     // we initialize the output with the headers
-    $output = "Researcher_ID,Name,Researcher_Type\n";
+    $output = "Question_ID;Question_Option_ID;Response;Participant_ID\n";
     
     // select all members
-    $sql = 'SELECT * FROM researcher ORDER BY Researcher_ID ASC';
+    $sql = 'SELECT * FROM questionnaire_responses GROUP BY Response_ID ORDER BY Participant_ID, Question_ID;';
     $query = $MYSQL_CONNECTION->prepare($sql);
     $query->execute();
     $list = $query->fetchAll();
 
     // Loops through each row.
     foreach ($list as $rs) {
-        // add new row
-        $row = array();
 
-        $row[] = stripslashes($rs["Researcher_ID"]);
-        $row[] = stripslashes($rs["Name"]);
-        $row[] = stripslashes($rs["Researcher_Type"]);
+        if(isset($rs['Question_Option_ID'])){
+            $sql1 = "SELECT * FROM questionnaire_questions_options WHERE Question_Option_ID =".$rs['Question_Option_ID'].";";
+            $query1 = $MYSQL_CONNECTION->prepare($sql1);
+            $query1->execute();
+            $question_text = $query1->fetch();
+
+            $REG_EXPRESSION_QUESTION_OPTION = filter_var($question_text['Question_Option_Description'], FILTER_SANITIZE_STRING);
+
+            $output .= $rs["Question_ID"] .";" .$REG_EXPRESSION_QUESTION_OPTION ."; NULL;".$rs['Participant_ID'] ."\n";
+        } else{
+            $REG_EXPRESSION_QUESTION_OPTION = filter_var($rs["Response"], FILTER_SANITIZE_STRING);
+
+            $output .= $rs["Question_ID"] ."; NULL;" .$REG_EXPRESSION_QUESTION_OPTION.";".$rs['Participant_ID'] ."\n";
+        }
 
         // Appends the row data into the output file.
-        $output .= $rs["Researcher_ID"] ."," .$rs["Name"] ."," .$rs["Researcher_Type"] ."\n";
+        
     }
     // export the output
     echo $output;
