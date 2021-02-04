@@ -12,9 +12,9 @@
 		if (count($record) == 1 ) {
 
 			foreach ($record as $key) {
-				$name = $record['Username'];
-				$Pass = $record['Password'];
-				$Reid= $record['Researcher_ID'];
+				$name = $key['Username'];
+				$Pass = $key['Password'];
+				$Reid= $key['Researcher_ID'];
 			}
 		}
 	}
