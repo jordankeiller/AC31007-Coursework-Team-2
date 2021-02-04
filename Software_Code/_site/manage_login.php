@@ -1,6 +1,6 @@
-<?php  
-include('php_code.php'); ?>
 <?php 
+	include('assets/php/manage_login_process.php');
+
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
 		$update = true;
