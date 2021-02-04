@@ -7,6 +7,7 @@
 
 		// Fetches all researchers from the database.
 		$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher WHERE Researcher_ID=$id")->execute();
+		$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher WHERE Researcher_ID=$id");
 		$stmtRecord->execute();
 		$record = $stmtRecord->fetchAll(); // Stores data.
 
