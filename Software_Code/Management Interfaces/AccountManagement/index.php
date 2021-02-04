@@ -1,5 +1,6 @@
 <?php 
-	include('php_code.php');
+	// Includes processing file.
+	include('researcher_manage.php');
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
 		$update = true;
