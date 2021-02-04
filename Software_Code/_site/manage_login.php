@@ -121,8 +121,13 @@ if (isset($_GET['edit'])) {
 				</div>
 			</div>
 
-			<label>Password</label>
-			<input type="text" name="Password" value="<?php echo $Pass; ?>" required>
+			<!-- Password Input -->
+			<div class="mb-3">
+				<div class="form-floating mb-3">
+					<input type="text" class="form-control" id="username" placeholder="" name="Password" value="<?php echo $Pass; ?>" required>
+					<label for="password">Password</label>
+				</div>
+			</div>
 
 			<?php
 
