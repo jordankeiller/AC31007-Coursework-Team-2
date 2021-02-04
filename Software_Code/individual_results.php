@@ -7,24 +7,23 @@ foreach ($_POST as $key => $value) {
 
   if ($key != "submit")
   {
-    $FETCH_QUESTIONNAIRE_RESPONSES = "SELECT * FROM questionnaire_responses WHERE Participant_ID = ".$value." GROUP BY Response_ID ORDER BY Participant_ID, Question_ID";
-    $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTIONNAIRE_RESPONSES);
+    $FETCH_QUESTIONNAIRE_RESPONSE = "CALL `20agileteam2db`.`get_participant_questionnaire_response`(".$_POST['participant'].")";
+    $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTIONNAIRE_RESPONSE);
     $STMT->execute();
-    $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall();
+    $PARTICIPANT_RESPONSE = $STMT->fetchall();
     // For each answer in questionnaire
-    foreach ($RESEARCHER_QUESTIONNAIRES as $row) {
+    foreach ($PARTICIPANT_RESPONSE as $row) {
       if ($row['Response'] != NULL) { // Open ended question
         if ($row["Question_ID"] != $CURR_QUESTION){
           $CURR_QUESTION = $row["Question_ID"];
-          // echo $row['Description'] . "<br>";
-          //echo "<h3 class='text-primary mt-3 mb-1'>" . $row['Description'] . "</h3>";
+          echo $row['Question_Description'] . "<br>";
         }
         echo $row['Response']. "<br>";
       }
       else { // Select one of the following or tick all of the following
         if ($row["Question_ID"] != $CURR_QUESTION) {
+          echo $row['Question_Description'] . "<br>";
           $CURR_QUESTION = $row["Question_ID"];
-          //echo "<h3 class='text-primary mt-3 mb-1'>" . $row['Description'] . "</h3>";
         }
         $FETCH_QUESTION_OPTIONS = "CALL `20agileteam2db`.`options_for_question`(". $row['Question_ID'] .")";
         $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTION_OPTIONS);
