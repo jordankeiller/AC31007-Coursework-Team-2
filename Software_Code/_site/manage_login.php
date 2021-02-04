@@ -41,24 +41,26 @@
 			<th>Actions</th>
 		</tr>
 	</thead>
+
+	<?php
+		$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM login");
+		$stmtResults->execute();
+		$record = $stmtResults->fetchAll();
+
+		foreach ($record as $row) {
+			echo "<tr>";
+			echo "<th scope='row'>" . $row['Researcher_ID'] . "</th>";
+			echo "<td>" . $row['Username'] . "</td>";
+			echo "<td>" . $row['Password'] . "</td>";
+			echo '<td>
+				<a class="btn btn-primary btn-sm" href="manage_login.php?edit=' . $row['Login_ID'] . '">Change</a>
+				<a class="btn btn-danger btn-sm" href="assets/php/manage_login_process.php?del=' . $row['Login_ID'] . '">Delete</a>
+				</td>';
+			echo "</tr>";
+		}
+	?>
 	
-	<?php while ($row = mysqli_fetch_array($results)) { ?>
-		<tr>
-			<td><?php echo $row['Username']; ?></td>
-			<td><?php echo $row['Password']; ?></td>
-			<td><?php echo $row['Researcher_ID']; ?></td>
-   
-			<td>
-				<a href="index.php?edit=<?php echo $row['Login_ID']; ?>" class="edit_btn" >Edit</a>
-			</td>
-			<td>
-				<a href="php_code.php?del=<?php echo $row['Login_ID']; ?>" class="del_btn">Delete</a>
-			</td>
-		</tr>
-	<?php } ?>
 </table>
-
-
 
 	<form method="post" action="php_code.php" >
 		<div class="input-group">
