@@ -69,7 +69,7 @@
     </table>
 
     <!-- Displays the form to update or save details. -->
-	<form method="post" action="php_code.php">
+	<form method="post" action="researcher_manage.php">
 
         <div class="input-group">
             <input type="hidden" name="Researcher_ID" value="<?php echo $id; ?>">
