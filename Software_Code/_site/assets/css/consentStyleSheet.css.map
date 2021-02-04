@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "consentStyleSheet.css",
+	"sources": [
+		"consentStyleSheet.scss"
+	],
+	"sourcesContent": [
+		"#overlay {\n  position: fixed;\n  display: block;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: white;\n  z-index: 2;\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,QAAQ,CAAC,EACP,QAAQ,EAAE,KAAK,EACf,OAAO,EAAE,KAAK,EACd,KAAK,EAAE,IAAI,EACX,MAAM,EAAE,IAAI,EACZ,GAAG,EAAE,CAAC,EACN,IAAI,EAAE,CAAC,EACP,KAAK,EAAE,CAAC,EACR,MAAM,EAAE,CAAC,EACT,gBAAgB,EAAE,KAAK,EACvB,OAAO,EAAE,CAAC,GACX"
+}

@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <title>Dashboard - Questionnaire Extraordinare</title>
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/consentStyleSheet.css">
 </head>
 
 <body>
@@ -22,9 +23,6 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="quiz.php">Quiz</a>
         </li>
 		<li class="nav-item">
           <a class="nav-link" aria-current="page" href="createquestionnaire.php">Quiz Creator</a>
@@ -61,6 +59,15 @@
       $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_QUESTIONNAIRES);
       $STMT->execute();
       $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall(); }
+
+      elseif($_SESSION['researcherType'] == 'Lab Manager'){ // Shown to Lab Managers
+      // Show all questionnaires
+      $FETCH_RESEARCHER_QUESTIONNAIRES = "SELECT * FROM `20agileteam2db`.`all_questionnaires`";
+      $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_QUESTIONNAIRES);
+      $STMT->execute();
+      $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall(); }
+
+
       ?>
 
       <h1 class="text-primary">Which questionnaire responses do you want to see?</h1>
@@ -79,8 +86,10 @@
     </div>
   </div>
 </div>
+
   <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
   <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/hideOverlay.js"></script>
 </body>
 
 </html>
