@@ -74,7 +74,7 @@ if (isset($_GET['edit'])) {
 		}
 		?>
 
-		<h1 class="text-primary fw-bold mt-3 mb-0">Manage Researchers</h1>
+		<h1 class="text-primary fw-bold mt-3 mb-0">Manage Logins</h1>
 
 		<!-- Table which displays the researchers -->
 		<table class="table table-hover mt-3">
