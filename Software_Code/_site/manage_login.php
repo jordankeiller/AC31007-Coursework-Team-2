@@ -66,13 +66,6 @@
 
 		<input type="hidden" name="Login_ID" value="<?php echo $id; ?>">
         
-       
-		<div class="input-group">
-		<?php if ($update == true): ?>
-	<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
-		<?php else: ?>
-	<button class="btn" type="submit" name="save" >Save</button>
-		<?php endif ?>
 		<label>Name</label>
 		<input type="text" name="Username" value="<?php echo $name; ?>" required>
 
@@ -81,6 +74,16 @@
 
 		<label>Researcher_ID</label>
 		<input type="number" name="Researcher_ID" value="<?php echo $Reid; ?>" required>
+
+
+		<?php
+			if ($update == true) {
+				echo '<button class="btn btn-primary" type="submit" name="update">Update</button>';
+			} else {
+				echo '<button class="btn btn-primary" type="submit" name="save">Save</button>';
+			}
+		?>
+
 		</div>
 	</form>
 </body>
