@@ -25,6 +25,7 @@
 	//	mysqli_query($db, "INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')");
 		$_SESSION['message'] = "Password saved"; 
 		header('location: index.php');
+		header('location: ../../manage_login.php');
 	}
 
 	else if (isset($_POST['update'])) {
@@ -38,7 +39,7 @@
 		$queryresult2=$querystatement2->execute();    
 	//	mysqli_query($db, "UPDATE login SET Username='$name', Password='$Pass', Researcher_ID='$Reid' WHERE Login_ID=$id");
 		$_SESSION['message'] = "User updated!"; 
-		header('location: index.php');
+		header('location: ../../manage_login.php');
 	}
 
 	else if (isset($_GET['del'])) {
@@ -48,7 +49,7 @@
 		$queryresult3=$querystatement3->execute();
 		//mysqli_query($db, "DELETE FROM login WHERE Login_ID=$id");
 		$_SESSION['message'] = "Username deleted!"; 
-		header('location: index.php');
+		header('location: ../../manage_login.php');
 	}
 
 // ...
