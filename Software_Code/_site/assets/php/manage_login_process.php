@@ -1,4 +1,5 @@
 <?php 
+	// Links to db connection details
 	include "GLOBAL_CONFIG.php";
 
 	// Starts session if not started.
@@ -13,6 +14,7 @@
 	$id = 0;
 	$update = false;
 
+	// If user wants to save details.
 	if (isset($_POST['save'])) {
 		$id = $_POST['Login_ID'];
 		$name = $_POST['Username'];
@@ -25,8 +27,9 @@
 		$_SESSION['message'] = "<strong>Success!</strong> Details have been saved."; 
 		header('location: ../../manage_login.php');
 	}
-
+	// If user wants to update details.
 	else if (isset($_POST['update'])) {
+		
 		$id = $_POST['Login_ID'];
 		$name = $_POST['Username'];
         $Pass = $_POST['Password'];
@@ -37,7 +40,7 @@
 		$_SESSION['message'] = "<strong>Success!</strong> Details have been updated."; 
 		header('location: ../../manage_login.php');
 	}
-
+	// If the user wants to delete details
 	else if (isset($_GET['del'])) {
         $id = $_GET['del'];
 		
@@ -46,5 +49,3 @@
 		$_SESSION['message'] = "<strong>Success!</strong> Details have been deleted."; 
 		header('location: ../../manage_login.php');
 	}
-
-// ...
