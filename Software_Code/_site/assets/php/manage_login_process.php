@@ -22,9 +22,7 @@
 		// Sends new login details to the database.
 		$MYSQL_CONNECTION->prepare("INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')")->execute();
 
-	//	mysqli_query($db, "INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')");
-		$_SESSION['message'] = "Password saved"; 
-		header('location: index.php');
+		$_SESSION['message'] = "<strong>Success!</strong> Details have been saved."; 
 		header('location: ../../manage_login.php');
 	}
 
@@ -38,7 +36,7 @@
         $querystatement2=$MYSQL_CONNECTION->prepare($query2);
 		$queryresult2=$querystatement2->execute();    
 	//	mysqli_query($db, "UPDATE login SET Username='$name', Password='$Pass', Researcher_ID='$Reid' WHERE Login_ID=$id");
-		$_SESSION['message'] = "User updated!"; 
+		$_SESSION['message'] = "<strong>Success!</strong> Details have been updated."; 
 		header('location: ../../manage_login.php');
 	}
 
@@ -48,7 +46,7 @@
         $querystatement3=$MYSQL_CONNECTION->prepare($query3);
 		$queryresult3=$querystatement3->execute();
 		//mysqli_query($db, "DELETE FROM login WHERE Login_ID=$id");
-		$_SESSION['message'] = "Username deleted!"; 
+		$_SESSION['message'] = "<strong>Success!</strong> Details have been deleted."; 
 		header('location: ../../manage_login.php');
 	}
 
