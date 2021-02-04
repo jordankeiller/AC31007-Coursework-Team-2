@@ -35,11 +35,6 @@
 		<div class="container px-4">
 			<a class="navbar-brand" href="index.html">Questionnaire Extraordinare</a>
 
-<?php if (isset($_SESSION['message'])) {
-	echo $_SESSION['message']; 
-	unset($_SESSION['message']);
-}
-?>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -94,13 +89,23 @@
 	?>
 	
 </table>
+		<!-- Displays message after action has been done. -->
+		<?php
+		if (isset($_SESSION['message'])) {
 
 	<form method="post" action="assets/php/manage_login_process.php" >
+			echo '<div class="alert alert-success alert-dismissible fade show">';
+			echo $_SESSION['message'];
+			echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+			echo '</div>';
 
 		<input type="hidden" name="Login_ID" value="<?php echo $id; ?>">
         
 		<label>Name</label>
 		<input type="text" name="Username" value="<?php echo $name; ?>" required>
+			unset($_SESSION['message']); // Removes message from session storage.
+		}
+		?>
 
 		<label>Password</label>
 		<input type="text" name="Password" value="<?php echo $Pass; ?>" required>
