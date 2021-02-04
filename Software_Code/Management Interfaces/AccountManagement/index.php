@@ -33,22 +33,24 @@
 	}
 ?>
 
-// Fetches all the results from the database.
+    <!-- Displays the researchers -->
+	<table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Edit Entry</th>
+                <th>Action</th>
+            </tr>
+        </thead>
 
-?>
+        <?php
+		// Fetches all the researchers from the database.
 		$stmtResults = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher");
 		$stmtResults->execute();
 		$results = $stmtResults->fetchAll();
 
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Research Type</th>
-			<th>Edit Entry</th>
-			<th colspan="2">Action</th>
-		</tr>
-	</thead>
 	
 	<?php foreach ($results as $row) { ?>
 		<tr>
