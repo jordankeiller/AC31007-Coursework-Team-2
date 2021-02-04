@@ -46,12 +46,12 @@ function createQuestion() {
     // Creates attributes relevant to text input and displays in preview.
     responseJson.type = "1";
     responseJson.options = null;
-    response.innerHTML = '<textarea class="form-control"></textarea>';
+    response.innerHTML = '<textarea class="form-control" disabled></textarea>';
   } else if (dropdownValue == "Whole Number") {
     // Creates attributes relevant to number input and displays in preview.
     responseJson.type = "2";
     responseJson.options = null;
-    response.innerHTML = '<input type="number" class="form-control" value="0">';
+    response.innerHTML = '<input type="number" class="form-control" value="0" disabled>';
   }
   // Creates attributes relevant to multi select input and displays in preview.
   else if (dropdownValue == "Tick all that apply") {
@@ -111,6 +111,13 @@ function createQuestion() {
     return;
   }
 
+  // Appends question numbers to the questions.
+  if (questionnaireJson.length <= 0) {
+    questionName = '1. ' + questionName;
+  } else {
+    questionName = (Object.keys(questionnaireJson).length + 1) + '. ' + questionName
+  }
+  
   // Saves question and response atributes.
   questionnaireJson[questionName] = responseJson;
 
