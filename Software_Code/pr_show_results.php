@@ -14,6 +14,23 @@ title: Results
       }
       // Logged in as PR
       else {
+        echo $_POST['questionnaire'];
+
+        echo "<form action='individual_results.php' method='GET'>
+          <label for='participants'>Filter by participant:</label>
+          <select name='participant' id='participant'>";
+          $FETCH_QUESTIONNAIRE_PARTICIPANTS = "CALL `20agileteam2db`.`get_participant_response`(".$_POST['questionnaire'].");`";
+          $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTIONNAIRE_PARTICIPANTS);
+          $STMT->execute();
+          $RESEARCHER_PARTICIPANTS = $STMT->fetchall(); }
+          foreach ($RESEARCHER_PARTICIPANTS as $ROW) {
+            echo "<option name='". $ROW['Questionnaire ID'] . "' value='" . $ROW['Questionnaire ID'] . "'>" . $ROW['Questionnaire Name'] . "</option>";
+          }
+          echo "</select>
+          <br><br>
+          <input id='submit' name='submit' class='btn btn-lg btn-primary mt-0 mb-4' type='submit' value='Submit'>
+        </form>";
+
         $CURR_QUESTION = NULL; // Used for printing question names
         foreach ($_POST as $key => $value) {
           echo $key;
@@ -57,7 +74,7 @@ title: Results
             echo "";
           }
         }
-      }
+
       ?>
     </div>
   </div>
