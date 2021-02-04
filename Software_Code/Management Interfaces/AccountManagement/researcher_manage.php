@@ -51,5 +51,4 @@
 		$_SESSION['message'] = "Researcher deleted!"; 
 		header('location: index.php');
 	}
-
-// ...
+?>
