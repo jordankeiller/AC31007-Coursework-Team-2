@@ -6,14 +6,14 @@
     $STMT->execute();
     $RESULT = $STMT->fetchAll();
 
-    $QUESTION_NUMBER = 1;
+    // $QUESTION_NUMBER = 1;
 
     // Loop that will run for each question that the database can find for this questionnaire
     foreach ($RESULT as $QUESTION) {
 
         // Displays the question
-        echo "<h3 class='text-primary mt-3 mb-1'>" . $QUESTION_NUMBER . ". " . $QUESTION['Question_Description'] . "</h3>";
-        $QUESTION_NUMBER++;
+        echo "<h3 class='text-primary mt-3 mb-1'>" . $QUESTION['Question_Description'] . "</h3>";
+        // $QUESTION_NUMBER++;
         // If the question has multipile options, fetch those options
         $SQL_QUERY_QUESTIONS_OPTIONS = "CALL 20agileteam2db.options_for_question(".$QUESTION['Question_ID'].")";
         $STMT_OPTIONS = $MYSQL_CONNECTION->prepare($SQL_QUERY_QUESTIONS_OPTIONS);

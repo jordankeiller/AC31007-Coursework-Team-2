@@ -28,9 +28,6 @@ if(isset($_SESSION['QuestionnaireID'])){ echo "QUESTIONNAIRE ID SESSION VARIABLE
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="index.html">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="quiz.php">Quiz</a>
-        </li>
 		<li class="nav-item">
           <a class="nav-link" aria-current="page" href="createquestionnaire.php">Quiz Creator</a>
         </li>
