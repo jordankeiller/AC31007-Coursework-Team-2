@@ -1,24 +1,25 @@
-<?php 
-	include('assets/php/manage_login_process.php');
+<?php
+include('assets/php/manage_login_process.php');
 
-	if (isset($_GET['edit'])) {
-		$id = $_GET['edit'];
-		$update = true;
+if (isset($_GET['edit'])) {
+	$id = $_GET['edit'];
+	$update = true;
 
-		$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM login WHERE Login_ID=$id");
-		$stmtRecord->execute();
-		$record = $stmtRecord->fetchAll();
+	$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM login WHERE Login_ID=$id");
+	$stmtRecord->execute();
+	$record = $stmtRecord->fetchAll();
 
-		if (count($record) == 1 ) {
+	if (count($record) == 1) {
 
-			foreach ($record as $key) {
-				$name = $key['Username'];
-				$Pass = $key['Password'];
-				$Reid= $key['Researcher_ID'];
-			}
+		foreach ($record as $key) {
+			$name = $key['Username'];
+			$Pass = $key['Password'];
+			$Reid = $key['Researcher_ID'];
 		}
 	}
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
