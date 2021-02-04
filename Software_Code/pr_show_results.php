@@ -12,11 +12,9 @@ title: Results
         header("Location: login.php");
         exit;
       }
-      // Logged in as PR
+      // Logged in as a Researcher
       else {
-        echo $_POST['questionnaire'];
-
-        echo "<form action='individual_results.php' method='GET'>
+        echo "<form action='individual_results.php' method='POST'>
           <label for='participants'>Filter by participant:</label>
           <select name='participant' id='participant'>";
           $FETCH_QUESTIONNAIRE_PARTICIPANTS = "CALL `20agileteam2db`.`get_questionnaire_response`(".$_POST['questionnaire'].");`";
