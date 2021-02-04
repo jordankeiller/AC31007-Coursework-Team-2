@@ -130,22 +130,52 @@ if (isset($_GET['edit'])) {
 			</div>
 
 			<?php
-
 			// If user is updating record then make readonly the research id field.
 			// Displays relevant button based on action.
 			if ($update == true) {
-				echo '<label>Researcher ID (readonly)</label>';
-				echo '<input class="mx-2" type="number" name="Researcher_ID" value="' . $Reid . '" readonly>';
-				echo '<button class="btn btn-primary mx-2" type="submit" name="update">Update</button>';
+
+				// Gets the specifed researcher id to send.
+				$stmtResearcher = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher WHERE Researcher_ID=" . $Reid . ";");
+				$stmtResearcher->execute();
+				$researcher = $stmtResearcher->fetchAll();
+
+				// Displays option selection.
+				echo '<div class="mb-3"><div class="form-floating mb-3"><select class="form-select" id="reselect" name="Researcher_ID">';
+
+				// Displays researcher id and name.
+				foreach ($researcher as $key) {
+					echo '<option value="' . $key['Researcher_ID'] . '" readonly>' . $key['Researcher_ID'] . ': ' . $key['Name']  . '</option>';
+				}
+
+				echo '</select><label for="reselect">For Researcher (readonly)</label></div>';
+
+				// Update button.
+				echo '<button class="btn btn-primary" type="submit" name="update">Update</button>';
 			} else {
-				echo '<label>Researcher ID</label>';
-				echo '<input class="mx-2" type="number" name="Researcher_ID" value="' . $Reid . '" required>';
+
+				// Fetches all researchers details.
+				$stmtResearchers = $MYSQL_CONNECTION->prepare("SELECT * FROM researcher");
+				$stmtResearchers->execute();
+				$researchers = $stmtResearchers->fetchAll();
+
+				echo '<div class="mb-3"><div class="form-floating mb-3"><select class="form-select" id="reselect" name="Researcher_ID" required>';
+
+				// Displays default option.
+				echo '<option selected disabled value="">Choose a Researcher</option>';
+
+				// Displays ass researcher ids and names.
+				foreach ($researchers as $key) {
+					echo '<option value="' . $key['Researcher_ID'] . '">' . $key['Researcher_ID'] . ': ' . $key['Name']  . '</option>';
+				}
+
+				echo '</select><label for="reselect">For Researcher</label></div></div>';
+
+				// Save button.
 				echo '<button class="btn btn-primary" type="submit" name="save">Save</button>';
 			}
 			?>
-
+		</form>
 	</div>
-	</form>
 
 	<script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
 	<script src="assets/js/bootstrap.js"></script>
