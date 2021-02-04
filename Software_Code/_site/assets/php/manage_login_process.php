@@ -1,8 +1,6 @@
 <?php 
 	include "GLOBAL_CONFIG.php";
 
-	$db = mysqli_connect('silva.computing.dundee.ac.uk', '20agileteam2','7343.at2.3437' , '20agileteam2db');
-
 	// Starts session if not started.
 	if (session_status() == 1) {
 		session_start();
@@ -22,7 +20,7 @@
 		$Reid = $_POST['Researcher_ID'];
 		
 		// Sends new login details to the database.
-		$stmtSave = $MYSQL_CONNECTION->prepare("INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')")->execute();
+		$MYSQL_CONNECTION->prepare("INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')")->execute();
 
 	//	mysqli_query($db, "INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')");
 		$_SESSION['message'] = "Password saved"; 
