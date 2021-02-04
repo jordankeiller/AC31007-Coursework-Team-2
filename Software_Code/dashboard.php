@@ -50,6 +50,12 @@ title: Dashboard
         </select>
         <br><br>
         <input id="submit" name="submit" class="btn btn-lg btn-primary mt-0 mb-4" type="submit" value="Submit">
+        <button class="btn btn-lg btn-primary" href="assets/php/export.php"></button>
+      </form>
+
+      <form action="assets/php/export.php">
+        <!-- Export Function -->
+        <button class="btn btn-lg btn-primary mt-0 mb-4">Export Data</button>
       </form>
     </div>
   </div>
