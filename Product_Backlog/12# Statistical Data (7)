@@ -3,5 +3,10 @@ label: Deliver Last (Low Risk/Low Value)
 Moscow: Should
 Story Points: 7
 
+Examples:
+How many participants answered the questionnaire?
+How many participants answered a specific question?
+How many participants chose a specific answer?
+Questions with most/least responses.
 Background:  Part of the visualisations shown to the customer within the interface may include statistical data such as averages.
 

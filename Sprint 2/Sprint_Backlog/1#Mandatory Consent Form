@@ -4,6 +4,5 @@ Labels: Deliver Last (Low Risk/Low Value)
 Moscow: Should
 Story Points: 2
 Sub-Tasks:
-
-- [ ] create a page with the consent stuff and confirm button
-- [ ] It then redirect to the questionnaire if button pressed (maybe can be done for bootstrap or java).
+-Create a page allowing the user to consent using a check box
+-Redirect to the questionnaire if button pressed

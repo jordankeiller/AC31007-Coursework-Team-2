@@ -1,0 +1,15 @@
+As a Head Researcher I would like to create a questionnaire with questions with fixed choice answers so that I can gather quantitative data.
+Labels: Deliver First (High Risk/High Value)
+moscow: Must
+
+Tasks
+ A researcher is able to create a questionnaire
+ Questionnaires can be created with custom titles
+ The ability to create a question in which the user ticks from one of the provided options
+ The ability to create a question in which the user ticks from multiple of the provided options
+ The ability for the creator to specify the options
+ Validation to ensure that the user cannot enter duplicate options
+ The questions and options appear as expected
+Bug Fixing
+ Fix restricting duplicates.
+ Fix restricting escaping unknown characters.
