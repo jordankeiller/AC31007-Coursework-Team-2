@@ -125,11 +125,11 @@ if (isset($_GET['edit'])) {
 			// Displays relevant button based on action.
 			if ($update == true) {
 				echo '<label>Researcher ID (readonly)</label>';
-				echo '<input type="number" name="Researcher_ID" value="' . $Reid . '" readonly>';
-				echo '<button class="btn btn-primary" type="submit" name="update">Update</button>';
+				echo '<input class="mx-2" type="number" name="Researcher_ID" value="' . $Reid . '" readonly>';
+				echo '<button class="btn btn-primary mx-2" type="submit" name="update">Update</button>';
 			} else {
 				echo '<label>Researcher ID</label>';
-				echo '<input type="number" name="Researcher_ID" value="' . $Reid . '">';
+				echo '<input class="mx-2" type="number" name="Researcher_ID" value="' . $Reid . '" required>';
 				echo '<button class="btn btn-primary" type="submit" name="save">Save</button>';
 			}
 			?>
