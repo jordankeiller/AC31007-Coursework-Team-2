@@ -111,6 +111,13 @@ function createQuestion() {
     return;
   }
 
+  // Appends question numbers to the questions.
+  if (questionnaireJson.length <= 0) {
+    questionName = '1. ' + questionName;
+  } else {
+    questionName = (Object.keys(questionnaireJson).length + 1) + '. ' + questionName
+  }
+  
   // Saves question and response atributes.
   questionnaireJson[questionName] = responseJson;
 
