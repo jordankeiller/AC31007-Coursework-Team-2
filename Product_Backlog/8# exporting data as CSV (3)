@@ -9,6 +9,8 @@ Tasks
 -Export button exports data
 -Exported data can be read
 
+Completed
+
 background:  
 The ability to export rows from the data-base as a CSV file means that the researcher can keep a hard copy
 of their research on their local machine.
