@@ -3,6 +3,14 @@ AC31007/AC51003 Agile Software Engineering - Group Number 2
 
 Link to a LIVE version of the website: https://zeno.computing.dundee.ac.uk/2020-agile/team2/
 
+### Login Information
+| Username | Password |
+| --- | --- |
+| headresearcher | headresearcher |
+| principalresearcher | principalresearcher |
+| co | co |
+
+
 ## Group Members:
 - Jordan Keiller (180012025)
 - Mikolaj Olejnik (180006025)
