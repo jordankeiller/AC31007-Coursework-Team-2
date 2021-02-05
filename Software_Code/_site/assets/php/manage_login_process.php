@@ -1,56 +1,51 @@
-<?php 
-	include "GLOBAL_CONFIG.php";
+<?php
+// Links to db connection details
+include "GLOBAL_CONFIG.php";
 
-	$db = mysqli_connect('silva.computing.dundee.ac.uk', '20agileteam2','7343.at2.3437' , '20agileteam2db');
+// Starts session if not started.
+if (session_status() == 1) {
+	session_start();
+}
 
-	// Starts session if not started.
-	if (session_status() == 1) {
-		session_start();
-	}
+// initialize variables
+$name = "";
+$Pass = "";
+$Reid = "";
+$id = 0;
+$update = false;
 
-	// initialize variables
-	$name = "";
-    $Pass = "";
-    $Reid = "";
-	$id = 0;
-	$update = false;
+// If user wants to save details.
+if (isset($_POST['save'])) {
+	$id = $_POST['Login_ID'];
+	$name = $_POST['Username'];
+	$Pass = $_POST['Password'];
+	$Reid = $_POST['Researcher_ID'];
 
-	if (isset($_POST['save'])) {
-		$id = $_POST['Login_ID'];
-		$name = $_POST['Username'];
-        $Pass = $_POST['Password'];
-		$Reid = $_POST['Researcher_ID'];
-		
-		// Sends new login details to the database.
-		$stmtSave = $MYSQL_CONNECTION->prepare("INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')")->execute();
+	// Sends new login details to the database.
+	$MYSQL_CONNECTION->prepare("INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')")->execute();
 
-	//	mysqli_query($db, "INSERT INTO login ( Username, Password, Researcher_ID) VALUES ('$name', '$Pass','$Reid')");
-		$_SESSION['message'] = "Password saved"; 
-		header('location: index.php');
-	}
+	$_SESSION['message'] = "<strong>Success!</strong> Details have been saved.";
+	header('location: ../../manage_login.php');
+}
+// If user wants to update details.
+else if (isset($_POST['update'])) {
 
-	else if (isset($_POST['update'])) {
-		$id = $_POST['Login_ID'];
-		$name = $_POST['Username'];
-        $Pass = $_POST['Password'];
-        $Reid = $_POST['Researcher_ID'];
-    
-        $query2="UPDATE login SET Username='$name', Password='$Pass', Researcher_ID='$Reid' WHERE Login_ID=$id";
-        $querystatement2=$MYSQL_CONNECTION->prepare($query2);
-		$queryresult2=$querystatement2->execute();    
-	//	mysqli_query($db, "UPDATE login SET Username='$name', Password='$Pass', Researcher_ID='$Reid' WHERE Login_ID=$id");
-		$_SESSION['message'] = "User updated!"; 
-		header('location: index.php');
-	}
+	$id = $_POST['Login_ID'];
+	$name = $_POST['Username'];
+	$Pass = $_POST['Password'];
+	$Reid = $_POST['Researcher_ID'];
 
-	else if (isset($_GET['del'])) {
-        $id = $_GET['del'];
-        $query3="DELETE FROM login WHERE Login_ID=$id";
-        $querystatement3=$MYSQL_CONNECTION->prepare($query3);
-		$queryresult3=$querystatement3->execute();
-		//mysqli_query($db, "DELETE FROM login WHERE Login_ID=$id");
-		$_SESSION['message'] = "Username deleted!"; 
-		header('location: index.php');
-	}
+	$MYSQL_CONNECTION->prepare("UPDATE login SET Username='$name', Password='$Pass', Researcher_ID='$Reid' WHERE Login_ID=$id")->execute();
 
-// ...
+	$_SESSION['message'] = "<strong>Success!</strong> Details have been updated.";
+	header('location: ../../manage_login.php');
+}
+// If the user wants to delete details
+else if (isset($_GET['del'])) {
+	$id = $_GET['del'];
+
+	$MYSQL_CONNECTION->prepare("DELETE FROM login WHERE Login_ID=$id")->execute();
+
+	$_SESSION['message'] = "<strong>Success!</strong> Details have been deleted.";
+	header('location: ../../manage_login.php');
+}
