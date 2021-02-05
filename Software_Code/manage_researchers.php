@@ -3,7 +3,9 @@ layout: manageResearchers
 title: Manage Researchers
 ---
 <div class="container bg-white px-4 py-2">
-
+	<!-- Links to other lab manager pages -->
+	<a href="dashboard.php" class="btn btn-primary">Back to Dashboard</a>
+	<a href="manage_login.php" class="btn btn-primary">Manage Logins</a>
 	<!-- Displays message after action has been done. -->
 	<?php
 		if (isset($_SESSION['message'])) {

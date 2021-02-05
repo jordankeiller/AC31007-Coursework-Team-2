@@ -51,13 +51,15 @@ if (isset($_GET['edit'])) {
         </li>
       </ul>
       <div class="d-flex">
-        <a class="btn btn-outline-light" href="login.php">Log In</a>
+        <a class="btn btn-outline-light" href="assets/php/destroy_session.php">Log Out</a>
       </div>
     </div>
   </div>
 </nav>
   <div class="container bg-white px-4 py-2">
-
+	<!-- Links to other lab manager pages -->
+	<a href="dashboard.php" class="btn btn-primary">Back to Dashboard</a>
+	<a href="manage_login.php" class="btn btn-primary">Manage Logins</a>
 	<!-- Displays message after action has been done. -->
 	<?php
 		if (isset($_SESSION['message'])) {

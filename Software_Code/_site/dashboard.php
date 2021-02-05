@@ -29,7 +29,7 @@
         </li>
       </ul>
       <div class="d-flex">
-        <a class="btn btn-outline-light" href="login.php">Log In</a>
+      <a class="btn btn-outline-light" href="assets/php/destroy_session.php">Log Out</a>
       </div>
     </div>
   </div>
