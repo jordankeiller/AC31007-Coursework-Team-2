@@ -2,8 +2,10 @@ As a Head Researcher I would like to create a questionnaire with open answered q
 Labels: Deliver First (High Risk/High Value)
 Moscow: 
 story points: 6
-Sub-Tasks
 
+Completed
+
+Sub-Tasks
 - A researcher is able to create a questionnaire
 - Questionnaires can be created with custom titles
 - The ability to create a question in which the user provides an open answer to with a text box
