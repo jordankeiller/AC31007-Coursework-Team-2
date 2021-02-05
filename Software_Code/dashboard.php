@@ -29,6 +29,10 @@ title: Dashboard
       $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall(); }
 
       elseif($_SESSION['researcherType'] == 'Lab Manager'){ // Shown to Lab Managers
+
+      // Links to other lab manager pages
+      echo '<a href="manage_researchers.php" class="btn btn-primary">Manage Researchers</a><a href="manage_login.php" class="btn btn-primary">Manage Logins</a>';
+      
       // Show all questionnaires
       $FETCH_RESEARCHER_QUESTIONNAIRES = "SELECT * FROM `20agileteam2db`.`all_questionnaires`";
       $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_QUESTIONNAIRES);
