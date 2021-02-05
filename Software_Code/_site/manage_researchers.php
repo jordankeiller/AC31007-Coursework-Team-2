@@ -120,6 +120,21 @@ if (isset($_GET['edit'])) {
 
 		<!-- Displays either update or save button depending on action -->
 		<?php
+			<!-- Name input -->
+			<div class="mb-3">
+				<div class="form-floating mb-3">
+					<input type="text" class="form-control" id="name" placeholder="" name="Name" value="<?php echo $name; ?>" required>
+					<label for="name">Name</label>
+				</div>
+			</div>
+
+			<!-- Name input -->
+			<div class="mb-3">
+				<div class="form-floating mb-3">
+					<input type="text" class="form-control" id="role" placeholder="" name="Researcher_Type" value="<?php echo $Type; ?>" required>
+					<label for="role">Role</label>
+				</div>
+			</div>
 			if ($update == true) {
 				echo '<button class="btn btn-primary" type="submit" name="update">Update</button>';
 			} else {
