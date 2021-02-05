@@ -37,6 +37,10 @@
   <div class="container bg-white px-4">
   <div class="row">
     <div class="col">
+      
+      <!-- Link takes user back to dashboard -->
+      <a href="dashboard.php" class="btn btn-primary my-2">Back to Dashboard</a>
+
       <?php
       include "assets/php/GLOBAL_CONFIG.php";
       // If not logged in (as Principal Researcher)
