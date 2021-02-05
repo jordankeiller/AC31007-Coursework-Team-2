@@ -1,0 +1,11 @@
+As a researcher, I would prefer name and type fields to be hidden when not editing a 
+researchers details within the account management interface, 
+so that the page appears less cluttered
+Labels: Avoid (High Risk/Low Value)
+Moscow: Could
+Story Points: 3
+
+Background:  during the 2nd sprint review the stake holders asked whether it would be possible to
+hide entry fields until after an 'edit' button is pressed.  this would also mean that a 
+"Create New" button would have to be added in order to incorperate the add new function to the 
+interface
