@@ -44,11 +44,26 @@
         header("Location: login.php");
         exit;
       }
-      // Logged in as PR
+      // Logged in as a Researcher
       else {
+        $_SESSION['currQnaire'] = $_POST['questionnaire']; // Used in individual_results.php for return button
+        echo "<form action='individual_results.php' method='POST'>
+          <label for='participants'>Filter by participant:</label>
+          <select name='participant' id='participant'>";
+          $FETCH_QUESTIONNAIRE_PARTICIPANTS = "CALL `20agileteam2db`.`get_questionnaire_response`(".$_POST['questionnaire'].");`";
+          $STMT = $MYSQL_CONNECTION->prepare($FETCH_QUESTIONNAIRE_PARTICIPANTS);
+          $STMT->execute();
+          $RESEARCHER_PARTICIPANTS = $STMT->fetchall(); }
+          foreach ($RESEARCHER_PARTICIPANTS as $ROW) {
+            echo "<option name='". $ROW['Participant_ID'] . "' value='" . $ROW['Participant_ID'] . "'>" . $ROW['Participant_ID'] . "</option>";
+          }
+          echo "</select>
+          <br><br>
+          <input id='submit' name='submit' class='btn btn-lg btn-primary mt-0 mb-4' type='submit' value='Filter'>
+        </form>";
+
         $CURR_QUESTION = NULL; // Used for printing question names
         foreach ($_POST as $key => $value) {
-          echo $key;
           if ($key != "submit")
           {
             $FETCH_QUESTIONNAIRE_RESPONSES = "CALL `20agileteam2db`.`get_questions`(". $value .")";
@@ -89,7 +104,7 @@
             echo "";
           }
         }
-      }
+
       ?>
     </div>
   </div>
