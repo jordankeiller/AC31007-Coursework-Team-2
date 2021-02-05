@@ -5,7 +5,6 @@ title: Dashboard
 <div class="container bg-white px-4 py-2">
   <div class="row">
     <div class="col">
-      // Button that redirects to dashboard.
       <a href="dashboard.php" class="btn btn-primary my-2">Back to Dashboard</a>
       <?php
       include "assets/php/GLOBAL_CONFIG.php";
