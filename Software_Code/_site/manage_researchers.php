@@ -57,6 +57,7 @@ if (isset($_GET['edit'])) {
 	</nav>
 	<div class="container bg-white px-4 py-2">
 
+		<a href="dashboard.php" class="btn btn-primary">Back to Dashboard</a>
 		<!-- Displays message after action has been done. -->
 		<?php
 		if (isset($_SESSION['message'])) {
