@@ -5,6 +5,7 @@ include "assets/php/GLOBAL_CONFIG.php";
 if(!isset($_SESSION['researcherType'])) {
   header("location: login.php");
   exit;
+}
 
 $CURR_QUESTION = NULL; // Used for printing question names
 foreach ($_POST as $key => $value) {
