@@ -50,7 +50,7 @@ if (isset($_GET['edit'])) {
 					</li>
 				</ul>
 				<div class="d-flex">
-					<a class="btn btn-outline-light" href="login.php">Log Out</a>
+					<a class="btn btn-outline-light" href="assets/php/destroy_session.php">Log Out</a>
 				</div>
 			</div>
 		</div>
