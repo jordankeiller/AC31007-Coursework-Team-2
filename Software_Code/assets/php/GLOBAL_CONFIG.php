@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 // MYSQL Database Connection Details
 $DATABASE_HOST = "silva.computing.dundee.ac.uk";
