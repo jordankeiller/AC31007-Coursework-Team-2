@@ -1,6 +1,16 @@
 <?php
 include('assets/php/manage_login_process.php');
 
+if (!isset($_SESSION['researcherType'])) {
+	header("location: login.php");
+    exit;
+}
+
+// When researcherType is set checks if the researcher accessing this page is a lab manager.
+if ($_SESSION['researcherType'] != "Lab Manager") {
+	header("location: login.php");
+    exit;
+}
 if (isset($_GET['edit'])) {
 	$id = $_GET['edit'];
 	$update = true;
