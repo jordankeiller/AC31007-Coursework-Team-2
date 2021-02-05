@@ -1,8 +1,12 @@
+Completed:  This issue has been resolved by other user stories.
+
 "As Head Researcher, I need the database to be updated every time a questionnaire is completed, so that I view the most up-to-date responses."
 label:  Deliver Next (Low Risk/High Value)
 Moscow: Must
 Story Points: 4
 
-background:  the head researcher may be wanting to work in real time, this means that when a questionnaire is completed the new data is added to the tables
+This is essentially the same as database to website connectivity.
+
+background:  The head researcher may be wanting to work in real time, this means that when a questionnaire is completed the new data is added to the tables
 in the database.  This also means that unless a 'Limit' has been applied to result queries, charts and visualisations of the data should contain new 
 information upon page refresh.

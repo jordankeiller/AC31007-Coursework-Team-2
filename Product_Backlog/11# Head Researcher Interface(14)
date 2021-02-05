@@ -1,7 +1,11 @@
-"As Head Researcher, I need an interface that is easy to read, so that I am able to analyse data without complication"
+"As Head Researcher, I need an interface for viewing data, so that I am able to view data gathered"
 label: Deliver First (High Risk/High Value)
 Moscow: Must
 Story Points: 14
+
+This was completed in sprint 1, an interface was created so the output from the database can be 
+seen and interacted with without having to modify aspects of the database correctly
+Completed
 
 Background:  This refers to the creation of the interface where the head researcher will see displayed data, this is aimed
 to include charts, tables, and visualisations of the data, this also relates to UserStory 2# about pages containing the same colours

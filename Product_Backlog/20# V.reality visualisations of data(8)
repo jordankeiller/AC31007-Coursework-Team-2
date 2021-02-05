@@ -3,4 +3,5 @@ label: Deliver Next (Low Risk/High Value)
 Moscow: Should 
 Story Points: 8
 
-Backgrounds:  the virtual reality researcher needs to be able to see visualisations of the data stored in the database, this includes tables, graphs.
+Backgrounds:  the virtual reality researcher needs to be able to see visualisations of the data stored in the database, 
+this includes tables, graphs.  Also the ability to compare different experiments would be a good additional feature

@@ -5,7 +5,8 @@ Moscow: Should
 Story Points: 5
 
 Background:  All pages that the participants can see should abide by WCAG principles, with regards
-to size, colour contrast, and Font.
+to size, colour contrast, and Font.  
+https://www.w3.org/WAI/standards-guidelines/wcag/
 
 "Please use a modern readable typeface. Something like Montserrat or Poppins. 
 I'm a little obsessed with good use of typography."
