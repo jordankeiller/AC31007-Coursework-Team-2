@@ -1,6 +1,8 @@
 <?php
+// Includes processing file.
 include('assets/php/manage_login_process.php');
 
+// Checks if the session data for the researcher type is set.
 if (!isset($_SESSION['researcherType'])) {
 	header("location: login.php");
     exit;
@@ -11,6 +13,9 @@ if ($_SESSION['researcherType'] != "Lab Manager") {
 	header("location: login.php");
     exit;
 }
+
+// Used to update a researcher's login details. Stores id for use to update database.
+// Displays current details in the update form textboxes.
 if (isset($_GET['edit'])) {
 	$id = $_GET['edit'];
 	$update = true;
