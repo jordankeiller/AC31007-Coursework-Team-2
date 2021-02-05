@@ -30,7 +30,7 @@ title: Dashboard
 
       elseif($_SESSION['researcherType'] == 'Lab Manager'){ // Shown to Lab Managers
 
-      // Links to other lab manager pages
+      // Links to other lab manager pages such as manage_login and manage_researchers.
       echo '<a href="manage_researchers.php" class="btn btn-primary">Manage Researchers</a><a href="manage_login.php" class="btn btn-primary">Manage Logins</a>';
       
       // Show all questionnaires
