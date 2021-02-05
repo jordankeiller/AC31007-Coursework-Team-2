@@ -2,6 +2,10 @@
 
 include "assets/php/GLOBAL_CONFIG.php";
 
+if(!isset($_SESSION['researcherType'])) {
+  header("location: login.php");
+  exit;
+
 $CURR_QUESTION = NULL; // Used for printing question names
 foreach ($_POST as $key => $value) {
 
@@ -48,5 +52,6 @@ foreach ($_POST as $key => $value) {
 
 <!-- Back button, posts required questionnaire value. -->
 <form action="pr_show_results.php" method="POST">
-<?php echo "<button name='questionnaire' type='submit' value=' .$_SESSION['currQnaire']. '>Back</button> ";?>
+<?php echo "<button name='questionnaire' type='submit' value=" .$_SESSION['currQnaire']. ">Back</button>";
+?>
 </form>
