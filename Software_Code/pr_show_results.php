@@ -14,6 +14,7 @@ title: Results
       }
       // Logged in as a Researcher
       else {
+        $_SESSION['currQnaire'] = $_POST['questionnaire']; // Used in individual_results.php for return button
         echo "<form action='individual_results.php' method='POST'>
           <label for='participants'>Filter by participant:</label>
           <select name='participant' id='participant'>";
@@ -31,7 +32,6 @@ title: Results
 
         $CURR_QUESTION = NULL; // Used for printing question names
         foreach ($_POST as $key => $value) {
-          echo $key;
           if ($key != "submit")
           {
             $FETCH_QUESTIONNAIRE_RESPONSES = "CALL `20agileteam2db`.`get_questions`(". $value .")";
