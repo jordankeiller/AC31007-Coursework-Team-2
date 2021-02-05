@@ -48,5 +48,5 @@ foreach ($_POST as $key => $value) {
 
 <!-- Back button, posts required questionnaire value. -->
 <form action="pr_show_results.php" method="POST">
-  <button name="questionnaire" type="submit" value="<?php echo $_SESSION['currQnaire'] ?>">Back</button>
+<?php echo "<button name='questionnaire' type='submit' value=" .$_SESSION['currQnaire']. ">Back</button> ";?>
 </form>
