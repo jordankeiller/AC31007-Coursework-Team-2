@@ -1,5 +1,8 @@
-As a Head Researcher, I should have the ability to make a new questionnaire using a form tool 
-so that I can make new questionnaires with ease. 
+Split into smaller user stories.
+#94 and #95
+
+As a Head Researcher, I should have the ability to make a new questionnaires from the 
+front-end so that I can gather both qualitative and quantative data
 Label: Deliver Next (Low Risk/High Value) 
 Moscow:  Should
 Story Points : 18
