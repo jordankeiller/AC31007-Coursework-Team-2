@@ -114,7 +114,7 @@ if (isset($_POST['submit'])){
         }
         // Assumes that all responses are submitted to the db.
         else {
-            echo "<br><br><h1>Submission Attempt Complete.</h1>";
+            header("Location:" . $_SERVER['HTTP_REFERER']);
         }
     }
 }

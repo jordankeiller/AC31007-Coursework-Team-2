@@ -1,5 +1,8 @@
 <?php
+
+// This line of code HAS to be here, otherwise it breaks other parts of the website.
 session_start();
+
 // MYSQL Database Connection Details
 $DATABASE_HOST = "silva.computing.dundee.ac.uk"; 
 $DATABASE_NAME = "20agileteam2db";

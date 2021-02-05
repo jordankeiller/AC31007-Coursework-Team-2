@@ -29,6 +29,10 @@ title: Dashboard
       $RESEARCHER_QUESTIONNAIRES = $STMT->fetchall(); }
 
       elseif($_SESSION['researcherType'] == 'Lab Manager'){ // Shown to Lab Managers
+
+      // Links to other lab manager pages such as manage_login and manage_researchers.
+      echo '<a href="manage_researchers.php" class="btn btn-primary">Manage Researchers</a><a href="manage_login.php" class="btn btn-primary">Manage Logins</a>';
+      
       // Show all questionnaires
       $FETCH_RESEARCHER_QUESTIONNAIRES = "SELECT * FROM `20agileteam2db`.`all_questionnaires`";
       $STMT = $MYSQL_CONNECTION->prepare($FETCH_RESEARCHER_QUESTIONNAIRES);
@@ -50,6 +54,12 @@ title: Dashboard
         </select>
         <br><br>
         <input id="submit" name="submit" class="btn btn-lg btn-primary mt-0 mb-4" type="submit" value="Submit">
+        <button class="btn btn-lg btn-primary" href="assets/php/export.php"></button>
+      </form>
+
+      <form action="assets/php/export.php">
+        <!-- Export Function -->
+        <button class="btn btn-lg btn-primary mt-0 mb-4">Export Data</button>
       </form>
     </div>
   </div>

@@ -1,7 +1,10 @@
-"As Head Researcher, I need to be able to view individual responses to the questionnaire, so i can examine the data closely"
+As Head Researcher, I need to be able to view individual responses to the questionnaire, so I can examine one response at a time
 Label: Deliver Next (Low Risk/High Value)
 Moscow: Must
-Story Points:2
+Story points 2:
+Tasks
+-Create a procedure which fetches a given participant's answers to a selected questionnaire
+-Questions and answers are displayed in a readable format
 
 Background:  The interface for the the graphic researcher is to contain graphs and visualisation, but the client has specificaly asked
 for results to be able to be displayed individualy,

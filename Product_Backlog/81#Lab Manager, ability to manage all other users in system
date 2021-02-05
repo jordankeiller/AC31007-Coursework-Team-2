@@ -1,0 +1,12 @@
+As a Lab Manager/Head Researcher, I need the ability to change users details in a system so that I can change login information if they get locked out
+labels: Deliver First (High Risk/High Value)
+Moscow: Must
+
+6 story points.
+Tasks
+-Ability to add new logins to the database
+-Ability to add researchers to the database
+-Ability to delete researchers from the database
+-Ability change passwords of accounts stored in the database
+-Ability to change researcher's details in the database
+-An front-end interface that allows the above to completed without having to access the backend.

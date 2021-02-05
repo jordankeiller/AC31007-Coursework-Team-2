@@ -1,3 +1,3 @@
-# Sprint 1 Review
+# Sprint 2 Review
 
-You should include in this folder any documentation that is important for your sprint review.
+Any documentation that is important for the sprint review is in here.
