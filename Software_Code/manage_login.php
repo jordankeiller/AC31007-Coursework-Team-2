@@ -1,75 +1,8 @@
-<?php
-// Includes processing file.
-include('assets/php/manage_login_process.php');
-
-// Checks if the session data for the researcher type is set.
-if (!isset($_SESSION['researcherType'])) {
-	header("location: login.php");
-    exit;
-}
-
-// When researcherType is set checks if the researcher accessing this page is a lab manager.
-if ($_SESSION['researcherType'] != "Lab Manager") {
-	header("location: login.php");
-    exit;
-}
-
-// Used to update a researcher's login details. Stores id for use to update database.
-// Displays current details in the update form textboxes.
-if (isset($_GET['edit'])) {
-	$id = $_GET['edit'];
-	$update = true;
-
-	$stmtRecord = $MYSQL_CONNECTION->prepare("SELECT * FROM login WHERE Login_ID=$id");
-	$stmtRecord->execute();
-	$record = $stmtRecord->fetchAll();
-
-	if (count($record) == 1) {
-
-		foreach ($record as $key) {
-			$name = $key['Username'];
-			$Pass = $key['Password'];
-			$Reid = $key['Researcher_ID'];
-		}
-	}
-}
-?>
-<!DOCTYPE html>
-<html lang="en-US">
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>Manage Login - Questionnaire Extraordinare</title>
-  <link rel="stylesheet" href="assets/css/main.css">
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container px-4">
-    <a class="navbar-brand" href="index.html">Questionnaire Extraordinare</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.html">Home</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" aria-current="page" href="createquestionnaire.php">Quiz Creator</a>
-        </li>
-      </ul>
-      <div class="d-flex">
-        <a class="btn btn-outline-light" href="login.php">Log In</a>
-      </div>
-    </div>
-  </div>
-</nav>
-  <div class="container bg-white px-4 py-2">
+---
+layout: manageLogin
+title: Manage Login
+---
+<div class="container bg-white px-4 py-2">
 
 	<!-- Links to other lab manager pages -->
 	<a href="dashboard.php" class="btn btn-primary">Back to Dashboard</a>
@@ -192,9 +125,3 @@ if (isset($_GET['edit'])) {
 			?>
 	</form>
 </div>
-  
-  <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
-  <script src="assets/js/bootstrap.js"></script>
-</body>
-
-</html>
